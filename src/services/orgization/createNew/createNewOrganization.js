@@ -1,17 +1,13 @@
+import { StatusCodes } from 'http-status-codes'
 import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
 import { authModels } from '~/models/auth'
 import { organizationModels } from '~/models/organization'
+import { CloudStorageProvider } from '~/providers/CloudStorageProvider'
+import { geocodeAddress } from '~/providers/geocodeAddress'
+import { ResendProvider } from '~/providers/ResendProvider'
+import organizationCreateNewTemplate from '~/template/organization/organizationCreateNewTemplate'
+import ApiError from '~/utils/ApiError'
 
-const { StatusCodes } = require('http-status-codes')
-
-
-const { CloudStorageProvider } = require('~/providers/CloudStorageProvider')
-const { geocodeAddress } = require('~/providers/geocodeAddress')
-const { ResendProvider } = require('~/providers/ResendProvider')
-const {
-    default: organizationCreateNewTemplate
-} = require('~/template/organization/organizationCreateNewTemplate')
-const { default: ApiError } = require('~/utils/ApiError')
 
 export const createNewOrganization = async (newOrganizationData) => {
     try {
