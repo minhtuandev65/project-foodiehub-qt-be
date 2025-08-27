@@ -1,11 +1,10 @@
+import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
 import { authModels } from '~/models/auth'
+import { organizationModels } from '~/models/organization'
 
 const { StatusCodes } = require('http-status-codes')
 
-const {
-    ORG_COLLECTION_NAME,
-    organizationModel
-} = require('~/models/organization/organizationModel')
+
 const { CloudStorageProvider } = require('~/providers/CloudStorageProvider')
 const { geocodeAddress } = require('~/providers/geocodeAddress')
 const { ResendProvider } = require('~/providers/ResendProvider')
@@ -41,7 +40,7 @@ export const createNewOrganization = async (newOrganizationData) => {
         if (logoURL) {
             const uploadResult = await CloudStorageProvider.streamUpload(
                 logoURL.buffer,
-                ORG_COLLECTION_NAME
+                ORGANIZATION_COLLECTION_NAME
             )
             newOrganization = {
                 ...newOrganization,
@@ -50,7 +49,7 @@ export const createNewOrganization = async (newOrganizationData) => {
         }
 
         const result =
-            await organizationModel.createNewOrganization(newOrganization)
+            await organizationModels.createNewOrganization(newOrganization)
 
         const organizationCreateMailTemplate = organizationCreateNewTemplate({
             email,

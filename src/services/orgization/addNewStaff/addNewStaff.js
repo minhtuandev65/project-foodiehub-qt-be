@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { authModels } from '~/models/auth'
-import { organizationModel } from '~/models/organization/organizationModel'
+import { organizationModels } from '~/models/organization'
 import ApiError from '~/utils/ApiError'
 import { ROLE } from '~/utils/constants'
 
@@ -14,7 +14,7 @@ export const addNewStaff = async (addNewStaff) => {
             throw new ApiError(StatusCodes.NOT_ACCEPTABLE, 'Email not activate')
         const userId = existUser._id
         await authModels.pushNewRole(userId, ROLE.STAFF)
-        const result = await organizationModel.createNewStaffOrganization({
+        const result = await organizationModels.createNewStaffOrganization({
             userId,
             organizationId
         })
