@@ -1,5 +1,7 @@
+import { authModels } from '~/models/auth'
+
 const { StatusCodes } = require('http-status-codes')
-const { authModel } = require('~/models/auth/authModel')
+
 const {
     ORG_COLLECTION_NAME,
     organizationModel
@@ -15,7 +17,7 @@ const { default: ApiError } = require('~/utils/ApiError')
 export const createNewOrganization = async (newOrganizationData) => {
     try {
         const { ownerId, address, name, logoURL } = newOrganizationData
-        const existUser = await authModel.findById(ownerId)
+        const existUser = await authModels.findById(ownerId)
         if (!existUser)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Account not found!')
         if (!existUser.isActive)
