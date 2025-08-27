@@ -5,6 +5,7 @@ import { getMyProfile } from './getMyProfile/getMyProfile'
 import { logout } from './logout/logout'
 import { refreshToken } from './refreshToken/refreshToken'
 import { updateNewPassword } from './update/updateNewPassword/updateNewPassword'
+import { verifyAccount } from './verifyAccount/verifyAccount'
 
 export const authController = {
     createNewAccount,
@@ -13,5 +14,6 @@ export const authController = {
     refreshToken,
     forgotPassword,
     updateNewPassword,
-    getMyProfile
+    getMyProfile,
+    verifyAccount
 }

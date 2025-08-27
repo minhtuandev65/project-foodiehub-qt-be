@@ -11,13 +11,14 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    staffIds: Joi.array()
+    name: Joi.string().required().min(3).max(100).label('Orgization name'),
+    staffId: Joi.array()
         .items(
             Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
         )
         .default([])
         .label('List staff'),
-    name: Joi.string().required().min(3).max(100).label('Orgization name'),
+    restaurantId: Joi.array.items().default([]).label('List Brach organization'),
     description: Joi.string().max(500).optional().label('Desciption'),
     logoURL: Joi.string().uri().optional().label('URL logo'),
     email: Joi.string().email().optional().label('Contact email'),
