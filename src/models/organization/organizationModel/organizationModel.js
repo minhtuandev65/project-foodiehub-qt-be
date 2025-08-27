@@ -18,7 +18,7 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         )
         .default([])
         .label('List staff'),
-    restaurantId: Joi.array.items().default([]).label('List Brach organization'),
+    restaurantId: Joi.array().items().default([]).label('List Brach organization'),
     description: Joi.string().max(500).optional().label('Desciption'),
     logoURL: Joi.string().uri().optional().label('URL logo'),
     email: Joi.string().email().optional().label('Contact email'),

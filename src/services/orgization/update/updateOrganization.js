@@ -8,8 +8,6 @@ import { ResendProvider } from '~/providers/ResendProvider'
 import organizationUpdateTemplate from '~/template/organization/organizationUpdateTemplate'
 import ApiError from '~/utils/ApiError'
 
-
-
 export const updateOrganization = async ({ userId, organizationData }) => {
     try {
         const { address, organizationId, logoURL } = organizationData
