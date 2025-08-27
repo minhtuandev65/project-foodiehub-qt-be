@@ -1,9 +1,10 @@
+import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
+
 const { StatusCodes } = require('http-status-codes')
 const { ObjectId } = require('mongodb')
 const {
-    organizationModel,
-    ORG_COLLECTION_NAME
-} = require('~/models/organization/organizationModel')
+    organizationModels
+} = require('~/models/organization')
 const { CloudStorageProvider } = require('~/providers/CloudStorageProvider')
 const { geocodeAddress } = require('~/providers/geocodeAddress')
 const { ResendProvider } = require('~/providers/ResendProvider')
@@ -16,7 +17,7 @@ export const updateOrganization = async ({ userId, organizationData }) => {
     try {
         const { address, organizationId, logoURL } = organizationData
         const existOrganization =
-            await organizationModel.findOrganizationById(organizationId)
+            await organizationModels.findOrganizationById(organizationId)
         if (!existOrganization)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Organization not found!')
 
@@ -39,11 +40,11 @@ export const updateOrganization = async ({ userId, organizationData }) => {
         if (logoURL) {
             const uploadResult = await CloudStorageProvider.streamUpload(
                 logoURL.buffer,
-                ORG_COLLECTION_NAME
+                ORGANIZATION_COLLECTION_NAME
             )
             newUpdateData.logoURL = uploadResult.secure_url
         }
-        const result = await organizationModel.updateOrganization({
+        const result = await organizationModels.updateOrganization({
             organizationId,
             newUpdateData
         })
