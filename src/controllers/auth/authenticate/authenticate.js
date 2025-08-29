@@ -5,7 +5,8 @@ import { authServices } from '~/services/auth'
 
 export const authenticate = async (req, res, next) => {
     try {
-        const authenticated = await authServices.authenticate(req.body)
+        const reqData = req.body
+        const authenticated = await authServices.authenticate(reqData)
         const isProduction = env.BUILD_MODE === 'production'
         res.cookie('accessToken', authenticated.accessToken, {
             httpOnly: true,
@@ -20,8 +21,10 @@ export const authenticate = async (req, res, next) => {
             maxAge: ms('2 days')
         })
 
-        const { _id, email, ...data } = authenticated
-        res.status(StatusCodes.OK).json(data)
+        res.status(StatusCodes.OK).json({
+            message: 'Login successfully',
+            data: authenticated
+        })
     } catch (error) {
         next(error)
     }

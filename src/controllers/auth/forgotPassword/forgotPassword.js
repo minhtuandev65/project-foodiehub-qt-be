@@ -11,7 +11,10 @@ export const forgotPassword = async (req, res, next) => {
             email: req.body.email
         })
 
-        res.status(StatusCodes.OK).json(result)
+        res.status(StatusCodes.OK).json({
+            message: 'Please check your email to reset your password',
+            data: result
+        })
     } catch (error) {
         next(error)
     }

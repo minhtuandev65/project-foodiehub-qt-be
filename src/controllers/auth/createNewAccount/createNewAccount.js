@@ -3,9 +3,14 @@ import { authServices } from '~/services/auth'
 
 export const createNewAccount = async (req, res, next) => {
     try {
-        const createNew = await authServices.createNewAccount(req.body)
+        const reqData = req.body
+        const createNew = await authServices.createNewAccount(reqData)
 
-        res.status(StatusCodes.CREATED).json(createNew)
+        const { verifyToken, ...data } = createNew
+        res.status(StatusCodes.CREATED).json({
+            message: 'Create new account successfully!',
+            data
+        })
     } catch (error) {
         next(error)
     }

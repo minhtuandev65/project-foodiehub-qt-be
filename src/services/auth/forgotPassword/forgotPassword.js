@@ -9,9 +9,9 @@ import forgotPasswordTemplate from '~/template/auth/forgotPasswordMailTemplate'
 import ApiError from '~/utils/ApiError'
 import { APP_LOGO, WEBSITE_DOMAIN } from '~/utils/constants'
 
-export const forgotPassword = async (reqBody) => {
+export const forgotPassword = async (reqData) => {
     try {
-        const existUser = await authModels.findAccountByEmail(reqBody.email)
+        const existUser = await authModels.findAccountByEmail(reqData.email)
 
         if (!existUser)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Account not found!')

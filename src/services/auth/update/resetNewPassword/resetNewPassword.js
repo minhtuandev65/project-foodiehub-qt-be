@@ -9,9 +9,9 @@ import passwordResetSuccessTemplate from '~/template/auth/resetPasswordSuccessTe
 import { APP_LOGO, WEBSITE_DOMAIN } from '~/utils/constants'
 import { ResendProvider } from '~/providers/ResendProvider'
 
-export const updateNewPassword = async (reqBody) => {
+export const resetNewPassword = async (reqData) => {
     try {
-        const { token, newPassword } = reqBody
+        const { token, newPassword } = reqData
 
         const resetPasswordTokenDecoded = await JwtProvider.verifyToken(
             token,

@@ -17,7 +17,7 @@ export const updateOrganization = async (req, res, next) => {
             organizationData
         })
 
-        res.status(StatusCodes.OK).json(data)
+        res.status(StatusCodes.OK).json({ message: 'Success', data })
     } catch (error) {
         next(error)
     }

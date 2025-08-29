@@ -4,9 +4,9 @@ import ApiError from '~/utils/ApiError'
 import bcrypt from 'bcryptjs'
 import { JwtProvider } from '~/providers/JwtProvider'
 import { env } from '~/config/environment'
-export const authenticate = async (data) => {
+export const authenticate = async (reqData) => {
     try {
-        const existUser = await authModels.findAccountByEmail(data.email)
+        const existUser = await authModels.findAccountByEmail(reqData.email)
 
         if (!existUser)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Account not found!')
@@ -17,7 +17,7 @@ export const authenticate = async (data) => {
                 'Your account is not active!'
             )
 
-        if (!bcrypt.compareSync(data.password, existUser.password)) {
+        if (!bcrypt.compareSync(reqData.password, existUser.password)) {
             throw new ApiError(
                 StatusCodes.NOT_ACCEPTABLE,
                 'Your email or password is incorrect!'

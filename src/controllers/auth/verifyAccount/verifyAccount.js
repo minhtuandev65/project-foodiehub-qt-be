@@ -4,7 +4,7 @@ import { authServices } from '~/services/auth'
 export const verifyAccount = async (req, res, next) => {
     try {
         const result = await authServices.verifyAccount(req.body)
-        res.status(StatusCodes.OK).json(result)
+        res.status(StatusCodes.OK).json({ message: 'Success', result })
     } catch (error) {
         next(error)
     }
