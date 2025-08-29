@@ -16,7 +16,7 @@ export const createNewOrganization = async (req, res, next) => {
                 newOrganizationData
             )
 
-        res.status(StatusCodes.CREATED).json(data)
+        res.status(StatusCodes.CREATED).json({ message: 'Success', data })
     } catch (error) {
         next(error)
     }

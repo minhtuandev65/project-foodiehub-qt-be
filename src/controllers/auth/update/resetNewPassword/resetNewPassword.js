@@ -2,7 +2,7 @@ import { StatusCodes } from 'http-status-codes'
 import { authServices } from '~/services/auth'
 import ApiError from '~/utils/ApiError'
 
-export const updateNewPassword = async (req, res, next) => {
+export const resetNewPassword = async (req, res, next) => {
     try {
         if (!req.query.token) {
             throw new ApiError(StatusCodes.BAD_REQUEST, 'token is required')
@@ -15,12 +15,12 @@ export const updateNewPassword = async (req, res, next) => {
             )
         }
 
-        const result = await authServices.resetPassword({
+        const result = await authServices.resetNewPassword({
             newPassword: req.body.password,
             token: req.query.token
         })
-
-        res.status(StatusCodes.OK).json(result)
+        const { token, ...data } = result
+        res.status(StatusCodes.OK).json({ message: 'Success', data })
     } catch (error) {
         next(error)
     }

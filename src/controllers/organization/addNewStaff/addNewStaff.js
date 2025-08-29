@@ -10,7 +10,7 @@ export const addNewStaff = async (req, res, next) => {
             organizationId
         }
         const data = await organizationServices.addNewStaff(addNewStaff)
-        res.status(StatusCodes.CREATED).json(data)
+        res.status(StatusCodes.CREATED).json({ message: 'Success', data })
     } catch (error) {
         next(error)
     }

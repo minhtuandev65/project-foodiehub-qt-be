@@ -4,14 +4,14 @@ import { v4 as uuidv4 } from 'uuid'
 import bcrypt from 'bcryptjs'
 import verifyEmailTemplate from '~/template/auth/verifyEmailTemplate'
 import { ResendProvider } from '~/providers/ResendProvider'
-export const createNewAccount = async (data) => {
+export const createNewAccount = async (reqData) => {
     // Tạo mới một user
-    const nameFromEmail = data.email.split('@')[0]
+    const nameFromEmail = reqData.email.split('@')[0]
     const newUser = {
-        email: data.email,
-        password: await bcrypt.hash(data.password, 8),
+        email: reqData.email,
+        password: await bcrypt.hash(reqData.password, 8),
         username: nameFromEmail,
-        fullName: data.fullName,
+        fullName: reqData.fullName,
         verifyToken: uuidv4()
     }
     const creatNewUser = await authModels.createNewAccount(newUser)
