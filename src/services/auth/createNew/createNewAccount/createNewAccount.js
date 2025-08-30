@@ -7,11 +7,14 @@ import { ResendProvider } from '~/providers/ResendProvider'
 export const createNewAccount = async (reqData) => {
     // Tạo mới một user
     const nameFromEmail = reqData.email.split('@')[0]
+    const fullName = `${reqData.firstName} ${reqData.lastName}`.trim()
     const newUser = {
         email: reqData.email,
         password: await bcrypt.hash(reqData.password, 8),
         username: nameFromEmail,
-        fullName: reqData.fullName,
+        firstName: reqData.firstName,
+        lastName: reqData.lastName,
+        fullName: fullName,
         verifyToken: uuidv4()
     }
     const creatNewUser = await authModels.createNewAccount(newUser)

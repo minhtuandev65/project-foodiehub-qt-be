@@ -15,7 +15,9 @@ export const USER_COLLECTION_SCHEMA = Joi.object({
     password: Joi.string().required(),
     // username cắt ra từ email sẽ có khả năng không unique bởi vì sẽ có những tên email trùng nhau nhưng từ các nhà cung cấp khác nhau
     username: Joi.string().required().trim().strict(),
-    fullName: Joi.string().required().trim().strict(),
+    fullName: Joi.string().trim().strict(),
+    firstName: Joi.string().required().trim().strict(),
+    lastName: Joi.string().required().trim().strict(),
     role: Joi.string()
         .valid(...Object.values(ROLE))
         .default(ROLE.USER),
