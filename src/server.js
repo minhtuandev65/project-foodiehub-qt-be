@@ -25,19 +25,14 @@ const START_SERVER = () => {
 
     app.use(errorHandlingMiddleware)
 
-    if (env.BUILD_MODE === 'production') {
-        app.listen(process.env.PORT, () => {
-            console.log(
-                `3. Production: Hi ${env.AUTHOR}, Back-end Server is running successfully at  Port: ${process.env.PORT}`
-            )
-        })
-    } else {
-        app.listen(env.LOCAL_DEV_APP_PORT, env.LOCAL_DEV_APP_HOST, () => {
-            console.log(
-                `3. Local DEV: Hi ${env.AUTHOR}, Back-end Server is running successfully at Host: ${env.LOCAL_DEV_APP_HOST} and Port: ${env.LOCAL_DEV_APP_PORT}`
-            )
-        })
-    }
+    const PORT = process.env.PORT || env.LOCAL_DEV_APP_PORT
+    const HOST = process.env.PORT ? '0.0.0.0' : env.LOCAL_DEV_APP_HOST
+
+    app.listen(PORT, HOST, () => {
+        console.log(
+            `${process.env.PORT ? '🚀 Production' : '🔧 Local DEV'}: Hi ${env.AUTHOR}, Back-end Server is running successfully at ${HOST}:${PORT}`
+        )
+    })
 
     exitHook(() => {
         console.log('4. Server is shutting down...')
