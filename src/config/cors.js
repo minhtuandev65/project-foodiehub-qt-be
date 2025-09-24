@@ -5,6 +5,8 @@ import ApiError from '~/utils/ApiError'
 
 export const corsOptions = {
     origin: function (origin, callback) {
+        console.log('🌐 Origin nhận được:', origin)
+        console.log('✅ WEBSITE_DOMAIN:', WEBSITE_DOMAIN)
         // Nếu môi trường là local dev thì cho qua luôn
         if (env.BUILD_MODE === 'dev') {
             return callback(null, true)
