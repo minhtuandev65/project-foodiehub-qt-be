@@ -23,9 +23,13 @@
         ]
     },
     "dependencies": {
+        "@aws-sdk/client-s3": "^3.835.0",
+        "@aws-sdk/lib-storage": "^3.835.0",
+        "@aws-sdk/s3-request-presigner": "^3.835.0",
         "@babel/runtime": "^7.22.10",
         "@elastic/elasticsearch": "^9.0.2",
         "async-exit-hook": "^2.0.1",
+        "aws-sdk": "^2.1692.0",
         "axios": "^1.10.0",
         "bcryptjs": "^3.0.2",
         "cloudinary": "^2.6.0",

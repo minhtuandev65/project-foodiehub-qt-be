@@ -2,12 +2,11 @@ import { StatusCodes } from 'http-status-codes'
 import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
 import { authModels } from '~/models/auth'
 import { organizationModels } from '~/models/organization'
-import { CloudStorageProvider } from '~/providers/CloudStorageProvider'
+import { CloudStorageProvider } from '~/providers/cloudStorageProvider/businessCertificateFile'
 import { geocodeAddress } from '~/providers/geocodeAddress'
 import { ResendProvider } from '~/providers/ResendProvider'
 import organizationCreateNewTemplate from '~/template/organization/organizationCreateNewTemplate'
 import ApiError from '~/utils/ApiError'
-
 
 export const createNewOrganization = async (newOrganizationData) => {
     try {
