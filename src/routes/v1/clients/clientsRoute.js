@@ -2,8 +2,9 @@
 
 import express from 'express'
 import { clientsController } from '~/controllers/clients'
-
 import isAuthorized from '~/middlewares/authMiddleware'
+import { managersRoute } from './managers/managersRoute'
+import { usersRoute } from './users/usersRoute'
 
 const Router = express.Router()
 
@@ -12,5 +13,8 @@ Router.route('/changePassword').post(
     isAuthorized,
     clientsController.changePassword
 )
-
+// USER
+Router.use('/users', usersRoute)
+// MANAGER
+Router.use('/manager', managersRoute)
 export const clientsRoute = Router
