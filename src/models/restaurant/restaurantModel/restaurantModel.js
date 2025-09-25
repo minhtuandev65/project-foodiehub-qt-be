@@ -13,7 +13,7 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     revenueId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
-        .message(OBJECT_ID_RULE_MESSAGE),
+        .message(OBJECT_ID_RULE_MESSAGE).default(0),
     staffId: Joi.string()
         .required.pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),

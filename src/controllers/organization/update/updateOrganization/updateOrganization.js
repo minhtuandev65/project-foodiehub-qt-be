@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes'
-import { organizationServices } from '~/services/orgization'
+import { organizationServices } from '~/services/organization'
 
 export const updateOrganization = async (req, res, next) => {
     try {

@@ -18,7 +18,7 @@ export const CONNECT_DB = async () => {
 
     jobSeekDatabaseInstance = mongoClientInstance.db(env.DATABASE_NAME)
     // Tạo text index cho full-text search
-    await jobSeekDatabaseInstance.collection('organization').createIndex(
+    await jobSeekDatabaseInstance.collection('users').createIndex(
         {
             title: 'text',
             description: 'text',

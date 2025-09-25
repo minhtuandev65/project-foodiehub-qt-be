@@ -14,13 +14,14 @@ export const resetNewPassword = async (req, res, next) => {
                 'Password is required, must be at least 7 characters'
             )
         }
+        const reqData = req.payload
+        const data = await authServices.resetNewPassword(reqData)
 
-        const result = await authServices.resetNewPassword({
-            newPassword: req.body.password,
-            token: req.query.token
+        res.status(StatusCodes.OK).json({
+            status: 'success',
+            message: 'Password changed successfully',
+            data
         })
-        const { token, ...data } = result
-        res.status(StatusCodes.OK).json({ message: 'Success', data })
     } catch (error) {
         next(error)
     }
