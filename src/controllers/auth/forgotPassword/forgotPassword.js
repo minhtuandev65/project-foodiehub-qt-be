@@ -7,9 +7,8 @@ export const forgotPassword = async (req, res, next) => {
         if (!req.body.email) {
             throw new ApiError(StatusCodes.BAD_REQUEST, 'email is required')
         }
-        const result = await authServices.forgotPassword({
-            email: req.body.email
-        })
+        const reqData = req.body
+        const result = await authServices.forgotPassword(reqData)
 
         res.status(StatusCodes.OK).json({
             message: 'Please check your email to reset your password',
