@@ -1,9 +1,11 @@
-import { streamUploadBusinessCertificateFile } from './businessCertificateFile'
-import { streamUploadCvsFile } from './cvsFile'
-import getCvUrl from './getCvUrl'
+import { streamUploadBusinessCertificateFile } from './businessCertificateFile/businessCertificateFile'
+import { streamUploadCvsFile } from './cvsFile/cvsFile'
+import getCvUrl from './getCvUrl/getCvUrl'
+import { uploadImageToS3 } from './uploadImageToS3/uploadImageToS3'
 
 export const CloudStorageProvider = {
     streamUploadCvsFile,
     streamUploadBusinessCertificateFile,
-    getCvUrl
+    getCvUrl,
+    uploadImageToS3
 }
