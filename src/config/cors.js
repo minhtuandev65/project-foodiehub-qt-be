@@ -16,6 +16,10 @@ export const corsOptions = {
         // Ngược lại thì hiện tại code chúng ta đang làm còn 1 trường hợp là:
         // env.BUILD_MODE === 'production'
 
+        // ✅ Cho phép không có origin (Postman, healthcheck, server-side)
+        if (!origin) {
+            return callback(null, true)
+        }
         // Kiểm tra xem origin có phải là domain được chấp nhận hay không
         if (WEBSITE_DOMAIN.includes(origin)) {
             return callback(null, true)
