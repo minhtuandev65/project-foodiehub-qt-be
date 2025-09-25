@@ -10,8 +10,8 @@ import ApiError from '~/utils/ApiError'
 
 export const createNewOrganization = async (newOrganizationData) => {
     try {
-        const { ownerId, address, name, logoURL } = newOrganizationData
-        const existUser = await authModels.findAccountById(ownerId)
+        const { userId, address, name, logoURL } = newOrganizationData
+        const existUser = await authModels.findAccountById(userId)
         if (!existUser)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Account not found!')
         if (!existUser.isActive)
@@ -29,7 +29,7 @@ export const createNewOrganization = async (newOrganizationData) => {
             name,
             lat,
             lng,
-            ownerId
+            ownerId: userId
         }
 
         if (logoURL) {

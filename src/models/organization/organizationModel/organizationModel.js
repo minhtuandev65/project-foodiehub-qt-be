@@ -1,4 +1,5 @@
 import Joi from 'joi'
+import { env } from '~/config/environment'
 import { ORGIZATION_STATUS } from '~/utils/constants'
 import {
     OBJECT_ID_RULE,
@@ -18,10 +19,17 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         )
         .default([])
         .label('List staff'),
-    restaurantId: Joi.array().items().default([]).label('List Brach organization'),
-    description: Joi.string().max(500).optional().label('Desciption'),
-    logoURL: Joi.string().uri().optional().label('URL logo'),
-    email: Joi.string().email().optional().label('Contact email'),
+    restaurantId: Joi.array()
+        .items()
+        .default([])
+        .label('List Brach organization'),
+    description: Joi.string().required().max(500).optional().label('Desciption'),
+    logoURL: Joi.string()
+        .uri()
+        .optional()
+        .label('URL logo')
+        .default(env.DEFAULT_LOGO_ORGANIZATION),
+    email: Joi.string().required().email().optional().label('Contact email'),
     phone: Joi.string().required().pattern(PHONE_RULE).label('Contact phone'),
     address: Joi.string().required().max(200).label('Address'),
     lat: Joi.number().required(),

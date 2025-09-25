@@ -8,9 +8,9 @@ export const createNewOrganization = async (req, res, next) => {
                 message: 'Unauthorized: Missing user info'
             })
         }
-        const ownerId = req.payload._id
+        const userId = req.payload._id
         const logoURL = req.file
-        const newOrganizationData = { ownerId, logoURL, ...req.body }
+        const newOrganizationData = { userId, logoURL, ...req.body }
         const data =
             await organizationServices.createNewOrganization(
                 newOrganizationData
