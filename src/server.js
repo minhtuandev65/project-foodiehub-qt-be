@@ -8,6 +8,8 @@ import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware'
 import { env } from './config/environment'
 import { corsOptions } from './config/cors'
 
+import i18next from '~/config/i18n'
+import i18nextMiddleware from 'i18next-http-middleware'
 const START_SERVER = () => {
     const app = express()
 
@@ -20,7 +22,7 @@ const START_SERVER = () => {
 
     app.use(express.json())
     app.use(cors(corsOptions))
-
+    app.use(i18nextMiddleware.handle(i18next))
     app.use('/v1', APIs_v1)
 
     app.use(errorHandlingMiddleware)
