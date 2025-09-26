@@ -5,9 +5,13 @@ import { v4 as uuidv4 } from 'uuid'
 import path from 'path'
 import { env } from '~/config/environment'
 
-const streamUploadCvsFile = async (fileBuffer, originalFileName) => {
+const streamUploadFile = async (
+    fileBuffer,
+    originalFileName,
+    folderName
+) => {
     const ext = path.extname(originalFileName)
-    const key = `cvs/${uuidv4()}${ext}`
+    const key = `${folderName}/${uuidv4()}${ext}`
 
     const upload = new Upload({
         client: s3Client,
@@ -38,4 +42,4 @@ const getMimeType = (ext) => {
     }
 }
 
-export const S3StorageCvFile = { streamUploadCvsFile }
+export const S3StorageCvFile = { streamUploadFile }

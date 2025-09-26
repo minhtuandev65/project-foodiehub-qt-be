@@ -1,5 +1,4 @@
 import { StatusCodes } from 'http-status-codes'
-import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
 import { authModels } from '~/models/auth'
 import { organizationModels } from '~/models/organization'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider/businessCertificateFile/businessCertificateFile'
@@ -33,13 +32,15 @@ export const createNewOrganization = async (newOrganizationData) => {
         }
 
         if (logoURL) {
-            const uploadResult = await CloudStorageProvider.streamUpload(
-                logoURL.buffer,
-                ORGANIZATION_COLLECTION_NAME
+            const { buffer, mimetype, originalname } = logoURL
+            const uploadResult = await CloudStorageProvider.uploadImageToS3(
+                { buffer, mimetype },
+                originalname,
+                'logo-organization'
             )
             newOrganization = {
                 ...newOrganization,
-                logoURL: uploadResult.secure_url
+                logoURL: uploadResult.url
             }
         }
 

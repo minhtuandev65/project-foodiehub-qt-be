@@ -12,8 +12,8 @@ const fileFilter = (req, file, cb) => {
     else cb(new Error('Only .pdf, .doc, .docx files are allowed'), false)
 }
 
-export const uploadSingleCV = multer({
+export const uploadSingleFile = multer({
     storage: multer.memoryStorage(),
     fileFilter,
     limits: { fileSize: 5 * 1024 * 1024 } // max 5MB
-}).single('cv')
+}).single('file')

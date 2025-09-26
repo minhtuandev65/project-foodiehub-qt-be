@@ -23,7 +23,11 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         .items()
         .default([])
         .label('List Brach organization'),
-    description: Joi.string().required().max(500).optional().label('Desciption'),
+    description: Joi.string()
+        .required()
+        .max(500)
+        .optional()
+        .label('Desciption'),
     logoURL: Joi.string()
         .uri()
         .optional()
@@ -42,6 +46,7 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         )
         .default(ORGIZATION_STATUS.PENDING)
         .label('Status'),
+    totalAmoutOrganization: Joi.number().default(0).label('Total amout'),
     isActive: Joi.boolean().default(false),
     createdAt: Joi.date()
         .timestamp('javascript')
