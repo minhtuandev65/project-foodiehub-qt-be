@@ -13,10 +13,35 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     revenueId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
-        .message(OBJECT_ID_RULE_MESSAGE).default(0),
+        .message(OBJECT_ID_RULE_MESSAGE)
+        .default(0),
     staffId: Joi.string()
         .required.pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
+    dishId: Joi.array()
+        .items(
+            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
+        )
+        .default([])
+        .label('List dish'),
+    tableId: Joi.array()
+        .items(
+            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
+        )
+        .default([])
+        .label('List table'),
+    beveragesId: Joi.array()
+        .items(
+            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
+        )
+        .default([])
+        .label('List drink'),
+    orderId: Joi.array()
+        .items(
+            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
+        )
+        .default([])
+        .label('List order'),
     name: Joi.string().required().min(3).max(100).label('Restaurant name'),
     email: Joi.string().email().optional().label('Contact email'),
     logoURL: Joi.string().uri().optional().label('URL logo'),
