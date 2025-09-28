@@ -11,6 +11,11 @@ Router.get(
     hasRole(ROLE.MANAGER),
     clientsController.getCvUser
 )
-
+Router.get(
+    '/getCandidateProfile/:organizationId',
+    isAuthorized,
+    hasRole(ROLE.MANAGER),
+    clientsController.getCandidateProfile
+)
 Router.use('/organization', organizationRoute)
 export const managersRoute = Router
