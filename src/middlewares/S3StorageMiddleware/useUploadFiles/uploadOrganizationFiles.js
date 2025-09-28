@@ -8,5 +8,5 @@ export const uploadOrganizationFiles = createUploadMiddleware({
         { name: 'businessCertificateImage', type: 'image', maxCount: 1 },
         { name: 'businessCertificateFile', type: 'document', maxCount: 1 }
     ],
-    maxSizeMB: 5
+    maxSizeMB: 50
 })
