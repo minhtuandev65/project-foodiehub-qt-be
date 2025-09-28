@@ -1,5 +1,6 @@
 import { createNewRestaurant } from './createNewRestaurant/createNewRestaurant'
 import { findRestaurantById } from './findRestaurantById/findRestaurantById'
+import { getDetailRestaurant } from './getData/getDetailRestaurant/getDetailRestaurant'
 import { getListRestaurant } from './getData/getListRestaurant/getListRestaurant'
 import { RESTAURANT_COLLECTION_SCHEMA } from './restaurantModel/restaurantModel'
 import { updateRestaurant } from './update/updateRestaurant/updateRestaurant'
@@ -11,5 +12,6 @@ export const restaurantModels = {
     createNewRestaurant,
     updateRestaurant,
     findRestaurantById,
-    getListRestaurant
+    getListRestaurant,
+    getDetailRestaurant
 }
