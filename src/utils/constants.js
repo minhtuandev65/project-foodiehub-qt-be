@@ -23,7 +23,7 @@ export const GENDER = {
     MALE: 'MALE',
     FEMALE: 'FEMALE'
 }
-export const ORGIZATION_STATUS = {
+export const RESTAURANT_STATUS = {
     ACCEPT: 'ACCEPT',
     PENDING: 'PENDING',
     REJECT: 'REJECT'

@@ -1,4 +1,4 @@
-const organizationUpdateTemplate = ({ email, name, isOwner }) => {
+const restaurantUpdateTemplate = ({ email, name, isOwner }) => {
     return `
     <!doctype html>
     <html lang="en">
@@ -62,4 +62,4 @@ const organizationUpdateTemplate = ({ email, name, isOwner }) => {
   `
 }
 
-export default organizationUpdateTemplate
+export default restaurantUpdateTemplate

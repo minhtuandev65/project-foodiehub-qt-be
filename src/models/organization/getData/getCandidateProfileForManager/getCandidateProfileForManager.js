@@ -22,11 +22,8 @@ export const getCandidateProfileForManager = async (organizationId, filter = {})
                 $project: {
                     email: 1,
                     userId: 1,
-                    address: 1,
                     cvKeyS3: 1,
                     fullName: 1,
-                    gender: 1,
-                    age: 1,
                     createdAt: 1
                 }
             },

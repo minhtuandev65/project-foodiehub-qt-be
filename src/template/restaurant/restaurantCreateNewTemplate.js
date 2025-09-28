@@ -1,4 +1,4 @@
-const organizationCreateNewTemplate = ({ email, name }) => {
+const restaurantCreateNewTemplate = ({ email, name }) => {
     return `
     <!doctype html>
     <html lang="en">
@@ -58,4 +58,4 @@ const organizationCreateNewTemplate = ({ email, name }) => {
   `
 }
 
-export default organizationCreateNewTemplate
+export default restaurantCreateNewTemplate

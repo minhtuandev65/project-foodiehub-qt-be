@@ -5,7 +5,7 @@ import {
     RESTAURANT_COLLECTION_NAME
 } from '~/helpers'
 
-export const updateRestaurant = async ({ restaurantId, newUpdateData }) => {
+export const updateRestaurant = async (restaurantId, newUpdateData) => {
     try {
         Object.keys(newUpdateData).forEach((fieldName) => {
             if (INVALID_UPDATE_FIELDS_RESTAURANT.includes(fieldName)) {
