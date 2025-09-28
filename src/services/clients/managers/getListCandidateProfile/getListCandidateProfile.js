@@ -1,12 +1,10 @@
-import { organizationModels } from '~/models/organization'
+import { restaurantModels } from '~/models/restaurant'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 
-export const getCandidateProfile = async (organizationId) => {
+export const getListCandidateProfile = async (restaurantId) => {
     try {
         const result =
-            await organizationModels.getCandidateProfileForManager(
-                organizationId
-            )
+            await restaurantModels.getListCandidateProfile(restaurantId)
         const candidateProfiles = result.candidateProfiles || []
 
         const data = await Promise.all(

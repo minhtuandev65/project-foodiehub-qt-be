@@ -3,6 +3,7 @@ import { S3StorageCvFile } from '~/middlewares/S3StorageMiddleware/uploadFileS3'
 import { authModels } from '~/models/auth'
 import { candidateProfileModels } from '~/models/candidateProfile'
 import { organizationModels } from '~/models/organization'
+import { restaurantModels } from '~/models/restaurant'
 import ApiError from '~/utils/ApiError'
 
 export const createNewCandidateProfile = async (reqData) => {
@@ -13,19 +14,16 @@ export const createNewCandidateProfile = async (reqData) => {
         firstName,
         lastName,
         gender,
-        organizationId,
+        restaurantId,
         ...rest
     } = reqData
     const exitsOrganization =
-        await organizationModels.findOrganizationById(organizationId)
+        await restaurantModels.findRestaurantById(restaurantId)
     if (!exitsOrganization) {
-        throw new ApiError(StatusCodes.NOT_FOUND, 'Organization not found')
+        throw new ApiError(StatusCodes.NOT_FOUND, 'Restaurant not found')
     }
     if (exitsOrganization.isActive === false) {
-        throw new ApiError(
-            StatusCodes.BAD_REQUEST,
-            'Organization is not active'
-        )
+        throw new ApiError(StatusCodes.BAD_REQUEST, 'Restaurant is not active')
     }
     const fullName = `${reqData.firstName} ${reqData.lastName}`.trim()
     const user = await authModels.findAccountById(userId)
@@ -45,7 +43,7 @@ export const createNewCandidateProfile = async (reqData) => {
         lastName,
         fullName,
         gender: upperGender,
-        organizationId
+        restaurantId
     }
     const createNewCandidateProfile =
         await candidateProfileModels.createNewCandidateProfile(

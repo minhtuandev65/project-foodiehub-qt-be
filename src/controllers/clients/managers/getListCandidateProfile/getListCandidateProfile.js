@@ -1,10 +1,10 @@
 import { StatusCodes } from 'http-status-codes'
 import { clientsServices } from '~/services/clients'
 
-export const getCandidateProfile = async (req, res, next) => {
+export const getListCandidateProfile = async (req, res, next) => {
     try {
-        let organizationId = req.params.organizationId
-        const data = await clientsServices.getCandidateProfile(organizationId)
+        const restaurantId = req.params.restaurantId
+        const data = await clientsServices.getListCandidateProfile(restaurantId)
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: 'Success fetch candidate profile',

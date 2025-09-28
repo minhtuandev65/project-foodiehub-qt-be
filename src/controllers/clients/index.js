@@ -1,6 +1,6 @@
 import { changePassword } from './changeNewPassword/changeNewPassword'
 import { getMyProfile } from './getMyProfile/getMyProfile'
-import { getCandidateProfile } from './managers/getCandidateProfile/getCandidateProfile'
+import { getListCandidateProfile } from './managers/getListCandidateProfile/getListCandidateProfile'
 import { getCvUser } from './managers/getCvUser/getCvUser'
 import { updateMyProfile } from './update/updateMyProfile/updateMyProfile'
 import { createNewCandidateProfile } from './users/createNew/createNewCandidateProfile/createNewCandidateProfile'
@@ -11,5 +11,5 @@ export const clientsController = {
     createNewCandidateProfile,
     getCvUser,
     updateMyProfile,
-    getCandidateProfile
+    getListCandidateProfile
 }

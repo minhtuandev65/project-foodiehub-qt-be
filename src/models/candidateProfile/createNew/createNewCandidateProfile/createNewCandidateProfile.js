@@ -8,11 +8,11 @@ export const createNewCandidateProfile = async (newCandidateProfile) => {
     try {
         const validData =
             await validateBeforeCreateCandidateProfile(newCandidateProfile)
-        const organizationId = new ObjectId(validData.organizationId.trim())
+        const restaurantId = new ObjectId(validData.restaurantId.trim())
         const dataToInsert = {
             ...validData,
             userId: new ObjectId(validData.userId),
-            organizationId
+            restaurantId
         }
         const exist = GET_DB()
             .collection(CANDIDATE_PROFILE_COLLECTION_NAME)

@@ -1,8 +1,8 @@
 import { GET_DB } from '~/config/mongodb'
-import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
+import { CANDIDATE_PROFILE_COLLECTION_NAME } from '~/helpers'
 import { pagingSkipValue } from '~/utils/algorithms'
 
-export const getListRestaurant = async (filter = {}) => {
+export const getListCandidateProfile = async (filter = {}) => {
     try {
         const { sort, status, page = 1, limit = 30 } = filter
         const skip = pagingSkipValue(page, limit)
@@ -14,7 +14,7 @@ export const getListRestaurant = async (filter = {}) => {
                     logoURL: 1,
                     name: 1,
                     address: 1,
-                    createdAt: 1
+                    fullName: 1
                 }
             },
             { $skip: skip },
@@ -24,14 +24,14 @@ export const getListRestaurant = async (filter = {}) => {
         const countPipeline = [{ $match: matchStage }, { $count: 'total' }]
 
         const [countResult] = await GET_DB()
-            .collection(RESTAURANT_COLLECTION_NAME)
+            .collection(CANDIDATE_PROFILE_COLLECTION_NAME)
             .aggregate(countPipeline)
             .toArray()
 
         const total = countResult ? countResult.total : 0
 
         const restaurantList = await GET_DB()
-            .collection(RESTAURANT_COLLECTION_NAME)
+            .collection(CANDIDATE_PROFILE_COLLECTION_NAME)
             .aggregate(pipeline)
             .toArray()
 

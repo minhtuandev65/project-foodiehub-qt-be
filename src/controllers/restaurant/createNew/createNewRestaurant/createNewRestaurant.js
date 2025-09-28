@@ -9,7 +9,6 @@ export const createNewRestaurant = async (req, res, next) => {
             req.files?.businessCertificateImage?.[0]
         const businessCertificateFile = req.files?.businessCertificateFile?.[0]
 
-        // ✅ Parse các trường có thể là JSON string
         if (typeof req.body.openDays === 'string') {
             req.body.openDays = JSON.parse(req.body.openDays)
         }
