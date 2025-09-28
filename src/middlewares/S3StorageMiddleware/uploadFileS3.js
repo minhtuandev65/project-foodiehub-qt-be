@@ -1,4 +1,4 @@
-// src/middlewares/cvsFile.js
+// src/middlewares/uploadFileS3.js
 import { Upload } from '@aws-sdk/lib-storage'
 import { s3Client } from '~/config/awsS3'
 import { v4 as uuidv4 } from 'uuid'

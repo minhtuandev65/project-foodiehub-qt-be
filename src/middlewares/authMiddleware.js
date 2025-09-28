@@ -44,7 +44,7 @@ export const hasRole = (role) => {
         if (!user.role?.includes(role)) {
             return res
                 .status(StatusCodes.FORBIDDEN)
-                .send({ message: 'Not allowed' })
+                .send({ message: 'Sorry you do not have access' })
         }
 
         next()

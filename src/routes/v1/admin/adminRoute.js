@@ -10,5 +10,9 @@ Router.route('/assignRoleToUser').post(
     hasRole(ROLE.ADMIN),
     adminControllers.assignRoleToUser
 )
-
+Router.route('/acceptCreateOrganization/:organizationId/accept').put(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    adminControllers.acceptCreateOrganization
+)
 export const adminRoute = Router

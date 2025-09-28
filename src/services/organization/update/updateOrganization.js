@@ -39,10 +39,10 @@ export const updateOrganization = async ({ userId, organizationData }) => {
             )
             newUpdateData.logoURL = uploadResult.secure_url
         }
-        const result = await organizationModels.updateOrganization({
+        const result = await organizationModels.updateOrganization(
             organizationId,
             newUpdateData
-        })
+        )
         const organizationUpdateMailTemplate = organizationUpdateTemplate({
             email,
             name,

@@ -14,8 +14,8 @@ export const addNewStaff = async (addNewStaff) => {
             throw new ApiError(StatusCodes.NOT_ACCEPTABLE, 'Email not activate')
         const userId = existUser._id
         await authModels.pushNewRole(userId, ROLE.STAFF)
-        const result = await organizationModels.createNewStaffOrganization({
-            userId,
+        const result = await organizationModels.createNewStaffFOrOrganization({
+            emailValue,
             organizationId
         })
         return result

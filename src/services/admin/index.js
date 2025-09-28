@@ -1,7 +1,9 @@
-const { assignRoleToUser } = require('./assignRoleToUser/assignRoleToUser')
+import { assignRoleToUser } from './assignRoleToUser/assignRoleToUser'
+import { acceptCreateOrganization } from './manager/acceptCreateOrganization'
 
 const adminServices = {
-    assignRoleToUser
+    assignRoleToUser,
+    acceptCreateOrganization
 }
 
 export default adminServices

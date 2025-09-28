@@ -29,7 +29,7 @@ export const USER_COLLECTION_SCHEMA = Joi.object({
     isActive: Joi.boolean().default(false),
     verifyToken: Joi.string(),
     createdAt: Joi.date().timestamp('javascript').default(Date.now),
-    updatedAt: Joi.date().timestamp('javascript').default(null),
+    updatedAt: Joi.date().timestamp('javascript').allow(null).default(null),
     latestActiveAt: Joi.date().timestamp('javascript').default(null),
     _destroy: Joi.boolean().default(false)
 })

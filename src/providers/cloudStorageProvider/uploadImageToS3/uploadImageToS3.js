@@ -1,16 +1,10 @@
-import { S3Client } from '@aws-sdk/client-s3'
+// src/providers/cloudStorageProvider/uploadImageToS3/uploadImageToS3.js
 import { env } from '~/config/environment'
 import path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Upload } from '@aws-sdk/lib-storage'
+import { s3Client } from '~/config/awsS3'
 
-const s3Client = new S3Client({
-    region: env.AWS_REGION,
-    credentials: {
-        accessKeyId: env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: env.AWS_SECRET_ACCESS_KEY
-    }
-})
 
 export const uploadImageToS3 = async (file, originalFileName, folderName) => {
     const ext = path.extname(originalFileName)
@@ -22,7 +16,7 @@ export const uploadImageToS3 = async (file, originalFileName, folderName) => {
             Bucket: env.S3_BUCKET,
             Key: key,
             Body: file.buffer,
-            ContentType: file.mimetype || 'image/jpeg'
+            ContentType: file.mimetype
         }
     })
 

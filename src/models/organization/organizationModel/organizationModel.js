@@ -13,10 +13,8 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
     name: Joi.string().required().min(3).max(100).label('Orgization name'),
-    staffId: Joi.array()
-        .items(
-            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
-        )
+    staffEmail: Joi.array()
+        .items(Joi.string().email().label('Staff email'))
         .default([])
         .label('List staff'),
     restaurantId: Joi.array()
@@ -38,15 +36,17 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
     address: Joi.string().required().max(200).label('Address'),
     lat: Joi.number().required(),
     lng: Joi.number().required(),
+    businessCertificateImageKey: Joi.string().optional(),
+    businessCertificateFileKey: Joi.string().optional(),
     status: Joi.string()
         .valid(
-            ORGIZATION_STATUS.ACCEPTED,
+            ORGIZATION_STATUS.ACCEPT,
             ORGIZATION_STATUS.PENDING,
-            ORGIZATION_STATUS.REJECTED
+            ORGIZATION_STATUS.REJECT
         )
         .default(ORGIZATION_STATUS.PENDING)
         .label('Status'),
-    totalAmoutOrganization: Joi.number().default(0).label('Total amout'),
+    totalRevenueOrganization: Joi.number().default(0).label('Total amout'),
     isActive: Joi.boolean().default(false),
     createdAt: Joi.date()
         .timestamp('javascript')
@@ -54,6 +54,7 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
         .label('Created day'),
     updatedAt: Joi.date()
         .timestamp('javascript')
+        .allow(null)
         .default(null)
         .label('Updated day'),
     _destroy: Joi.boolean().default(false).label('Destroy')

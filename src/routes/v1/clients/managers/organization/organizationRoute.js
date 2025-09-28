@@ -1,15 +1,15 @@
 import express from 'express'
 import { organizationController } from '~/controllers/organization'
 import isAuthorized, { hasRole } from '~/middlewares/authMiddleware'
-import { multerUploadMiddleware } from '~/middlewares/multerUploadMiddleware'
+import { uploadOrganizationFiles } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadOrganizationFiles'
 import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/createNew').post(
+Router.route('/createNewOrganization').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
-    multerUploadMiddleware.upload.single('logo'),
+    uploadOrganizationFiles,
     organizationController.createNewOrganization
 )
 Router.route('/:organizationId/addStaff').post(

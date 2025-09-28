@@ -3,5 +3,8 @@
         "emailNotFound": "Email not found",
         "emailNotActivated": "Email not activated",
         "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully"
+    },
+    "admin":{
+        "acceptCreateOrganizationSuccess": "Organization {{organizationName}} has been accepted successfully"
     }
 }
