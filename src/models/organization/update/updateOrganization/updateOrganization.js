@@ -5,7 +5,7 @@ import {
     ORGANIZATION_COLLECTION_NAME
 } from '~/helpers'
 
-export const updateOrganization = async ({ organizationId, newUpdateData }) => {
+export const updateOrganization = async (organizationId, newUpdateData ) => {
     try {
         Object.keys(newUpdateData).forEach((fieldName) => {
             if (INVALID_UPDATE_FIELDS_ORGANIZATION.includes(fieldName)) {

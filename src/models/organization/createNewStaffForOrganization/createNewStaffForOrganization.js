@@ -3,7 +3,7 @@ import { GET_DB } from '~/config/mongodb'
 import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
 
 export const createNewStaffFOrOrganization = async ({
-    userId,
+    emailValue,
     organizationId
 }) => {
     try {
@@ -12,14 +12,12 @@ export const createNewStaffFOrOrganization = async ({
             .findOneAndUpdate(
                 { _id: new ObjectId(organizationId), _destroy: false },
                 {
-                    $set: {
-                        staffIds: new ObjectId(userId),
-                        updatedAt: new Date()
-                    }
+                    $push: { staffEmails: emailValue },
+                    $set: { updatedAt: new Date() }
                 },
                 { returnDocument: 'after' }
             )
-        return exist
+        return exist.value
     } catch (error) {
         throw new Error(error)
     }

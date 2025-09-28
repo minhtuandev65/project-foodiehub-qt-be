@@ -1,22 +1,26 @@
 import { StatusCodes } from 'http-status-codes'
 import { clientsServices } from '~/services/clients'
 
-export const uploadCVFile = async (req, res, next) => {
+export const createNewCandidateProfile = async (req, res, next) => {
     try {
-        if (!req.file) {
+        const cvFile = req.files?.cv?.[0]
+        if (!cvFile) {
             return res
                 .status(StatusCodes.BAD_REQUEST)
                 .json({ message: 'CV is required' })
         }
 
         const userId = req.payload._id
-        const { buffer, originalname } = req.file
 
-        const updatedUser = await clientsServices.uploadCVFile({
+        const { buffer, originalname } = cvFile
+        const reqData = {
+            ...req.body,
             userId,
-            fileBuffer: buffer,
-            fileName: originalname
-        })
+            buffer,
+            originalname
+        }
+        const updatedUser =
+            await clientsServices.createNewCandidateProfile(reqData)
 
         res.status(StatusCodes.CREATED).json({
             status: 'success',

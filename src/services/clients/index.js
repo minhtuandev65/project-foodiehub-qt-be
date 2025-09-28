@@ -2,12 +2,12 @@ import { changePassword } from './changePassword/changePassword'
 import { getMyProfile } from './getMyProfile/getMyProfile'
 import { getCvUser } from './managers/getCvUser/getCvUser'
 import { updateMyProfile } from './update/updateMyProfile/updateMyProfile'
-import { uploadCVFile } from './users/upload/uploadCvFile/uploadCvFile'
+import { createNewCandidateProfile } from './users/createNew/createNewCandidateProfile/createNewCandidateProfile'
 
 export const clientsServices = {
     getMyProfile,
     changePassword,
-    uploadCVFile,
+    createNewCandidateProfile,
     getCvUser,
     updateMyProfile
 }

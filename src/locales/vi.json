@@ -3,5 +3,8 @@
         "emailNotFound": "Không tìm thấy email",
         "emailNotActivated": "Email chưa kích hoạt",
         "assignRoleSuccess": "Vai trò {{role}} đã được gán cho {{email}} thành công"
+    },
+    "admin": {
+        "acceptCreateOrganizationSuccess": "Tổ chức {{organizationName}} đã được chấp nhận thành công"
     }
 }

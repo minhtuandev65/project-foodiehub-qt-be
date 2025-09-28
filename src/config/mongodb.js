@@ -8,7 +8,9 @@ const mongoClientInstance = new MongoClient(env.MONGODB_URI, {
         version: ServerApiVersion.v1,
         strict: false,
         deprecationErrors: true
-    }
+    },
+    // tls: true,
+    // tlsAllowInvalidCertificates: true
 })
 
 export const CONNECT_DB = async () => {

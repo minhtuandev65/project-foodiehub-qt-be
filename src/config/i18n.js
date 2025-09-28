@@ -17,7 +17,7 @@ i18next
             caches: ['cookie'], // lưu lại cookie nếu user chưa có
             lookupCookie: 'i18next' // tên cookie để detect
         },
-        debug: true
+        debug: false
     })
 
 export default i18next

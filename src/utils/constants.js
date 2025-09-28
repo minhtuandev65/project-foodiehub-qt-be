@@ -24,7 +24,12 @@ export const GENDER = {
     FEMALE: 'FEMALE'
 }
 export const ORGIZATION_STATUS = {
-    ACCEPTED: 'ACCEPTED',
+    ACCEPT: 'ACCEPT',
     PENDING: 'PENDING',
-    REJECTED: 'REJECTED'
+    REJECT: 'REJECT'
+}
+export const CANDIDATE_PROFILE_STATUS = {
+    ACCEPT: 'ACCEPT',
+    PENDING: 'PENDING',
+    REJECT: 'REJECT'
 }
