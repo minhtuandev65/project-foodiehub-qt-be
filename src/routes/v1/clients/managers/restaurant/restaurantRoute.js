@@ -7,6 +7,10 @@ import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
+Router.route('/getListRestaurant').get(
+    isAuthorized,
+    restaurantController.getListRestaurant
+)
 Router.route('/createNewRestaurant').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
