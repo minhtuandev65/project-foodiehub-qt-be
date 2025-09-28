@@ -14,7 +14,8 @@ export const getListRestaurant = async (filter = {}) => {
                     logoURL: 1,
                     name: 1,
                     address: 1,
-                    createdAt: 1
+                    createdAt: 1,
+                    status: 1
                 }
             },
             { $skip: skip },
