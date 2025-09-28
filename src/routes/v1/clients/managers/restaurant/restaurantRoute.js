@@ -11,6 +11,10 @@ Router.route('/getListRestaurant').get(
     isAuthorized,
     restaurantController.getListRestaurant
 )
+Router.route('/getDetailRestaurant/:restaurantId/detail').get(
+    isAuthorized,
+    restaurantController.getDetailRestaurant
+)
 Router.route('/createNewRestaurant').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
