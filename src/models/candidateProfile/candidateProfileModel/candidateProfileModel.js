@@ -10,7 +10,7 @@ export const CANDIDATE_PROFILE_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    organizationId: Joi.string()
+    restaurantId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
