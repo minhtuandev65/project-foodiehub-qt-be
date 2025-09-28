@@ -2,7 +2,7 @@ import express from 'express'
 import { clientsController } from '~/controllers/clients'
 import isAuthorized, { hasRole } from '~/middlewares/authMiddleware'
 import { ROLE } from '~/utils/constants'
-import { organizationRoute } from './organization/organizationRoute'
+import { restaurantRoute } from './restaurant/restaurantRoute'
 const Router = express.Router()
 
 Router.get(
@@ -17,5 +17,5 @@ Router.get(
     hasRole(ROLE.MANAGER),
     clientsController.getCandidateProfile
 )
-Router.use('/organization', organizationRoute)
+Router.use('/restaurant', restaurantRoute)
 export const managersRoute = Router

@@ -1,21 +1,21 @@
 import { StatusCodes } from 'http-status-codes'
-import { organizationServices } from '~/services/organization'
+import { restaurantServices } from '~/services/restaurant'
 
-export const updateOrganization = async (req, res, next) => {
+export const updateRestaurant = async (req, res, next) => {
     try {
         const organizationId = req.params.organizationId
         const userId = req.payload._id
         const logoURL = req.file
-        const organizationData = {
+        const restaurantData = {
             ...req.body,
             organizationId,
             logoURL
         }
 
-        const data = await organizationServices.updateOrganization({
+        const data = await restaurantServices.updateRestaurant(
             userId,
-            organizationData
-        })
+            restaurantData
+        )
 
         res.status(StatusCodes.OK).json({ message: 'Success', data })
     } catch (error) {

@@ -1,30 +1,20 @@
-import { ObjectId } from 'mongodb'
 import { GET_DB } from '~/config/mongodb'
-import { CANDIDATE_PROFILE_COLLECTION_NAME } from '~/helpers'
+import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
 import { pagingSkipValue } from '~/utils/algorithms'
 
-export const getCandidateProfileForManager = async (organizationId, filter = {}) => {
+export const getListRestaurant = async (filter = {}) => {
     try {
         const { sort, status, page = 1, limit = 30 } = filter
         const skip = pagingSkipValue(page, limit)
-
-        const matchStage = {
-            organizationId: new ObjectId(organizationId)
-        }
-
-        if (status) {
-            matchStage.status = status.toUpperCase()
-        }
-
+        let matchStage = { _destroy: false, isActive: true }
         const pipeline = [
             { $match: matchStage },
             {
                 $project: {
-                    email: 1,
-                    userId: 1,
-                    cvKeyS3: 1,
-                    fullName: 1,
-                    createdAt: 1
+                    logoURL: 1,
+                    name: 1,
+                    address: 1,
+                    fullName: 1
                 }
             },
             { $skip: skip },
@@ -34,19 +24,19 @@ export const getCandidateProfileForManager = async (organizationId, filter = {})
         const countPipeline = [{ $match: matchStage }, { $count: 'total' }]
 
         const [countResult] = await GET_DB()
-            .collection(CANDIDATE_PROFILE_COLLECTION_NAME)
+            .collection(RESTAURANT_COLLECTION_NAME)
             .aggregate(countPipeline)
             .toArray()
 
         const total = countResult ? countResult.total : 0
 
-        const candidateProfiles = await GET_DB()
-            .collection(CANDIDATE_PROFILE_COLLECTION_NAME)
+        const restaurantList = await GET_DB()
+            .collection(RESTAURANT_COLLECTION_NAME)
             .aggregate(pipeline)
             .toArray()
 
         return {
-            candidateProfiles,
+            restaurantList,
             total,
             page: parseInt(page),
             limit: parseInt(limit)

@@ -3,11 +3,11 @@ import { StatusCodes } from 'http-status-codes'
 import adminServices from '~/services/admin'
 import ApiError from '~/utils/ApiError'
 
-export const acceptCreateOrganization = async (req, res, next) => {
+export const acceptCreateRestaurant = async (req, res, next) => {
     try {
         const { t } = req
-        const organizationId = req.params.organizationId
-        const data = await adminServices.acceptCreateOrganization(organizationId, t)
+        const restaurantId = req.params.restaurantId
+        const data = await adminServices.acceptCreateRestaurant(restaurantId, t)
 
         res.status(StatusCodes.CREATED).json({
             status: 'success',

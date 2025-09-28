@@ -1,9 +1,9 @@
 import { assignRoleToUser } from './assignRoleToUser/assignRoleToUser'
-import { acceptCreateOrganization } from './manager/acceptCreateOrganization/acceptCreateOrganization'
+import { acceptCreateRestaurant } from './manager/acceptCreateRestaurant/acceptCreateRestaurant'
 
 const adminControllers = {
     assignRoleToUser,
-    acceptCreateOrganization
+    acceptCreateRestaurant
 }
 
 export default adminControllers

@@ -3,11 +3,11 @@ import { authModels } from '~/models/auth'
 import { organizationModels } from '~/models/organization'
 import { geocodeAddress } from '~/providers/geocodeAddress'
 import { ResendProvider } from '~/providers/ResendProvider'
-import organizationCreateNewTemplate from '~/template/organization/organizationCreateNewTemplate'
+import organizationCreateNewTemplate from '~/template/restaurant/restaurantCreateNewTemplate'
 import ApiError from '~/utils/ApiError'
-import { uploadLogo } from '../upload/uploadLogo/uploadLogo'
-import { uploadBusinessCertificateImage } from '../upload/uploadBusinessCertificateImage/uploadBusinessCertificateImage'
-import { uploadBusinessCertificateFile } from '../upload/uploadBusinessCertificateFile/uploadBusinessCertificateFile'
+import { uploadLogo } from '../../restaurant/upload/uploadLogo/uploadLogo'
+import { uploadBusinessCertificateImage } from '../../restaurant/upload/uploadBusinessCertificateImage/uploadBusinessCertificateImage'
+import { uploadBusinessCertificateFile } from '../../restaurant/upload/uploadBusinessCertificateFile/uploadBusinessCertificateFile'
 
 export const createNewOrganization = async (newOrganizationData) => {
     try {

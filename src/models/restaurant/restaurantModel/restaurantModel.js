@@ -1,4 +1,5 @@
 import Joi from 'joi'
+import { RESTAURANT_STATUS } from '~/utils/constants'
 import {
     OBJECT_ID_RULE,
     OBJECT_ID_RULE_MESSAGE,
@@ -6,16 +7,16 @@ import {
 } from '~/validations/validators'
 
 export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
-    organizationId: Joi.string()
+    staffId: Joi.array()
+        .items(
+            Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
+        )
+        .default([])
+        .label('Staff IDs'),
+    ownerId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    revenueId: Joi.string()
-        .required()
-        .pattern(OBJECT_ID_RULE)
-        .message(OBJECT_ID_RULE_MESSAGE)
-        .default(0),
-
     name: Joi.string().required().min(3).max(100).label('Restaurant name'),
     email: Joi.string().email().optional().label('Contact email'),
     logoURL: Joi.string().uri().optional().label('URL logo'),
@@ -51,6 +52,23 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     ratingAverage: Joi.number().min(0).max(5).default(0),
     reviewCount: Joi.number().default(0),
 
+    businessCertificateImageKey: Joi.string().optional(),
+    businessCertificateFileKey: Joi.string().optional(),
+
+    isEmployeeRecruitment: Joi.boolean().default(false), //Nhà hàng có đang tuyển dụng hay không.
+    employeeRecruitmentNote: Joi.string().max(300).optional(), //Ghi chú về việc tuyển dụng (ví dụ: “Chúng tôi đang tuyển nhân viên phục vụ toàn thời gian”).
+    startWorkingTime: Joi.string().optional().label('Start working time'),
+    endWorkingTime: Joi.string().optional().label('End working time'),
+
+    status: Joi.string()
+        .valid(
+            RESTAURANT_STATUS.ACCEPT,
+            RESTAURANT_STATUS.PENDING,
+            RESTAURANT_STATUS.REJECT
+        )
+        .default(RESTAURANT_STATUS.PENDING)
+        .label('Status'),
+    isActive: Joi.boolean().default(false),
     createdAt: Joi.date()
         .timestamp('javascript')
         .default(Date.now)

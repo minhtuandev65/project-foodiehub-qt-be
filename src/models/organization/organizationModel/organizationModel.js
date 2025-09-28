@@ -1,6 +1,5 @@
 import Joi from 'joi'
 import { env } from '~/config/environment'
-import { ORGIZATION_STATUS } from '~/utils/constants'
 import {
     OBJECT_ID_RULE,
     OBJECT_ID_RULE_MESSAGE,
@@ -38,14 +37,7 @@ export const ORGANIZATION_COLLECTION_SCHEMA = Joi.object({
     lng: Joi.number().required(),
     businessCertificateImageKey: Joi.string().optional(),
     businessCertificateFileKey: Joi.string().optional(),
-    status: Joi.string()
-        .valid(
-            ORGIZATION_STATUS.ACCEPT,
-            ORGIZATION_STATUS.PENDING,
-            ORGIZATION_STATUS.REJECT
-        )
-        .default(ORGIZATION_STATUS.PENDING)
-        .label('Status'),
+    
     totalRevenueOrganization: Joi.number().default(0).label('Total amout'),
     isActive: Joi.boolean().default(false),
     createdAt: Joi.date()

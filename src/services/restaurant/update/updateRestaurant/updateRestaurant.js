@@ -1,30 +1,31 @@
 import { StatusCodes } from 'http-status-codes'
 import { ObjectId } from 'mongodb'
-import { ORGANIZATION_COLLECTION_NAME } from '~/helpers'
-import { organizationModels } from '~/models/organization'
+import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
+import { restaurantModels } from '~/models/restaurant'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider/businessCertificateFile/businessCertificateFile'
 import { geocodeAddress } from '~/providers/geocodeAddress'
 import { ResendProvider } from '~/providers/ResendProvider'
-import organizationUpdateTemplate from '~/template/organization/organizationUpdateTemplate'
+import restaurantUpdateTemplate from '~/template/restaurant/restaurantUpdateTemplate'
 import ApiError from '~/utils/ApiError'
+import { RESTAURANT_STATUS } from '~/utils/constants'
 
-export const updateOrganization = async ({ userId, organizationData }) => {
+export const updateRestaurant = async (userId, restaurantData) => {
     try {
-        const { address, organizationId, logoURL } = organizationData
-        const existOrganization =
-            await organizationModels.findOrganizationById(organizationId)
-        if (!existOrganization)
+        const { address, restaurantId, logoURL } = restaurantData
+        const existRestaurant =
+            await restaurantModels.findRestaurantById(restaurantId)
+        if (!existRestaurant)
             throw new ApiError(StatusCodes.NOT_FOUND, 'Organization not found!')
 
-        if (!existOrganization.isActive)
+        if (existRestaurant.status === RESTAURANT_STATUS.PENDING)
             throw new ApiError(
                 StatusCodes.NOT_ACCEPTABLE,
-                'Please wait for the administrator to approve the organization.'
+                'Please wait for the administrator to accept the restaurant.'
             )
-        const { email, name } = existOrganization
-        const isOwner = new ObjectId(userId).equals(existOrganization.ownerId)
+        const { email, name } = existRestaurant
+        const isOwner = new ObjectId(userId).equals(existRestaurant.ownerId)
         let newUpdateData = {
-            ...(organizationData || {})
+            ...(restaurantData || {})
         }
 
         if (address) {
@@ -35,23 +36,23 @@ export const updateOrganization = async ({ userId, organizationData }) => {
         if (logoURL) {
             const uploadResult = await CloudStorageProvider.streamUpload(
                 logoURL.buffer,
-                ORGANIZATION_COLLECTION_NAME
+                RESTAURANT_COLLECTION_NAME
             )
             newUpdateData.logoURL = uploadResult.secure_url
         }
-        const result = await organizationModels.updateOrganization(
-            organizationId,
+        const result = await restaurantModels.updateRestaurant(
+            restaurantId,
             newUpdateData
         )
-        const organizationUpdateMailTemplate = organizationUpdateTemplate({
+        const restaurantUpdateMailTemplate = restaurantUpdateTemplate({
             email,
             name,
             isOwner
         })
         ResendProvider.sendMail(
             email,
-            'Organization Update Notification',
-            organizationUpdateMailTemplate
+            'Restaurant Update Notification',
+            restaurantUpdateMailTemplate
         )
         return result
     } catch (error) {

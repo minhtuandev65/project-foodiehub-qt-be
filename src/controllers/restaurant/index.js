@@ -1,9 +1,9 @@
-import { createNewOrganization } from './createNewRestaurant/createNewRestaurant'
+import { createNewRestaurant } from './createNew/createNewRestaurant/createNewRestaurant'
 import { getListRestaurant } from './getListRestaurant/getListRestaurant'
 import { updateRestaurant } from './update/updateRestaurant/updateRestaurant'
 
-export const restaurantServices = {
-    createNewOrganization,
+export const restaurantController = {
+    createNewRestaurant,
     updateRestaurant,
     getListRestaurant
 }

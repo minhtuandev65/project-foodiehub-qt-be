@@ -8,7 +8,7 @@ export const createNewRestaurant = async (newRestaurant) => {
         const valiData = await validateBeforeCreateRestaurant(newRestaurant)
         const dataToInsert = {
             ...valiData,
-            organizationId: new ObjectId(valiData.organizationId)
+            ownerId: new ObjectId(valiData.ownerId)
         }
         const exist = GET_DB()
             .collection(RESTAURANT_COLLECTION_NAME)
