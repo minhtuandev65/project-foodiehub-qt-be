@@ -12,7 +12,8 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
             Joi.string().pattern(OBJECT_ID_RULE).message(OBJECT_ID_RULE_MESSAGE)
         )
         .default([])
-        .label('Staff IDs'),
+        .label('Staff IDs')
+        .optional(),
     ownerId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
@@ -21,10 +22,7 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     email: Joi.string().email().optional().label('Contact email'),
     logoURL: Joi.string().uri().optional().label('URL logo'),
     phone: Joi.string().required().pattern(PHONE_RULE).label('Contact phone'),
-    categories: Joi.array()
-        .items(Joi.string())
-        .optional()
-        .label('Category dish'),
+    categories: Joi.array().items(Joi.string()).default([]).optional(),
     address: Joi.string().required().max(200).label('Address'),
     lat: Joi.number().required(),
     lng: Joi.number().required(),
@@ -49,8 +47,8 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     preOrderNote: Joi.string().max(200).optional(), //Ghi chú dành cho khách khi đặt món trước (ví dụ: “Vui lòng đặt trước ít nhất 1 tiếng”).
     tags: Joi.array().items(Joi.string()).optional(), //Từ khóa mô tả nhà hàng (VD: “gia đình”, “sang trọng”, “take-away”...).
     priceRange: Joi.string().optional(), // Khoảng giá trung bình (VD: “50.000 - 200.000đ / người”).
-    ratingAverage: Joi.number().min(0).max(5).default(0),
-    reviewCount: Joi.number().default(0),
+    ratingAverage: Joi.number().min(0).max(5).default(0), //Đánh giá trung bình
+    reviewCount: Joi.number().default(0), //Tổng số đánh giá
 
     businessCertificateImageKey: Joi.string().optional(),
     businessCertificateFileKey: Joi.string().optional(),

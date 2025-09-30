@@ -1,10 +1,35 @@
 {
     "user": {
-        "emailNotFound": "Không tìm thấy email",
-        "emailNotActivated": "Email chưa kích hoạt",
+        "emailNotFound": "Không tìm thấy email!",
+        "emailNotActivated": "Email chưa kích hoạt!",
         "assignRoleSuccess": "Vai trò {{role}} đã được gán cho {{email}} thành công"
     },
     "admin": {
         "acceptCreateOrganizationSuccess": "Tổ chức {{organizationName}} đã được chấp nhận thành công"
-    }
+    },
+    "auth": {
+        "invalidCredentials": "Thông tin đăng nhập không hợp lệ",
+        "loginSuccess": "Đăng nhập thành công chào mừng {{email}} đến với FoodieHub",
+        "accountNotFound": "Không tìm thấy tài khoản",
+        "yourEmailOrPasswordIsIncorrect": "Email hoặc mật khẩu của bạn không đúng!",
+        "createNewAccountSuccessfully": "Tạo tài khoản mới thành công!",
+        "forgotPasswordEmailSent": "Vui lòng kiểm tra email của bạn để đặt lại mật khẩu",
+        "logOutSuccess": "Đăng xuất thành công!",
+        "resetPasswordSuccess": "Đổi mật khẩu thành công",
+        "invalidTokenOrResetPasswordRequestExpired": "Token không hợp lệ hoặc yêu cầu đặt lại mật khẩu đã hết hạn",
+        "verifyAccountSuccess": "Xác minh tài khoản {{email}} thành công"
+    },
+    "managers": {
+        "getCvUserSuccessfully": "Lấy CV người dùng thành công",
+        "getListRestaurantSuccessfully": "Lấy danh sách nhà hàng thành công",
+        "getDetailRestaurantSuccessfully": "Lấy chi tiết nhà hàng thành công",
+        "getListCandidateProfileSuccessfully": "Lấy danh sách hồ sơ ứng viên thành công",
+        "getDetailCandidateProfileSuccessfully": "Lấy chi tiết hồ sơ ứng viên thành công"
+    },
+    "success": "thành công",
+    "error": "lỗi",
+    "emailIsRequired": "Email là bắt buộc",
+    "errorRefreshToken": "Vui lòng đăng nhập!, (Lỗi từ làm mới token)",
+    "successChangePassword": "Đổi mật khẩu thành công",
+    "CVNotFound": "Không tìm thấy CV"
 }

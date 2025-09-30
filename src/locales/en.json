@@ -1,10 +1,37 @@
 {
     "user": {
-        "emailNotFound": "Email not found",
-        "emailNotActivated": "Email not activated",
+        "emailNotFound": "Email not found!",
+        "emailNotActivated": "Email not activated!",
         "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully"
     },
-    "admin":{
+    "admin": {
         "acceptCreateOrganizationSuccess": "Organization {{organizationName}} has been accepted successfully"
-    }
+    },
+    "auth": {
+        "invalidCredentials": "Invalid credentials",
+        "loginSuccess": "Login successfully welcome {{email}} to FoodieHub",
+        "accountNotFound": "Account not found",
+        "yourEmailOrPasswordIsIncorrect": "Your email or password is incorrect!",
+        "createNewAccountSuccessfully": "Create new account successfully!",
+        "forgotPasswordEmailSent": "Please check your email to reset your password",
+        "logOutSuccess": "Logout successfully!",
+        "resetPasswordSuccess": "Password changed successfully",
+        "invalidTokenOrResetPasswordRequestExpired": "Invalid token or reset password request expired",
+        "verifyAccountSuccess": "Account verified {{email}} successfully"
+    },
+    "managers": {
+        "getCvUserSuccessfully": "Get CV user successfully",
+        "getListRestaurantSuccessfully": "Get list restaurant successfully",
+        "getDetailRestaurantSuccessfully": "Get detail restaurant successfully",
+        "getListCandidateProfileSuccessfully": "Get list candidate profile successfully",
+        "getDetailCandidateProfileSuccessfully": "Get detail candidate profile successfully",
+        "createNewRestaurantSuccessfully": "Create new restaurant successfully"
+    },
+    "success": "success",
+    "error": "error",
+    "emailIsRequired": "Email is required",
+    "errorRefreshToken": "Please Sign In!, (Error from refresh token)",
+    "successChangePassword": "Change password successfully",
+    "CVNotFound": "CV not found",
+    "uploadFileSuccess": "Upload file successfully"
 }

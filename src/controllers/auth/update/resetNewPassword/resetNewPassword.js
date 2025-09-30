@@ -2,8 +2,9 @@ import { StatusCodes } from 'http-status-codes'
 import { authServices } from '~/services/auth'
 import ApiError from '~/utils/ApiError'
 
-export const resetNewPassword = async (req, res, next) => {
+export const resetNewPassword = async (req, res) => {
     try {
+        const { t } = req
         if (!req.query.token) {
             throw new ApiError(StatusCodes.BAD_REQUEST, 'token is required')
         }
@@ -15,14 +16,25 @@ export const resetNewPassword = async (req, res, next) => {
             )
         }
         const reqData = req.payload
-        const data = await authServices.resetNewPassword(reqData)
+        const data = await authServices.resetNewPassword(reqData, t)
 
         res.status(StatusCodes.OK).json({
-            status: 'success',
-            message: 'Password changed successfully',
+            status: t('success'),
+            message: t('auth.resetPasswordSuccess'),
             data
         })
     } catch (error) {
-        next(error)
+        const { t } = req
+        if (error instanceof ApiError) {
+            res.status(error.statusCode).json({
+                status: t('error'),
+                message: error.message // message trong ApiError có thể cũng dùng i18n
+            })
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                status: t('error'),
+                message: error.message || 'Internal Server Error'
+            })
+        }
     }
 }
