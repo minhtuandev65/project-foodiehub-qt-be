@@ -1,22 +1,22 @@
 import { restaurantModels } from '~/models/restaurant'
-import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
+// import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 
 export const getListCandidateProfile = async (restaurantId) => {
     try {
         const result =
             await restaurantModels.getListCandidateProfile(restaurantId)
-        const candidateProfiles = result.candidateProfiles || []
+        // const candidateProfiles = result.candidateProfiles || []
 
-        const data = await Promise.all(
-            candidateProfiles.map(async (profile) => {
-                const userCvUrl = await CloudStorageProvider.getCvUrl(
-                    profile.cvKeyS3
-                )
-                return { ...profile, userCvUrl }
-            })
-        )
+        // const data = await Promise.all(
+        //     candidateProfiles.map(async (profile) => {
+        //         const userCvUrl = await CloudStorageProvider.getCvUrl(
+        //             profile.cvKeyS3
+        //         )
+        //         return { ...profile, userCvUrl }
+        //     })
+        // )
 
-        return data
+        return result
     } catch (error) {
         throw Error(error)
     }

@@ -24,6 +24,15 @@ export const CANDIDATE_PROFILE_COLLECTION_SCHEMA = Joi.object({
     age: Joi.number().min(18).max(100).optional().label('Age'),
     phone: Joi.string().label('Contact phone'),
     address: Joi.string().max(200).optional().label('Address'),
+
+    skills: Joi.array().items(Joi.string().trim().strict()).label('Skills'),
+    experience: Joi.string().max(1000).optional().label('Experience'),
+    education: Joi.string().max(1000).optional().label('Education'),
+    candidatePosition: Joi.string()
+        .max(100)
+        .optional()
+        .label('Candidate position'),
+
     status: Joi.string()
         .valid(
             CANDIDATE_PROFILE_STATUS.ACCEPT,

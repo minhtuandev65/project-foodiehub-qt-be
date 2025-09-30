@@ -6,10 +6,10 @@ import { restaurantRoute } from './restaurant/restaurantRoute'
 const Router = express.Router()
 
 Router.get(
-    '/getCvUser/:userId',
+    '/getDetailCandidateProfile/:userId/detail',
     isAuthorized,
     hasRole(ROLE.MANAGER),
-    clientsController.getCvUser
+    clientsController.getDetailCandidateProfile
 )
 Router.get(
     '/getListCandidateProfile/:restaurantId',

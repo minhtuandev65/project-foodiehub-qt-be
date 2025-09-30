@@ -5,27 +5,24 @@ import { v4 as uuidv4 } from 'uuid'
 import path from 'path'
 import { env } from '~/config/environment'
 
-const streamUploadFile = async (
-    fileBuffer,
-    originalFileName,
-    folderName
-) => {
-    const ext = path.extname(originalFileName)
+const streamUploadFile = async (fileInfo, folderName) => {
+    const ext = path.extname(fileInfo.originalname)
     const key = `${folderName}/${uuidv4()}${ext}`
-
+    const realBuffer = Buffer.from(fileInfo.buffer.data)
     const upload = new Upload({
         client: s3Client,
         params: {
             Bucket: env.S3_BUCKET,
             Key: key,
-            Body: fileBuffer,
+            Body: realBuffer,
             ContentType: getMimeType(ext)
         }
     })
 
     const result = await upload.done()
     return {
-        key: result.Key
+        key: result.Key,
+        url: result.Location
     }
 }
 

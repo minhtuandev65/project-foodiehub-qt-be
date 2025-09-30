@@ -1,35 +1,36 @@
 import express from 'express'
-import { organizationController } from '~/controllers/organization'
-import { restaurantController } from '~/controllers/restaurant'
+import { restaurantController } from '~/controllers/clients/managers/restaurant'
 import isAuthorized, { hasRole } from '~/middlewares/authMiddleware'
-import { uploadOrganizationFiles } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadOrganizationFiles'
+import { uploadRestaurantFiles } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadRestaurantFiles'
+
 import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
 Router.route('/getListRestaurant').get(
     isAuthorized,
-    restaurantController.getListRestaurant
+    hasRole(ROLE.MANAGER),
+    restaurantController.getListRestaurantForManager
 )
 Router.route('/getDetailRestaurant/:restaurantId/detail').get(
     isAuthorized,
-    restaurantController.getDetailRestaurant
+    hasRole(ROLE.MANAGER),
+    restaurantController.getDetailRestaurantForManager
 )
 Router.route('/createNewRestaurant').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
-    uploadOrganizationFiles,
+    uploadRestaurantFiles,
     restaurantController.createNewRestaurant
 )
 Router.route('/:restaurantId/addStaff').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
-    organizationController.addNewStaff
+    restaurantController.createNewStaffForRestaurant
 )
 Router.route('/:restaurantId/update').put(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     restaurantController.updateRestaurant
 )
-
 export const restaurantRoute = Router

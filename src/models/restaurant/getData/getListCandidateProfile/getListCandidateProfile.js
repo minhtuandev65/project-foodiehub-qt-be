@@ -40,13 +40,13 @@ export const getListCandidateProfile = async (restaurantId, filter = {}) => {
 
         const total = countResult ? countResult.total : 0
 
-        const candidateProfiles = await GET_DB()
+        const listCandidateProfiles = await GET_DB()
             .collection(CANDIDATE_PROFILE_COLLECTION_NAME)
             .aggregate(pipeline)
             .toArray()
 
         return {
-            candidateProfiles,
+            listCandidateProfiles,
             total,
             page: parseInt(page),
             limit: parseInt(limit)

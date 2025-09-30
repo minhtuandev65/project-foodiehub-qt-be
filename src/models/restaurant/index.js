@@ -1,11 +1,12 @@
 import { createNewRestaurant } from './createNewRestaurant/createNewRestaurant'
 import { findRestaurantById } from './findRestaurantById/findRestaurantById'
 import { getListCandidateProfile } from './getData/getListCandidateProfile/getListCandidateProfile'
-import { getDetailRestaurant } from './getData/getDetailRestaurant/getDetailRestaurant'
-import { getListRestaurant } from './getData/getListRestaurant/getListRestaurant'
+import { getDetailRestaurantForManager } from './getData/getDetailRestaurantForManager/getDetailRestaurantForManager'
+import { getListRestaurantForManager } from './getData/getListRestaurantForManager/getListRestaurantForManager'
 import { RESTAURANT_COLLECTION_SCHEMA } from './restaurantModel/restaurantModel'
 import { updateRestaurant } from './update/updateRestaurant/updateRestaurant'
 import { validateBeforeCreateRestaurant } from './validateBeforeCreateRestaurant/validateBeforeCreateRestaurant'
+import { createNewStaffForRestaurant } from './createNewStaffForRestaurant/createNewStaffForRestaurant'
 
 export const restaurantModels = {
     RESTAURANT_COLLECTION_SCHEMA,
@@ -13,7 +14,8 @@ export const restaurantModels = {
     createNewRestaurant,
     updateRestaurant,
     findRestaurantById,
-    getListRestaurant,
-    getDetailRestaurant,
-    getListCandidateProfile
+    getListRestaurantForManager,
+    getDetailRestaurantForManager,
+    getListCandidateProfile,
+    createNewStaffForRestaurant
 }

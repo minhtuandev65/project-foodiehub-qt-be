@@ -2,11 +2,13 @@ import { StatusCodes } from 'http-status-codes'
 import ms from 'ms'
 import { env } from '~/config/environment'
 import { authServices } from '~/services/auth'
+import ApiError from '~/utils/ApiError'
 
-export const authenticate = async (req, res, next) => {
+export const authenticate = async (req, res) => {
     try {
+        const { t } = req
         const reqData = req.body
-        const authenticated = await authServices.authenticate(reqData)
+        const authenticated = await authServices.authenticate(reqData, t)
         const isProduction = env.BUILD_MODE === 'production'
         res.cookie('accessToken', authenticated.accessToken, {
             httpOnly: true,
@@ -22,10 +24,24 @@ export const authenticate = async (req, res, next) => {
         })
 
         res.status(StatusCodes.OK).json({
-            message: 'Login successfully',
+            status: t('success'),
+            message: t('auth.loginSuccess', {
+                email: req.body.email
+            }),
             data: authenticated
         })
     } catch (error) {
-        next(error)
+        const { t } = req
+        if (error instanceof ApiError) {
+            res.status(error.statusCode).json({
+                status: t('error'),
+                message: error.message // message trong ApiError có thể cũng dùng i18n
+            })
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                status: t('error'),
+                message: error.message || 'Internal Server Error'
+            })
+        }
     }
 }

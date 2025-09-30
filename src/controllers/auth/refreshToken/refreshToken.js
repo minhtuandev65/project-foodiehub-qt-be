@@ -17,11 +17,18 @@ export const refreshToken = async (req, res, next) => {
         })
         res.status(StatusCodes.OK).json(result)
     } catch (error) {
-        next(
-            new ApiError(
-                StatusCodes.FORBIDDEN,
-                'Please Sign In!, (Error from refresh token)'
-            )
-        )
+        const { t } = req
+        next(new ApiError(StatusCodes.FORBIDDEN, t('errorRefreshToken')))
+        if (error instanceof ApiError) {
+            res.status(error.statusCode).json({
+                status: t('error'),
+                message: error.message // message trong ApiError có thể cũng dùng i18n
+            })
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                status: t('error'),
+                message: error.message || 'Internal Server Error'
+            })
+        }
     }
 }

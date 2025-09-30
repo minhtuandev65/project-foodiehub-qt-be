@@ -11,10 +11,11 @@ export const getListCandidateProfile = async (filter = {}) => {
             { $match: matchStage },
             {
                 $project: {
-                    logoURL: 1,
-                    name: 1,
-                    address: 1,
-                    fullName: 1
+                    email: 1,
+                    phone: 1,
+                    fullName: 1,
+                    createdAt: 1,
+                    status: 1
                 }
             },
             { $skip: skip },

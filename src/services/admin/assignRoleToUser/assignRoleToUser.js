@@ -4,14 +4,14 @@ import { ResendProvider } from '~/providers/ResendProvider'
 import assignRoleToUserTemplate from '~/template/clients/assignRoleToUserTemplate'
 import ApiError from '~/utils/ApiError'
 
-export const assignRoleToUser = async (reqData) => {
+export const assignRoleToUser = async (reqData, t) => {
     const { email, role } = reqData
 
     const existUser = await authModels.findAccountByEmail(email)
     if (!existUser)
-        throw new ApiError(StatusCodes.NOT_FOUND, 'Email not found!')
+        throw new ApiError(StatusCodes.NOT_FOUND, t('user.emailNotFound'))
     if (!existUser.email)
-        throw new ApiError(StatusCodes.NOT_ACCEPTABLE, 'Email not activated')
+        throw new ApiError(StatusCodes.NOT_ACCEPTABLE, t('user.emailNotActivated'))
 
     const userId = existUser._id
     const result = await authModels.updateNewRole(userId, role.toUpperCase())

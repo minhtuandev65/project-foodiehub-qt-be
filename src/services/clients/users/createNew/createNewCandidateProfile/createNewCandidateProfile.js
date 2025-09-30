@@ -2,19 +2,18 @@ import { StatusCodes } from 'http-status-codes'
 import { S3StorageCvFile } from '~/middlewares/S3StorageMiddleware/uploadFileS3'
 import { authModels } from '~/models/auth'
 import { candidateProfileModels } from '~/models/candidateProfile'
-import { organizationModels } from '~/models/organization'
 import { restaurantModels } from '~/models/restaurant'
 import ApiError from '~/utils/ApiError'
 
 export const createNewCandidateProfile = async (reqData) => {
     const {
         userId,
-        buffer,
-        originalname,
+        file,
         firstName,
         lastName,
         gender,
         restaurantId,
+        skills,
         ...rest
     } = reqData
     const exitsOrganization =
@@ -26,14 +25,10 @@ export const createNewCandidateProfile = async (reqData) => {
         throw new ApiError(StatusCodes.BAD_REQUEST, 'Restaurant is not active')
     }
     const fullName = `${reqData.firstName} ${reqData.lastName}`.trim()
+
     const user = await authModels.findAccountById(userId)
     if (!user) throw new ApiError(StatusCodes.NOT_FOUND, 'User not found')
-
-    const { key } = await S3StorageCvFile.streamUploadFile(
-        buffer,
-        originalname,
-        'cvs'
-    )
+    const { key } = await S3StorageCvFile.streamUploadFile(file, 'cvs', userId)
     const upperGender = gender.toUpperCase()
     const newCandidateProfile = {
         ...rest,
@@ -43,7 +38,8 @@ export const createNewCandidateProfile = async (reqData) => {
         lastName,
         fullName,
         gender: upperGender,
-        restaurantId
+        restaurantId,
+        skills: JSON.parse(skills)
     }
     const createNewCandidateProfile =
         await candidateProfileModels.createNewCandidateProfile(
