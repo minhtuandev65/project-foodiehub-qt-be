@@ -18,7 +18,7 @@ export const getDetailCandidateProfile = async (userId, t) => {
     if (!fileKey) throw new ApiError(StatusCodes.NOT_FOUND, t('CVNotFound'))
     const result =
         await candidateProfileModels.getDetailCandidateProfile(userId)
-    const userCvUrl = await CloudStorageProvider.getCvUrl(fileKey)
+    const userCvUrl = await CloudStorageProvider.getUrlS3(fileKey)
     const data = { ...result, cvUrl: userCvUrl }
     return data
 }
