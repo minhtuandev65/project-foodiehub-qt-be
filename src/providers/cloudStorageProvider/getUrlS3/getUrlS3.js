@@ -4,7 +4,8 @@ import { env } from '~/config/environment'
 
 const s3Client = new S3Client({ region: env.AWS_REGION })
 
-async function getCvUrl(fileKey) {
+async function getUrlS3(fileKey) {
+    console.log('fileKey', fileKey)
     const command = new GetObjectCommand({
         Bucket: env.S3_BUCKET,
         Key: fileKey
@@ -14,4 +15,4 @@ async function getCvUrl(fileKey) {
     return url
 }
 
-export default getCvUrl
+export default getUrlS3
