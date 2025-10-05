@@ -15,6 +15,11 @@ Router.route('/acceptCreateRestaurant/:restaurantId/accept').patch(
     hasRole(ROLE.ADMIN),
     adminControllers.acceptCreateRestaurant
 )
+Router.route('/getListRestaurant').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    adminControllers.getAllRestaurantForAdmin
+)
 Router.route('/rejectCreateRestaurant/:restaurantId/reject').patch(
     isAuthorized,
     hasRole(ROLE.ADMIN),
