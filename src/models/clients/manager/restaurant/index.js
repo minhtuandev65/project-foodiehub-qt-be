@@ -1,6 +1,7 @@
 import { createNewRestaurant } from "./createNewRestaurant/createNewRestaurant";
 import { createNewStaffForRestaurant } from "./createNewStaffForRestaurant/createNewStaffForRestaurant";
 import { findRestaurantById } from "./findRestaurantById/findRestaurantById";
+import { getAllRestaurantForAdmin } from "./getData/getAllRestaurantForAdmin/getAllRestaurantForAdmin";
 import { getDetailRestaurantForManager } from "./getData/getDetailRestaurantForManager/getDetailRestaurantForManager";
 import { getListCandidateProfile } from "./getData/getListCandidateProfile/getListCandidateProfile";
 import { getListRestaurantForManager } from "./getData/getListRestaurantForManager/getListRestaurantForManager";
@@ -18,5 +19,6 @@ export const restaurantModels = {
     getListRestaurantForManager,
     getDetailRestaurantForManager,
     getListCandidateProfile,
-    createNewStaffForRestaurant
+    createNewStaffForRestaurant,
+    getAllRestaurantForAdmin
 }

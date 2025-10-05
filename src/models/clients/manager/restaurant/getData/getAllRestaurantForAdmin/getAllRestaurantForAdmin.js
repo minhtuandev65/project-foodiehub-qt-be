@@ -1,14 +1,13 @@
-import { ObjectId } from 'mongodb'
-import { GET_DB } from '~/config/mongodb'
-import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
-import { pagingSkipValue } from '~/utils/algorithms'
+import { ObjectId } from "mongodb"
+import { GET_DB } from "~/config/mongodb"
 
-export const getAllRestaurantForAdmin = async ( filter = {}) => {
+export const getAllRestaurantForAdmin = async (filter = {}) => {
     try {
         const { sort, status, page = 1, limit = 30 } = filter
         const skip = pagingSkipValue(page, limit)
         let matchStage = {
             _destroy: false,
+            ownerId: new ObjectId(userId)
         }
         const pipeline = [
             { $match: matchStage },

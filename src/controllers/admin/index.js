@@ -1,6 +1,5 @@
 import { assignRoleToUser } from './assignRoleToUser/assignRoleToUser'
 import { getAllRestaurantForAdmin } from './getData/getAllRestaurantForAdmin/getAllRestaurantForAdmin'
-import { acceptCreateRestaurant } from './manager/acceptCreateRestaurant/acceptCreateRestaurant'
 import { acceptCreateRestaurant } from './manager/restaurant/acceptCreateRestaurant/acceptCreateRestaurant'
 import { rejectCreateRestaurant } from './manager/restaurant/rejectCreateRestaurant/rejectCreateRestaurant'
 import { activateUser } from './users/activateUser/activateUser'
