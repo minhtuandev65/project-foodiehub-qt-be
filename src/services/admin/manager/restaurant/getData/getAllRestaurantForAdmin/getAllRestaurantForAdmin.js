@@ -1,4 +1,5 @@
-import { restaurantModels } from '~/models/restaurant'
+import { restaurantModels } from "~/models/clients/manager/restaurant"
+
 
 export const getAllRestaurantForAdmin = async () => {
     try {
