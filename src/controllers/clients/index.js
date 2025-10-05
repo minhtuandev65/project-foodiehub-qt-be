@@ -1,4 +1,4 @@
-import { changePassword } from './changeNewPassword/changeNewPassword'
+import { changeNewPassword } from './changeNewPassword/changeNewPassword'
 import { getMyProfile } from './getMyProfile/getMyProfile'
 import { getListCandidateProfile } from './managers/getData/getListCandidateProfile/getListCandidateProfile'
 import { getDetailCandidateProfile } from './managers/getData/getDetailCandidateProfile/getDetailCandidateProfile'
@@ -7,7 +7,7 @@ import { createNewCandidateProfile } from './users/createNew/createNewCandidateP
 
 export const clientsController = {
     getMyProfile,
-    changePassword,
+    changeNewPassword,
     createNewCandidateProfile,
     getDetailCandidateProfile,
     updateMyProfile,

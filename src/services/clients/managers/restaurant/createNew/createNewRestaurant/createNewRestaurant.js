@@ -2,11 +2,12 @@ import { StatusCodes } from 'http-status-codes'
 import { authModels } from '~/models/auth'
 import { geocodeAddress } from '~/providers/geocodeAddress'
 import ApiError from '~/utils/ApiError'
-import { restaurantModels } from '~/models/restaurant'
+
 import { ResendProvider } from '~/providers/ResendProvider'
 import restaurantCreateNewTemplate from '~/template/restaurant/restaurantCreateNewTemplate'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 import { S3StorageCvFile } from '~/middlewares/S3StorageMiddleware/uploadFileS3'
+import { restaurantModels } from '~/models/clients/manager/restaurant'
 
 export const createNewRestaurant = async (newRestaurantData) => {
     try {

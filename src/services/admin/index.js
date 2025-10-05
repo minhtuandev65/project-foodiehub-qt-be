@@ -1,9 +1,15 @@
 import { assignRoleToUser } from './assignRoleToUser/assignRoleToUser'
-import { acceptCreateRestaurant } from './manager/acceptCreateRestaurant/acceptCreateRestaurant'
+import { acceptCreateRestaurant } from './manager/restaurant/acceptCreateRestaurant/acceptCreateRestaurant'
+import { rejectCreateRestaurant } from './manager/restaurant/rejectCreateRestaurant/rejectCreateRestaurant'
+import { activateUser } from './users/activateUser/activateUser'
+import { lockUser } from './users/lockUser/lockUser'
 
 const adminServices = {
     assignRoleToUser,
-    acceptCreateRestaurant
+    acceptCreateRestaurant,
+    activateUser,
+    lockUser,
+    rejectCreateRestaurant
 }
 
 export default adminServices

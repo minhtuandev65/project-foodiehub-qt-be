@@ -13,7 +13,7 @@ const upload = multer()
 Router.route('/getMyProfile').get(isAuthorized, clientsController.getMyProfile)
 Router.route('/changePassword').post(
     isAuthorized,
-    clientsController.changePassword
+    clientsController.changeNewPassword
 )
 Router.route('/updateMyProfile').put(
     isAuthorized,

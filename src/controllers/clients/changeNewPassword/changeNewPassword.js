@@ -2,15 +2,17 @@ import { StatusCodes } from 'http-status-codes'
 import { clientsServices } from '~/services/clients'
 import ApiError from '~/utils/ApiError'
 
-export const changePassword = async (req, res) => {
+export const changeNewPassword = async (req, res) => {
     try {
         const { t } = req
         let userId = req.payload._id
         const reqData = { userId, ...req.body }
-        const data = await clientsServices.changePassword(reqData, t)
-        res.status(StatusCodes.OD).json({
+        const data = await clientsServices.changeNewPassword(reqData, t)
+        res.status(StatusCodes.OK).json({
             status: t('success'),
-            message: t('successChangePassword'),
+            message: t('successChangePassword', {
+                email: data.email
+            }),
             data
         })
     } catch (error) {

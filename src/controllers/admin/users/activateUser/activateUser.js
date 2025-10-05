@@ -1,0 +1,30 @@
+import { StatusCodes } from 'http-status-codes'
+import adminServices from '~/services/admin'
+import ApiError from '~/utils/ApiError'
+
+export const activateUser = async (req, res) => {
+    try {
+        const { t } = req
+        const userId = req.params.userId
+        const data = await adminServices.activateUser(userId, t)
+
+        res.status(StatusCodes.OK).json({
+            status: t('success'),
+            message: t('admin.activateUserSuccessfully'),
+            data
+        })
+    } catch (error) {
+        const { t } = req
+        if (error instanceof ApiError) {
+            res.status(error.statusCode).json({
+                status: t('error'),
+                message: error.message // message trong ApiError có thể cũng dùng i18n
+            })
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                status: t('error'),
+                message: error.message || 'Internal Server Error'
+            })
+        }
+    }
+}

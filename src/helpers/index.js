@@ -1,7 +1,10 @@
 export { USER_COLLECTION_NAME } from './collectionName/userCollectionName/userCollectionName'
-export { ORGANIZATION_COLLECTION_NAME } from './collectionName/organizationCollectionName/organizationCollectionName'
 export { RESTAURANT_COLLECTION_NAME } from './collectionName/restaurantsCollectionName/restaurantsCollectionName'
-export { CANDIDATE_PROFILE_COLLECTION_NAME } from './collectionName/candidateProfileCollectionName/candidateProfileCollectionName'
-export { INVALID_UPDATE_FIELDS_USER } from './fields/invalidUpdateFieldsUser/invalidUpdateFieldsUser'
-export { INVALID_UPDATE_FIELDS_ORGANIZATION } from './fields/invalidUpdateFieldOrganization/invalidUpdateFieldOrganization'
+export { STAFF_RESTAURANT_COLLECTION_NAME } from './collectionName/staffCollectionNane/staffCollectionNane'
+export {
+    INVALID_UPDATE_FIELDS_USER,
+    INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL
+} from './fields/invalidUpdateFieldsUser/invalidUpdateFieldsUser'
 export { INVALID_UPDATE_FIELDS_RESTAURANT } from './fields/invalidUpdateFieldRestaurant/invalidUpdateFieldRestaurant'
+export { INVALID_UPDATE_FIELDS_ADMIN } from './fields/invalidUpdateFieldsAdmin/invalidUpdateFieldsAdmin'
+export { INVALID_UPDATE_FIELDS_MY_PROFILE } from './fields/invalidUpdateFieldMyProfile/invalidUpdateFieldMyProfile'
