@@ -15,4 +15,9 @@ Router.route('/acceptCreateRestaurant/:restaurantId/accept').put(
     hasRole(ROLE.ADMIN),
     adminControllers.acceptCreateRestaurant
 )
+Router.route('/getListRestaurant').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    adminControllers.getAllRestaurantForAdmin
+)
 export const adminRoute = Router

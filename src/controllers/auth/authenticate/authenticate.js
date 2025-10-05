@@ -24,7 +24,7 @@ export const authenticate = async (req, res) => {
         })
 
         res.status(StatusCodes.OK).json({
-            status: t('success'),
+            status: 'success',
             message: t('auth.loginSuccess', {
                 email: req.body.email
             }),

@@ -7,6 +7,7 @@ import { RESTAURANT_COLLECTION_SCHEMA } from './restaurantModel/restaurantModel'
 import { updateRestaurant } from './update/updateRestaurant/updateRestaurant'
 import { validateBeforeCreateRestaurant } from './validateBeforeCreateRestaurant/validateBeforeCreateRestaurant'
 import { createNewStaffForRestaurant } from './createNewStaffForRestaurant/createNewStaffForRestaurant'
+import { getAllRestaurantForAdmin } from './getData/getAllRestaurantForAdmin/getAllRestaurantForAdmin'
 
 export const restaurantModels = {
     RESTAURANT_COLLECTION_SCHEMA,
@@ -17,5 +18,6 @@ export const restaurantModels = {
     getListRestaurantForManager,
     getDetailRestaurantForManager,
     getListCandidateProfile,
-    createNewStaffForRestaurant
+    createNewStaffForRestaurant,
+    getAllRestaurantForAdmin
 }
