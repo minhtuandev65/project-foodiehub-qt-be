@@ -5,7 +5,6 @@ import ApiError from '~/utils/ApiError'
 export const getAllRestaurantForAdmin = async (req, res) => {
     try {
         const { t } = req
-        const userId = req.payload._id
 
         const data =
             await restaurantServices.getAllRestaurantForAdmin()
