@@ -13,9 +13,14 @@ export const authenticate = async (reqData, t) => {
     if (!existUser.isActive)
         throw new ApiError(
             StatusCodes.NOT_ACCEPTABLE,
-            'Your account is not active!'
+            t('user.emailNotActivated')
         )
-
+    if (existUser._destroy === true) {
+        throw new ApiError(
+            StatusCodes.LOCKED,
+            t('user.yourAccountHasBeenBlocked')
+        )
+    }
     if (!bcrypt.compareSync(reqData.password, existUser.password)) {
         throw new ApiError(
             StatusCodes.NOT_ACCEPTABLE,

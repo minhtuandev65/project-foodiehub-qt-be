@@ -5,14 +5,14 @@ import ApiError from '~/utils/ApiError'
 export const verifyAccount = async (req, res) => {
     try {
         const { t } = req
-        const result = await authServices.verifyAccount(req.body, t)
-        res.status(StatusCodes.OK).json({ message: 'Success', result })
+        const data = await authServices.verifyAccount(req.body, t)
+
         res.status(StatusCodes.OK).json({
             status: t('success'),
             message: t('auth.verifyAccountSuccess', {
-                email: req.body.email
+                email: data
             }),
-            result
+            data
         })
     } catch (error) {
         const { t } = req

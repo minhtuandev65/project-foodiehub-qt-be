@@ -21,13 +21,13 @@ export const verifyAccount = async (reqBody, t) => {
     }
     const updatedData = {
         isActive: true,
-        verifyToken: null
+        verifyToken: reqBody.token
     }
 
-    const updatedUser = await authModels.updateMyProfile(
+    const updatedUser = await authModels.updateLatestActiveEmail(
         existUser._id,
         updatedData
     )
 
-    return updatedUser
+    return updatedUser.email
 }

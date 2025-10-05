@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>New Staff Added to Your Restaurant</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            .email-wrapper {
+                width: 100%;
+                padding: 20px 0;
+                background-color: #f4f4f4;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .header {
+                background-color: #EB6118;
+                padding: 30px;
+                text-align: center;
+            }
+            .header img {
+                max-width: 180px;
+                height: auto;
+                display: inline-block;
+            }
+            .content {
+                padding: 30px;
+                color: #333333;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            .content p {
+                margin: 0 0 15px;
+            }
+            .btn {
+                display: inline-block;
+                padding: 12px 20px;
+                text-decoration: none;
+                background-color: #EB6118;
+                color: #ffffff !important;
+                border-radius: 8px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            .card {
+                background-color: #fafafa;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                padding: 16px;
+                margin: 16px 0;
+                font-size: 14px;
+                color: #555;
+            }
+            .meta {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            .meta li {
+                margin: 6px 0;
+            }
+            .footer {
+                background-color: #fafafa;
+                padding: 20px;
+                text-align: center;
+                font-size: 13px;
+                color: #777777;
+            }
+            @media only screen and (max-width: 600px) {
+                .content { padding: 20px; font-size: 15px; }
+                .btn { width: 100%; text-align: center; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="email-wrapper">
+            <div class="container">
+                <!-- Header -->
+                <div class="header">
+                    <img src=${APP_LOGO} alt="FoodieHub-qt Logo" />
+                </div>
+
+                <!-- Content -->
+                <div class="content">
+                    <p>Hi <strong>${managerName || managerEmail}</strong>,</p>
+                    <p>
+                        You have successfully added a new staff member to
+                        <strong>${restaurantName}</strong>.
+                    </p>
+
+                    <div class="card">
+                        <ul class="meta">
+                            <li><strong>Staff name:</strong> ${staffName || 'N/A'}</li>
+                            <li><strong>Staff email:</strong> ${staffEmail}</li>
+                            <li><strong>Role:</strong> ${role}</li>
+                            <li><strong>Added by:</strong> ${managerName || managerEmail}</li>
+                            <li><strong>Added at:</strong> ${addedAt}</li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        We’ve sent an invitation email to <strong>${staffEmail}</strong>.
+                        They’ll need to follow the link below to activate their account and start working:
+                    </p>
+
+                    <p style="text-align:center;">
+                        <a href="${inviteLink}" class="btn" target="_blank" rel="noopener">View Staff Invitation</a>
+                    </p>
+
+                    <p>
+                        You can manage roles, permissions, or remove this staff anytime from your dashboard:
+                    </p>
+
+                    <p style="text-align:center;">
+                        <a href="${dashboardLink}" class="btn" target="_blank" rel="noopener">Open Manager Dashboard</a>
+                    </p>
+
+                    <p style="margin-top:16px;">
+                        If this wasn’t you or you added the wrong email by mistake, please remove the staff in your dashboard or contact our support team so we can help you secure your account.
+                    </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="footer">
+                    <p>
+                        Need help? Contact us at
+                        <a href="mailto:${supportEmail}" style="color:#555;">${supportEmail}</a>.<br />
+                        — The FoodieHub-qt Team —
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

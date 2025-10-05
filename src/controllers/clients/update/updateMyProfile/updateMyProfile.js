@@ -1,18 +1,37 @@
 import { StatusCodes } from 'http-status-codes'
 import { clientsServices } from '~/services/clients'
+import ApiError from '~/utils/ApiError'
 
-export const updateMyProfile = async (req, res, next) => {
+export const updateMyProfile = async (req, res) => {
     try {
+        const { t } = req
         const userId = req.payload._id
         const reqData = req.body
         const imageFile = req.file
-        const data = await clientsServices.updateMyProfile(userId, reqData, imageFile)
+        const data = await clientsServices.updateMyProfile(
+            userId,
+            reqData,
+            imageFile,
+            t
+        )
+
         res.status(StatusCodes.OK).json({
-            status: 'Success',
-            message: 'Update profile success',
+            status: t('success'),
+            message: t('updateProfileSuccess'),
             data
         })
     } catch (error) {
-        next(error)
+        const { t } = req
+        if (error instanceof ApiError) {
+            res.status(error.statusCode).json({
+                status: t('error'),
+                message: error.message // message trong ApiError có thể cũng dùng i18n
+            })
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+                status: t('error'),
+                message: error.message || 'Internal Server Error'
+            })
+        }
     }
 }
