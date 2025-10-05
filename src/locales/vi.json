@@ -5,7 +5,10 @@
         "assignRoleSuccess": "Vai trò {{role}} đã được gán cho {{email}} thành công"
     },
     "admin": {
-        "acceptCreateOrganizationSuccess": "Tổ chức {{organizationName}} đã được chấp nhận thành công"
+        "acceptCreateRestaurantSuccess": "Chấp nhận nhà hàng {{restaurantName}} thành công",
+        "activateUserSuccessfully": "Kích hoạt người dùng thành công",
+        "lockUserSuccessfully": "Chặn người dùng thành công",
+        "rejectCreateRestaurantSuccess": "Từ chối nhà hàng {{restaurantName}} thành công"
     },
     "auth": {
         "invalidCredentials": "Thông tin đăng nhập không hợp lệ",
@@ -24,12 +27,21 @@
         "getListRestaurantSuccessfully": "Lấy danh sách nhà hàng thành công",
         "getDetailRestaurantSuccessfully": "Lấy chi tiết nhà hàng thành công",
         "getListCandidateProfileSuccessfully": "Lấy danh sách hồ sơ ứng viên thành công",
-        "getDetailCandidateProfileSuccessfully": "Lấy chi tiết hồ sơ ứng viên thành công"
+        "getDetailCandidateProfileSuccessfully": "Lấy chi tiết hồ sơ ứng viên thành công",
+        "createNewRestaurantSuccessfully": "Tạo nhà hàng mới thành công",
+        "addNewStaffSuccessfully": "Thêm nhân viên mới {{email}} thành công",
+        "youCannotAddYourself": "Bạn không thể thêm chính mình vào nhà hàng",
+        "userCannotBeStaff": "Người dùng {{email}} không thể là nhân viên vì họ có vai trò {{role}}",
+        "updateRestaurantSuccessfully": "Cập nhật nhà hàng thành công",
+        "restaurantNotFound": "Không tìm thấy nhà hàng!",
+        "notYourRestaurant": "Bạn không có quyền cập nhật nhà hàng này!",
+        "waitAcceptRestaurant": "Vui lòng chờ quản trị viên chấp nhận nhà hàng."
     },
     "success": "thành công",
     "error": "lỗi",
     "emailIsRequired": "Email là bắt buộc",
     "errorRefreshToken": "Vui lòng đăng nhập!, (Lỗi từ làm mới token)",
-    "successChangePassword": "Đổi mật khẩu thành công",
-    "CVNotFound": "Không tìm thấy CV"
+    "successChangePassword": "Email {{email}} của bạn đổi mật khẩu thành công",
+    "CVNotFound": "Không tìm thấy CV",
+    "uploadFileSuccess": "Tải tệp lên thành công"
 }

@@ -9,15 +9,17 @@ export const updateMyProfile = async (userId, updatedData) => {
                 delete updatedData[fieldName]
             }
         })
-        const result = await GET_DB()
+        const exist = await GET_DB()
             .collection(USER_COLLECTION_NAME)
             .findOneAndUpdate(
-                { _id: new ObjectId(userId) },
+                {
+                    _id: new ObjectId(userId),
+                    _destroy: false
+                },
                 { $set: { ...updatedData, updatedAt: new Date() } },
                 { returnDocument: 'after' }
             )
-
-        return result
+        return exist
     } catch (error) {
         throw new Error(error)
     }

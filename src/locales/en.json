@@ -2,10 +2,14 @@
     "user": {
         "emailNotFound": "Email not found!",
         "emailNotActivated": "Email not activated!",
-        "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully"
+        "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully",
+        "yourAccountHasBeenBlocked":"Your account has been blocked"
     },
     "admin": {
-        "acceptCreateOrganizationSuccess": "Organization {{organizationName}} has been accepted successfully"
+        "acceptCreateRestaurantSuccess": "Accepted restaurant {{restaurantName}} successfully",
+        "activateUserSuccessfully": "Activate user successfully",
+        "lockUserSuccessfully": "Block user successfully",
+        "rejectCreateRestaurantSuccess": "Rejected restaurant {{restaurantName}} successfully"
     },
     "auth": {
         "invalidCredentials": "Invalid credentials",
@@ -25,13 +29,21 @@
         "getDetailRestaurantSuccessfully": "Get detail restaurant successfully",
         "getListCandidateProfileSuccessfully": "Get list candidate profile successfully",
         "getDetailCandidateProfileSuccessfully": "Get detail candidate profile successfully",
-        "createNewRestaurantSuccessfully": "Create new restaurant successfully"
+        "createNewRestaurantSuccessfully": "Create new restaurant successfully",
+        "addNewStaffSuccessfully": "Add new staff {{email}} successfully",
+        "youCannotAddYourself": "You cannot add yourself to the restaurant",
+        "userCannotBeStaff": "User {{email}} cannot be staff because they have role {{role}}",
+        "updateRestaurantSuccessfully": "Update restaurant successfully",
+        "restaurantNotFound": "Restaurant not found!",
+        "notYourRestaurant": "You do not have permission to update this restaurant!",
+        "waitAcceptRestaurant":"Please wait for the administrator to accept the restaurant."
     },
     "success": "success",
     "error": "error",
     "emailIsRequired": "Email is required",
     "errorRefreshToken": "Please Sign In!, (Error from refresh token)",
-    "successChangePassword": "Change password successfully",
+    "successChangePassword": "Your email {{email}} change password successfully",
     "CVNotFound": "CV not found",
-    "uploadFileSuccess": "Upload file successfully"
+    "uploadFileSuccess": "Upload file successfully",
+    "updateProfileSuccess": "Update profile successfully"
 }
