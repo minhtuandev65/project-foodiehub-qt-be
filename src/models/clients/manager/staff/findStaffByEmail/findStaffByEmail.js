@@ -1,14 +1,13 @@
-import { ObjectId } from 'mongodb'
 import { GET_DB } from '~/config/mongodb'
 import { STAFF_RESTAURANT_COLLECTION_NAME } from '~/helpers'
 
-export const findStaffById = async (staffId) => {
+export const findStaffByEmail = async (emailValue) => {
     try {
-        return await GET_DB()
+        const exist = await GET_DB()
             .collection(STAFF_RESTAURANT_COLLECTION_NAME)
-            .findOne({
-                userId: new ObjectId(staffId)
-            })
+            .findOne({ email: emailValue })
+
+        return exist
     } catch (error) {
         throw new Error(error)
     }

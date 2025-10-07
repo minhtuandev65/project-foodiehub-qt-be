@@ -30,12 +30,16 @@
         "getDetailCandidateProfileSuccessfully": "Lấy chi tiết hồ sơ ứng viên thành công",
         "createNewRestaurantSuccessfully": "Tạo nhà hàng mới thành công",
         "addNewStaffSuccessfully": "Thêm nhân viên mới {{email}} thành công",
+        "deleteStaffSuccessfully": "Xóa nhân viên {{email}} thành công",
         "youCannotAddYourself": "Bạn không thể thêm chính mình vào nhà hàng",
         "userCannotBeStaff": "Người dùng {{email}} không thể là nhân viên vì họ có vai trò {{role}}",
         "updateRestaurantSuccessfully": "Cập nhật nhà hàng thành công",
         "restaurantNotFound": "Không tìm thấy nhà hàng!",
         "notYourRestaurant": "Bạn không có quyền cập nhật nhà hàng này!",
         "waitAcceptRestaurant": "Vui lòng chờ quản trị viên chấp nhận nhà hàng."
+    },
+    "staff": {
+        "staffNotFound": "Không tìm thấy nhân viên!"
     },
     "success": "thành công",
     "error": "lỗi",

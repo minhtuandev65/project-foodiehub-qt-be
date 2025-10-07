@@ -33,4 +33,9 @@ Router.route('/:restaurantId/update').put(
     hasRole(ROLE.MANAGER),
     restaurantController.updateRestaurant
 )
+Router.route('/:staffId/delete').delete(
+    isAuthorized,
+    hasRole(ROLE.MANAGER),
+    restaurantController.deleteStaffForRestaurant
+)
 export const restaurantRoute = Router

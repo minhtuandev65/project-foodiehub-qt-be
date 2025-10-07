@@ -3,7 +3,7 @@
         "emailNotFound": "Email not found!",
         "emailNotActivated": "Email not activated!",
         "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully",
-        "yourAccountHasBeenBlocked":"Your account has been blocked"
+        "yourAccountHasBeenBlocked": "Your account has been blocked"
     },
     "admin": {
         "acceptCreateRestaurantSuccess": "Accepted restaurant {{restaurantName}} successfully",
@@ -31,12 +31,16 @@
         "getDetailCandidateProfileSuccessfully": "Get detail candidate profile successfully",
         "createNewRestaurantSuccessfully": "Create new restaurant successfully",
         "addNewStaffSuccessfully": "Add new staff {{email}} successfully",
+        "deleteStaffSuccessfully": "Delete staff {{email}} successfully",
         "youCannotAddYourself": "You cannot add yourself to the restaurant",
         "userCannotBeStaff": "User {{email}} cannot be staff because they have role {{role}}",
         "updateRestaurantSuccessfully": "Update restaurant successfully",
         "restaurantNotFound": "Restaurant not found!",
         "notYourRestaurant": "You do not have permission to update this restaurant!",
-        "waitAcceptRestaurant":"Please wait for the administrator to accept the restaurant."
+        "waitAcceptRestaurant": "Please wait for the administrator to accept the restaurant."
+    },
+    "staff": {
+        "staffNotFound": "Staff not found!"
     },
     "success": "success",
     "error": "error",

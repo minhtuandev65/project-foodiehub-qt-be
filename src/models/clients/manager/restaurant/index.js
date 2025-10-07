@@ -1,5 +1,5 @@
-import { createNewRestaurant } from "./createNewRestaurant/createNewRestaurant";
-import { createNewStaffForRestaurant } from "./createNewStaffForRestaurant/createNewStaffForRestaurant";
+import { createNewRestaurant } from "./createNew/createNewRestaurant/createNewRestaurant";
+import { createNewStaffForRestaurant } from "./createNew/createNewStaffForRestaurant/createNewStaffForRestaurant";
 import { findRestaurantById } from "./findRestaurantById/findRestaurantById";
 import { getAllRestaurantForAdmin } from "./getData/getAllRestaurantForAdmin/getAllRestaurantForAdmin";
 import { getDetailRestaurantForManager } from "./getData/getDetailRestaurantForManager/getDetailRestaurantForManager";
