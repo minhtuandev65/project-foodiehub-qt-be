@@ -2,7 +2,8 @@ import { ObjectId } from 'mongodb'
 
 import { GET_DB } from '~/config/mongodb'
 import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
-import { validateBeforeCreateRestaurant } from '../validateBeforeCreateRestaurant/validateBeforeCreateRestaurant'
+import { validateBeforeCreateRestaurant } from '../../validateBeforeCreateRestaurant/validateBeforeCreateRestaurant'
+
 
 export const createNewRestaurant = async (newRestaurant) => {
     try {

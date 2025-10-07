@@ -4,6 +4,7 @@ import { getAllRestaurantForAdmin } from '../../../admin/manager/restaurant/getD
 import { getDetailRestaurantForManager } from './getData/getDetailRestaurantForManager/getDetailRestaurantForManager'
 import { getListRestaurantForManager } from './getData/getListRestaurantForManager/getListRestaurantForManager'
 import { updateRestaurant } from './update/updateRestaurant/updateRestaurant'
+import { deleteStaffForRestaurant } from './delete/deleteStaffForRestaurant/deleteStaffForRestaurant'
 
 export const restaurantServices = {
     createNewRestaurant,
@@ -11,5 +12,6 @@ export const restaurantServices = {
     getListRestaurantForManager,
     getDetailRestaurantForManager,
     createNewStaffForRestaurant,
-    getAllRestaurantForAdmin
+    getAllRestaurantForAdmin,
+    deleteStaffForRestaurant
 }
