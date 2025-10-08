@@ -37,7 +37,8 @@
         "updateRestaurantSuccessfully": "Update restaurant successfully",
         "restaurantNotFound": "Restaurant not found!",
         "notYourRestaurant": "You do not have permission to update this restaurant!",
-        "waitAcceptRestaurant": "Please wait for the administrator to accept the restaurant."
+        "waitAcceptRestaurant": "Please wait for the administrator to accept the restaurant.",
+        "createNewMenuSuccessfully": "Create new {{name}} successfully"
     },
     "staff": {
         "staffNotFound": "Staff not found!"

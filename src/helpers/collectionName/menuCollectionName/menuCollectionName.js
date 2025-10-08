@@ -1,0 +1,1 @@
+export const MENU_RESTAURANT_COLLECTION_NAME = 'menu_restaurant'

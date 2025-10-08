@@ -1,6 +1,7 @@
 export { USER_COLLECTION_NAME } from './collectionName/userCollectionName/userCollectionName'
 export { RESTAURANT_COLLECTION_NAME } from './collectionName/restaurantsCollectionName/restaurantsCollectionName'
 export { STAFF_RESTAURANT_COLLECTION_NAME } from './collectionName/staffCollectionNane/staffCollectionNane'
+export { MENU_RESTAURANT_COLLECTION_NAME } from './collectionName/menuCollectionName/menuCollectionName'
 export {
     INVALID_UPDATE_FIELDS_USER,
     INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL
