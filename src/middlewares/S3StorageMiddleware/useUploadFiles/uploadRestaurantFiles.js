@@ -11,9 +11,4 @@ export const uploadRestaurantFiles = createUploadMiddleware(
         ],
         maxSizeMB: 5
     },
-    (req, res) => {
-        console.log('📁 req.files:', req.files)
-        console.log('📦 req.body:', req.body)
-        res.json({ ok: true })
-    }
 )

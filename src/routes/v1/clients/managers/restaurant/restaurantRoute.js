@@ -4,6 +4,7 @@ import isAuthorized, { hasRole } from '~/middlewares/authMiddleware'
 import { uploadRestaurantFiles } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadRestaurantFiles'
 
 import { ROLE } from '~/utils/constants'
+import { menuRoute } from './menu/menuRoute'
 
 const Router = express.Router()
 
@@ -38,4 +39,5 @@ Router.route('/:staffId/delete').delete(
     hasRole(ROLE.MANAGER),
     restaurantController.deleteStaffForRestaurant
 )
+Router.use('/menu', menuRoute)
 export const restaurantRoute = Router
