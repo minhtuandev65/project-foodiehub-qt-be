@@ -1,28 +1,27 @@
 import { StatusCodes } from 'http-status-codes'
-import { restaurantServices } from '~/services/clients/managers/restaurant'
+import { menuServices } from '~/services/clients/managers/menu'
 import ApiError from '~/utils/ApiError'
 
-export const updateRestaurant = async (req, res) => {
+export const updateMenu = async (req, res) => {
     try {
         const { t } = req
-        const restaurantId = req.params.restaurantId
+        const menuId = req.params.menuId
         const userId = req.payload._id
-        const logoURL = req.file
-        const restaurantData = {
+        const imageURL = req.file
+        const menuData = {
             ...req.body,
-            restaurantId,
-            logoURL
+            userId,
+            menuId,
+            imageURL
         }
 
-        const data = await restaurantServices.updateRestaurant(
-            userId,
-            restaurantData,
-            t
-        )
+        const data = await menuServices.updateMenu(menuData, t)
 
         res.status(StatusCodes.OK).json({
             status: t('success'),
-            message: t('managers.updateRestaurantSuccessfully'),
+            message: t('managers.updateMenuSuccessfully', {
+                name: data.name
+            }),
             data
         })
     } catch (error) {

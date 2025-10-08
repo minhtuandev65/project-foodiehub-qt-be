@@ -50,4 +50,13 @@ export const hasRole = (role) => {
         next()
     }
 }
+export const hasAnyRole = (...roles /* number[] */) => {
+    return (req, res, next) => {
+        const r = Number(req?.payload?.role) // đảm bảo kiểu số (JWT đôi khi là string)
+        if (!roles.includes(r)) {
+            return res.status(403).json({ message: 'Forbidden' })
+        }
+        return next()
+    }
+}
 export default isAuthorized

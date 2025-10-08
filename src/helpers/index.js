@@ -10,3 +10,4 @@ export { INVALID_UPDATE_FIELDS_RESTAURANT } from './fields/invalidUpdateFieldRes
 export { INVALID_UPDATE_FIELDS_ADMIN } from './fields/invalidUpdateFieldsAdmin/invalidUpdateFieldsAdmin'
 export { INVALID_UPDATE_FIELDS_MY_PROFILE } from './fields/invalidUpdateFieldMyProfile/invalidUpdateFieldMyProfile'
 export { INVALID_UPDATE_FIELDS_STAFF } from './fields/invalidUpdateFieldsStaff/invalidUpdateFieldsStaff'
+export { INVALID_UPDATE_FIELDS_MENU } from './fields/invalidUpdateFieldMenu/invalidUpdateFieldMenu'
