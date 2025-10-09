@@ -1,10 +1,9 @@
 import { changeNewPassword } from './changeNewPassword/changeNewPassword'
 import { getMyProfile } from './getMyProfile/getMyProfile'
-import { updateMyProfile } from './update/updateMyProfile/updateMyProfile'
-
+import { updateProfileUser } from './update/updateProfileUser/updateProfileUser'
 
 export const clientsServices = {
     getMyProfile,
     changeNewPassword,
-    updateMyProfile
+    updateProfileUser
 }

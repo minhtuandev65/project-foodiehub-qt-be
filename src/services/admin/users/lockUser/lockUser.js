@@ -9,7 +9,7 @@ export const lockUser = async (userId, t) => {
         throw new ApiError(StatusCodes.NOT_FOUND, t('user.emailNotFound'))
 
     const updatedData = { _destroy: true }
-    let updatedUser = await authModels.updateMyProfile(
+    let updatedUser = await authModels.updateProfileUser(
         existUser._id,
         updatedData
     )

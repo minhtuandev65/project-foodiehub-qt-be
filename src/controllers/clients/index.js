@@ -2,7 +2,7 @@ import { changeNewPassword } from './changeNewPassword/changeNewPassword'
 import { getMyProfile } from './getMyProfile/getMyProfile'
 import { getListCandidateProfile } from './managers/getData/getListCandidateProfile/getListCandidateProfile'
 import { getDetailCandidateProfile } from './managers/getData/getDetailCandidateProfile/getDetailCandidateProfile'
-import { updateMyProfile } from './update/updateMyProfile/updateMyProfile'
+import { updateProfileUser } from './update/updateProfileUser/updateProfileUser'
 import { createNewCandidateProfile } from './users/createNew/createNewCandidateProfile/createNewCandidateProfile'
 
 export const clientsController = {
@@ -10,6 +10,6 @@ export const clientsController = {
     changeNewPassword,
     createNewCandidateProfile,
     getDetailCandidateProfile,
-    updateMyProfile,
+    updateProfileUser,
     getListCandidateProfile
 }

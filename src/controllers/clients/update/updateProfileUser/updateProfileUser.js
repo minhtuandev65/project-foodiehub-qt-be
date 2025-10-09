@@ -2,13 +2,13 @@ import { StatusCodes } from 'http-status-codes'
 import { clientsServices } from '~/services/clients'
 import ApiError from '~/utils/ApiError'
 
-export const updateMyProfile = async (req, res) => {
+export const updateProfileUser = async (req, res) => {
     try {
         const { t } = req
         const userId = req.payload._id
         const reqData = req.body
         const imageFile = req.file
-        const data = await clientsServices.updateMyProfile(
+        const data = await clientsServices.updateProfileUser(
             userId,
             reqData,
             imageFile,
