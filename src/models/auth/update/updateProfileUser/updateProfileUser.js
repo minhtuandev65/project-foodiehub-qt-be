@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb'
 import { GET_DB } from '~/config/mongodb'
 import { INVALID_UPDATE_FIELDS_USER, USER_COLLECTION_NAME } from '~/helpers'
 
-export const updateMyProfile = async (userId, updatedData) => {
+export const updateProfileUser = async (userId, updatedData) => {
     try {
         Object.keys(updatedData).forEach((fieldName) => {
             if (INVALID_UPDATE_FIELDS_USER.includes(fieldName)) {

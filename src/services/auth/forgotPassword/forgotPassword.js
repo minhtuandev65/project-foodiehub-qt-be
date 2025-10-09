@@ -34,7 +34,7 @@ export const forgotPassword = async (reqData, t) => {
 
     const confirmationLink = `${WEBSITE_DOMAIN}/account/resetPassword?token=${token}`
 
-    await authModels.updateMyProfile(existUser._id, {
+    await authModels.updateProfileUser(existUser._id, {
         resetPasswordToken: token,
         resetPasswordExpired: dayjs()
             .add(ms(env.FORGOT_PASSWORD_TOKEN_LIFE) + 10000, 'millisecond')

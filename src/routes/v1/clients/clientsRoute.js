@@ -18,7 +18,7 @@ Router.route('/changePassword').post(
 Router.route('/updateMyProfile').put(
     isAuthorized,
     upload.single('imageFile'),
-    clientsController.updateMyProfile
+    clientsController.updateProfileUser
 )
 // USER
 Router.use('/users', usersRoute)

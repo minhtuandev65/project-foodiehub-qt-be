@@ -4,9 +4,9 @@ import { findAccountByEmail } from './findAccountByEmail/findAccountByEmail'
 import { findAccountById } from './findAccountById/findAccountById'
 import { getMyProfile } from './getMyProfile/getMyProfile'
 import { updateLatestActiveEmail } from './update/updateLatestActive/updateLatestActive'
-import { updateMyProfile } from './update/updateMyProfile/updateMyProfile'
 import { updateNewPassword } from './update/updateNewPassword/updateNewPassword'
 import { updateNewRole } from './update/updateNewRole/updateNewRole'
+import { updateProfileUser } from './update/updateProfileUser/updateProfileUser'
 import { validateBeforeCreateAuth } from './validateBeforeCreateAuth/validateBeforeCreateAuth'
 
 export const authModels = {
@@ -17,7 +17,7 @@ export const authModels = {
     findAccountById,
     updateNewRole,
     getMyProfile,
-    updateMyProfile,
+    updateProfileUser,
     updateLatestActiveEmail,
     updateNewPassword
 }

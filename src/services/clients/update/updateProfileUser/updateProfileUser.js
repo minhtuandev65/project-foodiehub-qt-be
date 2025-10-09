@@ -3,7 +3,7 @@ import { authModels } from '~/models/auth'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 import ApiError from '~/utils/ApiError'
 
-export const updateMyProfile = async (userId, reqData, imageFile, t) => {
+export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     const { gender, ...reqDataRest } = reqData
 
     const existUser = await authModels.findAccountById(userId)
