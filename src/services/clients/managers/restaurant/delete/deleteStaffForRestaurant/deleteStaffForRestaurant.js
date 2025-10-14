@@ -1,4 +1,5 @@
 import { staffModels } from '~/models/clients/manager/staff'
+import ApiError from '~/utils/ApiError'
 import { ROLE } from '~/utils/constants'
 
 export const deleteStaffForRestaurant = async (staffId, t) => {
