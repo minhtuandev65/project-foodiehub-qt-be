@@ -1,4 +1,4 @@
-import { getListUserForAdmin } from './getData/getListUser/getListUser'
+import { getListUserForAdmin } from './user/getData/getListUserForAdmin/getListUserForAdmin'
 
 export const adminModes = {
     getListUserForAdmin
