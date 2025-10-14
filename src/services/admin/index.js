@@ -1,8 +1,9 @@
 import { assignRoleToUser } from './assignRoleToUser/assignRoleToUser'
 import { acceptCreateRestaurant } from './manager/restaurant/acceptCreateRestaurant/acceptCreateRestaurant'
-import { getAllRestaurantForAdmin } from './manager/restaurant/getData/getAllRestaurantForAdmin/getAllRestaurantForAdmin'
+import { getListRestaurantForAdmin } from './manager/restaurant/getData/getListRestaurantForAdmin/getListRestaurantForAdmin'
 import { rejectCreateRestaurant } from './manager/restaurant/rejectCreateRestaurant/rejectCreateRestaurant'
 import { activateUser } from './users/activateUser/activateUser'
+import { getListUserForAdmin } from './users/getData/getListUserForAdmin/getListUserForAdmin'
 import { lockUser } from './users/lockUser/lockUser'
 
 const adminServices = {
@@ -11,7 +12,8 @@ const adminServices = {
     activateUser,
     lockUser,
     rejectCreateRestaurant,
-    getAllRestaurantForAdmin
+    getListRestaurantForAdmin,
+    getListUserForAdmin
 }
 
 export default adminServices

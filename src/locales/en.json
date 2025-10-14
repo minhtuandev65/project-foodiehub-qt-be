@@ -9,7 +9,8 @@
         "acceptCreateRestaurantSuccess": "Accepted restaurant {{restaurantName}} successfully",
         "activateUserSuccessfully": "Activate user successfully",
         "lockUserSuccessfully": "Block user successfully",
-        "rejectCreateRestaurantSuccess": "Rejected restaurant {{restaurantName}} successfully"
+        "rejectCreateRestaurantSuccess": "Rejected restaurant {{restaurantName}} successfully",
+        "getListUserSuccessfully": "Get list user successfully"
     },
     "auth": {
         "invalidCredentials": "Invalid credentials",

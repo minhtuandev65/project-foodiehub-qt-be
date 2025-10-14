@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { GET_DB } from "~/config/mongodb"
 
-export const getAllRestaurantForAdmin = async (filter = {}) => {
+export const getListRestaurantForAdmin = async (filter = {}) => {
     try {
         const { sort, status, page = 1, limit = 30 } = filter
         const skip = pagingSkipValue(page, limit)
