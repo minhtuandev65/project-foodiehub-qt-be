@@ -1,5 +1,6 @@
 import { menuModels } from '~/models/clients/manager/menu'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
+import ApiError from '~/utils/ApiError'
 
 export const updateMenu = async (menuData, t) => {
     const { userId, menuId, imageURL, ...rest } = menuData

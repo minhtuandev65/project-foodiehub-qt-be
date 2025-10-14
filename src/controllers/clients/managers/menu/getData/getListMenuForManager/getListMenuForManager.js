@@ -1,15 +1,17 @@
 import { StatusCodes } from 'http-status-codes'
-import { clientsServices } from '~/services/clients'
+import { menuServices } from '~/services/clients/managers/menu'
 import ApiError from '~/utils/ApiError'
 
-export const getDetailCandidateProfile = async (req, res) => {
+export const getListMenuForManager = async (req, res) => {
     try {
         const { t } = req
-        let userId = req.params.userId
-        const data = await clientsServices.getDetailCandidateProfile(userId, t)
+        const restaurantId = req.params.restaurantId
+
+        const data = await menuServices.getListMenuForManager(restaurantId)
+
         res.status(StatusCodes.OK).json({
             status: t('success'),
-            message: t('managers.getDetailCandidateProfileSuccessfully'),
+            message: t('managers.getListMenuSuccessfully'),
             data
         })
     } catch (error) {

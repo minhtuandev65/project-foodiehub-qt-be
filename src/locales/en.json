@@ -40,7 +40,10 @@
         "waitAcceptRestaurant": "Please wait for the administrator to accept the restaurant.",
         "createNewMenuSuccessfully": "Create new {{name}} successfully",
         "updateMenuSuccessfully": "Update {{name}} successfully",
-        "menuNotFound": "Menu not found!"
+        "menuNotFound": "Menu not found!",
+        "getListMenuSuccessfully": "Get list menu successfully",
+        "deleteMenuSuccessfully": "Delete menu successfully"
+        
     },
     "staff": {
         "staffNotFound": "Staff not found!"

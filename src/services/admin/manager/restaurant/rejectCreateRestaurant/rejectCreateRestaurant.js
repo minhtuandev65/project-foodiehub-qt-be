@@ -1,4 +1,5 @@
 import { restaurantModels } from "~/models/clients/manager/restaurant"
+import ApiError from "~/utils/ApiError"
 import { RESTAURANT_STATUS } from "~/utils/constants"
 
 export const rejectCreateRestaurant = async (restaurantId, t) => {

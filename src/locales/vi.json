@@ -36,7 +36,8 @@
         "updateRestaurantSuccessfully": "Cập nhật nhà hàng thành công",
         "restaurantNotFound": "Không tìm thấy nhà hàng!",
         "notYourRestaurant": "Bạn không có quyền cập nhật nhà hàng này!",
-        "waitAcceptRestaurant": "Vui lòng chờ quản trị viên chấp nhận nhà hàng."
+        "waitAcceptRestaurant": "Vui lòng chờ quản trị viên chấp nhận nhà hàng.",
+        "getListMenuSuccessfully": "Lấy danh sách món ăn thành công"
     },
     "staff": {
         "staffNotFound": "Không tìm thấy nhân viên!"

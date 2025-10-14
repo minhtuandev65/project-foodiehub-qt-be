@@ -19,4 +19,14 @@ Router.route('/:menuId/update').put(
     uploadImageMenu,
     menuControllers.updateMenu
 )
+Router.route('/:restaurantId/getListMenu').get(
+    isAuthorized,
+    hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
+    menuControllers.getListMenuForManager
+)
+Router.route('/:menuId/delete').delete(
+    isAuthorized,
+    hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
+    menuControllers.deleteMenuForRestaurant
+)
 export const menuRoute = Router

@@ -3,6 +3,7 @@ import { authModels } from '~/models/auth'
 import { menuModels } from '~/models/clients/manager/menu'
 import { restaurantModels } from '~/models/clients/manager/restaurant'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
+import ApiError from '~/utils/ApiError'
 
 export const createNewMenu = async (newMenuData, t) => {
     try {
