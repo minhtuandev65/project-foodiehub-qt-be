@@ -1,16 +1,12 @@
-import { ObjectId } from "mongodb"
-import { GET_DB } from "~/config/mongodb"
+import { GET_DB } from '~/config/mongodb'
+import { RESTAURANT_COLLECTION_NAME } from '~/helpers'
+import { pagingSkipValue } from '~/utils/algorithms'
 
 export const getListRestaurantForAdmin = async (filter = {}) => {
     try {
         const { sort, status, page = 1, limit = 30 } = filter
         const skip = pagingSkipValue(page, limit)
-        let matchStage = {
-            _destroy: false,
-            ownerId: new ObjectId(userId)
-        }
         const pipeline = [
-            { $match: matchStage },
             {
                 $project: {
                     logoURL: 1,
@@ -24,7 +20,7 @@ export const getListRestaurantForAdmin = async (filter = {}) => {
             { $limit: parseInt(limit) }
         ]
 
-        const countPipeline = [{ $match: matchStage }, { $count: 'total' }]
+        const countPipeline = [{ $count: 'total' }]
 
         const [countResult] = await GET_DB()
             .collection(RESTAURANT_COLLECTION_NAME)
