@@ -5,6 +5,16 @@ import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
+Router.route('/getListRestaurant').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    adminControllers.getListRestaurantForAdmin
+)
+Router.route('/getListUser').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    adminControllers.getListUserForAdmin
+)
 Router.route('/assignRoleToUser').post(
     isAuthorized,
     hasRole(ROLE.ADMIN),
@@ -14,11 +24,6 @@ Router.route('/acceptCreateRestaurant/:restaurantId/accept').patch(
     isAuthorized,
     hasRole(ROLE.ADMIN),
     adminControllers.acceptCreateRestaurant
-)
-Router.route('/getListRestaurant').get(
-    isAuthorized,
-    hasRole(ROLE.ADMIN),
-    adminControllers.getAllRestaurantForAdmin
 )
 Router.route('/rejectCreateRestaurant/:restaurantId/reject').patch(
     isAuthorized,

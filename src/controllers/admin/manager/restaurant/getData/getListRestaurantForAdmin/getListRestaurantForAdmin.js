@@ -1,13 +1,13 @@
 import { StatusCodes } from 'http-status-codes'
-import { restaurantServices } from '~/services/clients/managers/restaurant'
+import adminServices from '~/services/admin'
 import ApiError from '~/utils/ApiError'
 
-export const getAllRestaurantForAdmin = async (req, res) => {
+export const getListRestaurantForAdmin = async (req, res) => {
     try {
         const { t } = req
 
         const data =
-            await restaurantServices.getAllRestaurantForAdmin()
+            await adminServices.getListRestaurantForAdmin()
 
         res.status(StatusCodes.OK).json({
             status: t('success'),

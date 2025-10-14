@@ -1,10 +1,10 @@
 import { restaurantModels } from "~/models/clients/manager/restaurant"
 
 
-export const getAllRestaurantForAdmin = async () => {
+export const getListRestaurantForAdmin = async () => {
     try {
         const result =
-            await restaurantModels.getAllRestaurantForAdmin()
+            await restaurantModels.getListRestaurantForAdmin()
 
         const restaurantList = result.restaurantList.map((item) => ({
             ...item,
