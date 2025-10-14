@@ -10,15 +10,15 @@ export const getListRestaurantForAdmin = async (req, res) => {
             await adminServices.getListRestaurantForAdmin()
 
         res.status(StatusCodes.OK).json({
-            status: t('success'),
-            message: t('managers.getListRestaurantSuccessfully'),
+            status: 'success',
+            message: t('admin.getListRestaurantSuccessfully'),
             data
         })
     } catch (error) {
         const { t } = req
         if (error instanceof ApiError) {
             res.status(error.statusCode).json({
-                status: t('error'),
+                status: 'error',
                 message: error.message // message trong ApiError có thể cũng dùng i18n
             })
         } else {

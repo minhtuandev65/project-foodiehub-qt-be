@@ -10,7 +10,8 @@
         "activateUserSuccessfully": "Activate user successfully",
         "lockUserSuccessfully": "Block user successfully",
         "rejectCreateRestaurantSuccess": "Rejected restaurant {{restaurantName}} successfully",
-        "getListUserSuccessfully": "Get list user successfully"
+        "getListUserSuccessfully": "Get list user successfully",
+        "getListRestaurantSuccessfully": "Get list Restaurant successfully"
     },
     "auth": {
         "invalidCredentials": "Invalid credentials",
