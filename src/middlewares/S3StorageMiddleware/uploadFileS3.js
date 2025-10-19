@@ -1,9 +1,9 @@
 // src/middlewares/uploadFileS3.js
 import { Upload } from '@aws-sdk/lib-storage'
-import { s3Client } from '~/config/awsS3'
+import { s3Client } from '~/config/aws/awsS3'
 import { v4 as uuidv4 } from 'uuid'
 import path from 'path'
-import { env } from '~/config/environment'
+import { env } from '~/config/env/environment'
 
 const streamUploadFile = async (fileInfo, folderName) => {
     const ext = path.extname(fileInfo.originalname)

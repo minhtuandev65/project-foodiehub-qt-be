@@ -1,9 +1,9 @@
 // src/providers/cloudStorageProvider/uploadImageToS3/uploadImageToS3.js
-import { env } from '~/config/environment'
+import { env } from '~/config/env/environment'
 import path from 'path'
 import { v4 as uuidv4 } from 'uuid'
 import { Upload } from '@aws-sdk/lib-storage'
-import { s3Client } from '~/config/awsS3'
+import { s3Client } from '~/config/aws/awsS3'
 
 export const uploadImageToS3 = async (fileInfo, folderName = '') => {
     const ext = path.extname(fileInfo.originalname)

@@ -1,17 +1,7 @@
-import { authenticate } from './authenticate/authenticate'
-import { createNewAccount } from './createNewAccount/createNewAccount'
-import { forgotPassword } from './forgotPassword/forgotPassword'
-import { logout } from './logout/logout'
-import { refreshToken } from './refreshToken/refreshToken'
-import { resetNewPassword } from './update/resetNewPassword/resetNewPassword'
-import { verifyAccount } from './verifyAccount/verifyAccount'
-
-export const authController = {
-    createNewAccount,
-    authenticate,
-    logout,
-    refreshToken,
-    forgotPassword,
-    resetNewPassword,
-    verifyAccount
-}
+export { authenticate } from './authenticate/authenticate.controller'
+export { createNewAccount } from './createNewAccount/create.new.account.controller'
+export { forgotPassword } from './forgotPassword/forgot.password.controller'
+export { logout } from './logout/logout.controller'
+export { refreshToken } from './refreshToken/refresh.token.controller'
+export { resetNewPassword } from './resetNewPassword/reset.new.password.controller'
+export { verifyAccount } from './verifyAccount/verify.account.controller'

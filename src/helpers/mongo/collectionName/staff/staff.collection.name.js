@@ -1,0 +1,1 @@
+export const STAFF = 'staff_restaurant'

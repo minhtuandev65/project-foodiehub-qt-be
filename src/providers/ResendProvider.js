@@ -1,6 +1,6 @@
 /**lap_trinh_tich_hop_nang_cao_MERN_stack*/
 const { Resend } = require('resend')
-import { env } from '~/config/environment'
+import { env } from '~/config/env/environment'
 
 let resendInstance = new Resend(process.env.RESEND_API_KEY)
 

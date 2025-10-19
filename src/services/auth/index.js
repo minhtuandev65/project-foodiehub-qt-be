@@ -1,17 +1,7 @@
-import { authenticate } from './authenticate/authenticate'
-import { createNewAccount } from './createNew/createNewAccount/createNewAccount'
-import { forgotPassword } from './forgotPassword/forgotPassword'
-import { getMyProfile } from '../clients/getMyProfile/getMyProfile'
-import { refreshToken } from './refreshToken/refreshToken'
-import { resetNewPassword } from './update/resetNewPassword/resetNewPassword'
-import { verifyAccount } from './verifyAccount/verifyAccount'
-
-export const authServices = {
-    createNewAccount,
-    authenticate,
-    refreshToken,
-    verifyAccount,
-    forgotPassword,
-    resetNewPassword,
-    getMyProfile
-}
+export { authenticate } from './authenticate/authenticate.service'
+export { createNewAccount } from './createNewAccount/create.new.account.service'
+export { forgotPassword } from './forgotPassword/forgot.password.service'
+export { getMyProfile } from '../user/data/profile/get.my.profile.service'
+export { refreshToken } from './refreshToken/refresh.token.service'
+export { resetNewPassword } from './resetNewPassword/reset.new.password.service'
+export { verifyAccount } from './verifyAccount/verify.account.service'

@@ -1,4 +1,4 @@
-function checkIsOpenRestaurant(openDays, openTime, closeTime) {
+export const checkIsOpenRestaurant = async (openDays, openTime, closeTime) => {
     const now = new Date()
 
     // 🗓️ Lấy thứ hiện tại (0 = Chủ nhật → 7)
@@ -28,5 +28,3 @@ function checkIsOpenRestaurant(openDays, openTime, closeTime) {
     // ✅ So sánh thời gian hiện tại
     return now >= openDate && now <= closeDate
 }
-
-export default checkIsOpenRestaurant
