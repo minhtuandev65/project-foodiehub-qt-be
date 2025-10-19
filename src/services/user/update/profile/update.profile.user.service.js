@@ -5,7 +5,7 @@ import ApiError from '~/utils/ApiError'
 
 export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     const { gender, ...reqDataRest } = reqData
-
+console.log(gender)
     const existUser = await models.auth.find.accountById(userId)
 
     if (!existUser)
@@ -17,7 +17,6 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
             t('user.accountNotActive')
         )
 
-    const upperGender = gender.toUpperCase()
 
     let result = {}
 
@@ -31,7 +30,7 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
 
         const updatedData = {
             ...reqDataRest,
-            gender: upperGender,
+            gender: gender,
             avatar: uploadResult.url
         }
         result = await models.auth.update.updateProfileUser(
@@ -41,7 +40,7 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     } else {
         const updatedData = {
             ...reqDataRest,
-            gender: upperGender
+            gender: gender
         }
 
         result = await models.auth.update.updateProfileUser(
