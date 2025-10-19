@@ -1,1 +1,0 @@
-export const STAFF_RESTAURANT_COLLECTION_NAME = 'staff_restaurant'

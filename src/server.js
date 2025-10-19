@@ -1,14 +1,14 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import { CLOSE_DB, CONNECT_DB } from './config/mongodb'
+import { CLOSE_DB, CONNECT_DB } from './config/mongo/mongodb'
 import cors from 'cors'
 import exitHook from 'async-exit-hook'
 import { APIs_v1 } from './routes/v1'
 import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware'
-import { env } from './config/environment'
-import { corsOptions } from './config/cors'
+import { env } from './config/env/environment'
+import { corsOptions } from './config/cors/cors'
 
-import i18next from '~/config/i18n'
+import i18next from '~/config/locales/i18n'
 import i18nextMiddleware from 'i18next-http-middleware'
 const START_SERVER = () => {
     const app = express()

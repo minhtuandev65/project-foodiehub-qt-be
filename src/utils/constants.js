@@ -5,7 +5,7 @@
  * "Nơi lưu trữ các trạng thái, hằng số, biến toàn cục dùng chung trong ứng dụng"
  */
 
-import { env } from '~/config/environment'
+import { env } from '~/config/env/environment'
 
 export const WEBSITE_DOMAIN =
     env.BUILD_MODE === 'production'

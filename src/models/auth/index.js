@@ -1,23 +1,6 @@
-import { USER_COLLECTION_SCHEMA } from './authModel/authModel'
-import { createNewAccount } from './createNewAccount/createNewAccount'
-import { findAccountByEmail } from './findAccountByEmail/findAccountByEmail'
-import { findAccountById } from './findAccountById/findAccountById'
-import { getMyProfile } from './getMyProfile/getMyProfile'
-import { updateLatestActiveEmail } from './update/updateLatestActive/updateLatestActive'
-import { updateNewPassword } from './update/updateNewPassword/updateNewPassword'
-import { updateNewRole } from './update/updateNewRole/updateNewRole'
-import { updateProfileUser } from './update/updateProfileUser/updateProfileUser'
-import { validateBeforeCreateAuth } from './validateBeforeCreateAuth/validateBeforeCreateAuth'
+export { USER_COLLECTION_SCHEMA } from './model/auth.model'
 
-export const authModels = {
-    USER_COLLECTION_SCHEMA,
-    validateBeforeCreateAuth,
-    createNewAccount,
-    findAccountByEmail,
-    findAccountById,
-    updateNewRole,
-    getMyProfile,
-    updateProfileUser,
-    updateLatestActiveEmail,
-    updateNewPassword
-}
+import * as create from './create/index'
+import * as update from './update/index'
+import * as find from './find/index'
+export { update, find, create }
