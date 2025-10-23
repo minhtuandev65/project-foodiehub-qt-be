@@ -3,7 +3,7 @@ import { geocodeAddress } from '~/providers/geocodeAddress'
 import ApiError from '~/utils/ApiError'
 import { ResendProvider } from '~/providers/ResendProvider'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
-import { S3StorageCvFile } from '~/middlewares/S3StorageMiddleware/uploadFileS3'
+import { S3StorageCvFile } from '~/providers/cloudStorageProvider/uploadFileToS3/uploadFileS3'
 import { models } from '~/models'
 import { templates } from '~/template'
 
@@ -37,7 +37,7 @@ export const restaurant = async (newRestaurantData) => {
         )
 
         const businessCertificateFileKey =
-            await S3StorageCvFile.streamUploadFile(
+            await CloudStorageProvider.streamUploadFileToS3(
                 businessCertificateFile,
                 'business-certificate-file'
             )

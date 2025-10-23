@@ -1,29 +1,29 @@
 import express from 'express'
 import { controller } from '~/controllers'
-import isAuthorized, { hasRole } from '~/middlewares/authMiddleware'
-import { uploadRestaurantFiles } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadRestaurantFiles'
+import { middlewares } from '~/middlewares'
+import isAuthorized, { hasRole } from '~/middlewares/auth/authMiddleware'
 
 import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/getListRestaurant').get(
+Router.route('/list').get(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.data.list
 )
-Router.route('/getDetailRestaurant/:restaurantId/detail').get(
+Router.route('/:restaurantId/detail').get(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.data.detail
 )
-Router.route('/createNewRestaurant').post(
+Router.route('/restaurants').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
-    uploadRestaurantFiles,
+    middlewares.aws.upload.uploadRestaurantFiles,
     controller.restaurant.manager.create.restaurant
 )
-Router.route('/:restaurantId/addStaff').post(
+Router.route('/:restaurantId/staff').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.create.staff

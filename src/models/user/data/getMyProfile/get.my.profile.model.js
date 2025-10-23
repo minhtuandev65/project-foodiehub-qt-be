@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { GET_DB } from '~/config/mongo/mongodb'
-import { USER_COLLECTION_NAME } from '~/helpers'
+import { helpers } from '~/helpers'
 
 export const getMyProfile = async (id) => {
     try {
@@ -17,7 +17,7 @@ export const getMyProfile = async (id) => {
             }
         ]
         const user = await GET_DB()
-            .collection(USER_COLLECTION_NAME)
+            .collection(helpers.mongo.collectionName.USERS)
             .aggregate(pipeline)
             .toArray()
 

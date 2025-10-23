@@ -5,7 +5,7 @@ import ApiError from '~/utils/ApiError'
 export const getMyProfile = async (req, res) => {
     try {
         let userId = req.payload._id
-
+        const { t } = req
         const resultArray = await services.user.data.getMyProfile(userId)
         const result = resultArray[0]
         const { verifyToken, _destroy, ...data } = result

@@ -1,3 +1,4 @@
+/* service */
 import { StatusCodes } from 'http-status-codes'
 import { models } from '~/models'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
@@ -17,10 +18,11 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
             t('user.accountNotActive')
         )
 
-    const upperGender = gender.toUpperCase()
-
     let result = {}
-
+    let fullName = null
+    if (reqData.firstName || reqData.lastName) {
+        fullName = `${reqData.firstName} ${reqData.lastName}`.trim()
+    }
     if (imageFile) {
         const { buffer, mimetype, originalname } = imageFile
         const uploadResult = await CloudStorageProvider.uploadImageToS3(
@@ -31,7 +33,7 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
 
         const updatedData = {
             ...reqDataRest,
-            gender: upperGender,
+            gender: gender,
             avatar: uploadResult.url
         }
         result = await models.auth.update.updateProfileUser(
@@ -41,7 +43,7 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     } else {
         const updatedData = {
             ...reqDataRest,
-            gender: upperGender
+            gender: gender
         }
 
         result = await models.auth.update.updateProfileUser(
