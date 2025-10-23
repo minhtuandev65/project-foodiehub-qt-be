@@ -1,3 +1,4 @@
+/* service */
 import { StatusCodes } from 'http-status-codes'
 import { models } from '~/models'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
@@ -5,7 +6,6 @@ import ApiError from '~/utils/ApiError'
 
 export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     const { gender, ...reqDataRest } = reqData
-console.log(gender)
     const existUser = await models.auth.find.accountById(userId)
 
     if (!existUser)
@@ -16,10 +16,11 @@ console.log(gender)
             StatusCodes.NOT_ACCEPTABLE,
             t('user.accountNotActive')
         )
-
-
     let result = {}
-
+    let fullName = null
+    if (reqData.firstName || reqData.lastName) {
+        fullName = `${reqData.firstName} ${reqData.lastName}`.trim()
+    }
     if (imageFile) {
         const { buffer, mimetype, originalname } = imageFile
         const uploadResult = await CloudStorageProvider.uploadImageToS3(

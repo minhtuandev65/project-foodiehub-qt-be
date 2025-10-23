@@ -1,5 +1,5 @@
 // src/middlewares/uploadAvatar.js
-import { createUploadMiddleware } from '../uploadMultiple'
+import { createUploadMiddleware } from '../multiple/uploadMultiple'
 
 export const uploadAvatar = createUploadMiddleware({
     fields: [{ name: 'avatar', type: 'image', maxCount: 1 }],

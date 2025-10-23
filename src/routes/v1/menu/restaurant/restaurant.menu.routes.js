@@ -1,32 +1,38 @@
 import express from 'express'
 import { controller } from '~/controllers'
-import isAuthorized, { hasAnyRole } from '~/middlewares/authMiddleware'
-import { uploadImageMenu } from '~/middlewares/S3StorageMiddleware/useUploadFiles/uploadImageMenu'
+import { middlewares } from '~/middlewares'
+import isAuthorized, { hasAnyRole } from '~/middlewares/auth/authMiddleware'
 
 import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/:restaurantId/createNew').post(
+Router.route('/:restaurantId/menus').post(
     isAuthorized,
     hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
-    uploadImageMenu,
+    middlewares.aws.upload.uploadImageMenu,
     controller.menu.manager.create.menu
 )
-Router.route('/:menuId/update').put(
+Router.route('/:menuId').put(
     isAuthorized,
     hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
-    uploadImageMenu,
+    middlewares.aws.upload.uploadImageMenu,
     controller.menu.manager.update.menu
 )
-Router.route('/:restaurantId/getListMenu').get(
+Router.route('/:restaurantId/menus').get(
     isAuthorized,
     hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
     controller.menu.manager.data.list
 )
-Router.route('/:menuId/delete').delete(
+Router.route('/:menuId').delete(
     isAuthorized,
     hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
     controller.menu.manager.deleting.menu
+)
+Router.route('/:restaurantId/uploadPresignBatchMenu').post(
+    isAuthorized,
+    hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
+    middlewares.aws.upload.uploadImageMenu,
+    controller.menu.manager.upload.presignBatchMenu
 )
 export const restaurant = Router
