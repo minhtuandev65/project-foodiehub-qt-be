@@ -6,7 +6,6 @@ import ApiError from '~/utils/ApiError'
 
 export const updateProfileUser = async (userId, reqData, imageFile, t) => {
     const { gender, ...reqDataRest } = reqData
-
     const existUser = await models.auth.find.accountById(userId)
 
     if (!existUser)
@@ -17,7 +16,6 @@ export const updateProfileUser = async (userId, reqData, imageFile, t) => {
             StatusCodes.NOT_ACCEPTABLE,
             t('user.accountNotActive')
         )
-
     let result = {}
     let fullName = null
     if (reqData.firstName || reqData.lastName) {

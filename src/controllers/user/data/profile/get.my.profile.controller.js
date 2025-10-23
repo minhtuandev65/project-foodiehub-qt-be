@@ -15,7 +15,7 @@ export const getMyProfile = async (req, res) => {
             data
         })
     } catch (error) {
-        const { t } = req
+        
         if (error instanceof ApiError) {
             res.status(error.statusCode).json({
                 status: 'error',
