@@ -57,5 +57,6 @@
     "successChangePassword": "Your email {{email}} change password successfully",
     "CVNotFound": "CV not found",
     "uploadFileSuccess": "Upload file successfully",
-    "updateProfileSuccess": "Update profile successfully"
+    "updateProfileSuccess": "Update profile successfully",
+    "statusSuccess": "Success"
 }
