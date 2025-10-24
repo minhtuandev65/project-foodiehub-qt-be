@@ -5,6 +5,7 @@ import { admin } from './admin/admin.routes'
 import { restaurant } from './restaurant/restaurant.routes'
 import { user } from './user/user.routes'
 import { menu } from './menu/menu.routes'
+import { table } from './table/table.routes'
 
 const Router = express.Router()
 
@@ -19,4 +20,5 @@ Router.use('/api/auth', auth)
 Router.use('/api/restaurant', restaurant)
 Router.use('/api/user', user)
 Router.use('/api/menu', menu)
+Router.use('/api/table', table)
 export const APIs_v1 = Router

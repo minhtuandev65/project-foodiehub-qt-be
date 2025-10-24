@@ -4,6 +4,7 @@ export { INVALID_UPDATE_FIELDS_RESTAURANT } from './invalidUpdateFieldRestaurant
 export { INVALID_UPDATE_FIELDS_ADMIN } from './invalidUpdateFieldsAdmin/invalidUpdateFieldsAdmin'
 export { INVALID_UPDATE_FIELDS_MANAGER } from './invalidUpdateFieldsManager/invalidUpdateFieldsManager'
 export { INVALID_UPDATE_FIELDS_STAFF } from './invalidUpdateFieldsStaff/invalidUpdateFieldsStaff'
+export { INVALID_UPDATE_FIELDS_TABLE } from './invalidUpdateFieldTable/invalidUpdateFieldTable'
 export {
     INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL,
     INVALID_UPDATE_FIELDS_USER
