@@ -42,7 +42,7 @@
     "staff": {
         "staffNotFound": "Không tìm thấy nhân viên!"
     },
-    "success": "hành công",
+    "success": "thành công",
     "error": "lỗi",
     "emailIsRequired": "Email là bắt buộc",
     "errorRefreshToken": "Vui lòng đăng nhập!, (Lỗi từ làm mới token)",
