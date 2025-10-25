@@ -11,7 +11,10 @@ export const assignRoleToUser = async (reqData, t) => {
     if (!existUser)
         throw new ApiError(StatusCodes.NOT_FOUND, t('user.emailNotFound'))
     if (!existUser.email)
-        throw new ApiError(StatusCodes.NOT_ACCEPTABLE, t('user.emailNotActivated'))
+        throw new ApiError(
+            StatusCodes.NOT_ACCEPTABLE,
+            t('user.emailNotActivated')
+        )
 
     const userId = existUser._id
     const result = await authModels.updateNewRole(userId, role.toUpperCase())

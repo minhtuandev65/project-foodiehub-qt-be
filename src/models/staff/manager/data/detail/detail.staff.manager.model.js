@@ -1,1 +1,3 @@
-export const detail = async (first) => { second }
+export const detail = async () => {
+    // asdasd
+}

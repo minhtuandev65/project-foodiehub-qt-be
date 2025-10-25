@@ -1,6 +1,6 @@
 module.exports = {
     env: { es2020: true, node: true },
-    extends: ['eslint:recommended','plugin:prettier/recommended'], 
+    extends: ['eslint:recommended', 'plugin:prettier/recommended'],
     parser: '@babel/eslint-parser',
     parserOptions: {
         ecmaVersion: 'latest',
@@ -29,6 +29,7 @@ module.exports = {
         'keyword-spacing': 1,
         'comma-dangle': 1,
         'comma-spacing': 1,
-        'arrow-spacing': 1
+        'arrow-spacing': 1,
+        'prettier/prettier': ['error', { endOfLine: 'auto' }]
     }
 }

@@ -1,3 +1,3 @@
-export const list = async (first) => {
-    second
+export const list = async () => {
+    //asdasd
 }

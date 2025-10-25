@@ -1,1 +1,3 @@
-export const restaurantAddStaffForManagerTemplate = (first) => { second }
+export const restaurantAddStaffForManagerTemplate = () => {
+    // asdas
+}

@@ -1,4 +1,4 @@
-import { models } from "~/models"
+import { models } from '~/models'
 
 export const list = async () => {
     const result = await models.restaurant.admin.data.list()

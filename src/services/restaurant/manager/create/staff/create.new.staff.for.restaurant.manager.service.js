@@ -71,7 +71,7 @@ export const staff = async (addNewStaff, t) => {
         ...rest
     }
     const result = await models.staff.manager.create.staff(newStaff)
-    
+
     if (result) {
         await models.auth.update.updateNewRole(userId, ROLE.STAFF)
     }
