@@ -1,9 +1,18 @@
-import { StatusCodes } from "http-status-codes"
-import ApiError from "~/utils/ApiError"
+import { StatusCodes } from 'http-status-codes'
+import { services } from '~/services'
+import ApiError from '~/utils/ApiError'
 
 export const detail = async (req, res) => {
     try {
-        
+        const { t } = req
+        const userId = req.params.userId
+
+        const data = await services.user.admin.data.detail(userId, t)
+        res.status(StatusCodes.OK).json({
+            status: 'success',
+            message: t('admin.getDetailUserSuccessfully'),
+            data
+        })
     } catch (error) {
         const { t } = req
         if (error instanceof ApiError) {

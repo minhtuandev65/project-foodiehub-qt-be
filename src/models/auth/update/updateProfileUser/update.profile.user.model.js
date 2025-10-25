@@ -14,6 +14,7 @@ export const updateProfileUser = async (userId, updatedData) => {
                 delete updatedData[fieldName]
             }
         })
+
         const exist = await config.mongo
             .GET_DB()
             .collection(helpers.mongo.collectionName.USERS)

@@ -1,1 +1,1 @@
-export { menu } from './menu/update.menu.moel'
+export { menu } from './menu/update.menu.model'

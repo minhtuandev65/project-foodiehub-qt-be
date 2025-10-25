@@ -6,18 +6,22 @@ import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/getListUser').get(
+Router.route('/list').get(
     isAuthorized,
     hasRole(ROLE.ADMIN),
     controller.user.admin.data.list
 )
-
-Router.route('/activateUser/:userId/activate').patch(
+Router.route('/:userId').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    controller.user.admin.data.detail
+)
+Router.route('/:userId/activate').patch(
     isAuthorized,
     hasRole(ROLE.ADMIN),
     controller.user.admin.action.activate
 )
-Router.route('/lockUser/:userId/lock').patch(
+Router.route('/:userId/lock').patch(
     isAuthorized,
     hasRole(ROLE.ADMIN),
     controller.user.admin.action.lock
