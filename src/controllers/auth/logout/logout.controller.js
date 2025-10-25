@@ -1,4 +1,5 @@
 import { StatusCodes } from 'http-status-codes'
+import ApiError from '~/utils/ApiError'
 
 export const logout = async (req, res) => {
     try {

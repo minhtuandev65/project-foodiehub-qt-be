@@ -3,11 +3,12 @@ import ms from 'ms'
 import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
 
-export const refreshToken = async (req, res, next) => {
+export const refreshToken = async (req, res) => {
     try {
+        const { t } = req
         const data = await services.auth.refreshToken(req.cookies?.refreshToken)
         // Tra ve cookie accessToken moi sau khi da refresh thanh cong
-        res.cookie('accessToken', result.accessToken, {
+        res.cookie('accessToken', data.accessToken, {
             httpOnly: true,
             secure: true,
             sampleSite: 'none',

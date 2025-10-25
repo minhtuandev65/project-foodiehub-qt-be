@@ -38,4 +38,3 @@ const getMimeType = (ext) => {
             return 'application/octet-stream'
     }
 }
-

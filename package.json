@@ -1,10 +1,11 @@
 {
-    "name": "project-dinespot-be",
+    "name": "project-foodiehub-qt-be",
     "private": true,
     "version": "1.0.0",
     "author": "Dev_Tuan",
     "engines": {
-        "node": ">=18.x"
+        "node": "20.x",
+        "npm": "11.x"
     },
     "scripts": {
         "dev": "cross-env NODE_OPTIONS=--tls-min-v1.2 BUILD_MODE=dev nodemon --exec babel-node ./src/server.js --ignore *.json",
@@ -65,7 +66,10 @@
         "@babel/preset-env": "^7.22.10",
         "babel-plugin-module-resolver": "^5.0.0",
         "eslint": "^8.47.0",
+        "eslint-config-prettier": "^9.1.2",
+        "eslint-plugin-prettier": "^5.5.4",
         "jest": "^30.0.0",
-        "mongodb-memory-server": "^10.1.4"
+        "mongodb-memory-server": "^10.1.4",
+        "prettier": "^3.6.2"
     }
 }

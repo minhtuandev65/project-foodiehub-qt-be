@@ -7,7 +7,7 @@ export const createNewAccount = async (req, res) => {
         const { t } = req
         const reqData = req.body
         const createNew = await services.auth.createNewAccount(reqData)
-        
+
         const { verifyToken, ...data } = createNew
         res.status(StatusCodes.CREATED).json({
             status: 'success',

@@ -7,7 +7,6 @@ import {
 } from '~/validations/validators'
 
 export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
-
     ownerId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
@@ -46,7 +45,6 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
 
     businessCertificateImageKey: Joi.string().optional(),
     businessCertificateFileKey: Joi.string().optional(),
-
 
     status: Joi.string()
         .valid(
