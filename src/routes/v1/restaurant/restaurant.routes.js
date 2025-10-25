@@ -1,6 +1,6 @@
 import express from 'express'
 import { user } from './user/user.restaurant.routes'
-import { manager } from './manager/manager.restauarnt.routes'
+import { manager } from './manager/manager.restaurant.routes'
 import { admin } from './admin/admin.restaurant.routes'
 import { staff } from './staff/staff.restaurant.routes'
 

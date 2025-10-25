@@ -10,7 +10,11 @@ Router.route('/restaurants').get(
     hasRole(ROLE.ADMIN),
     controller.restaurant.admin.data.list
 )
-
+Router.route('/:restaurantId').get(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    controller.restaurant.admin.data.detail
+)
 Router.route('/:restaurantId/accept').patch(
     isAuthorized,
     hasRole(ROLE.ADMIN),
@@ -21,5 +25,14 @@ Router.route('/:restaurantId/reject').patch(
     hasRole(ROLE.ADMIN),
     controller.restaurant.admin.action.reject
 )
-
+Router.route('/:restaurantId/activate').patch(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    controller.restaurant.admin.action.activate
+)
+Router.route('/:restaurantId/lock').patch(
+    isAuthorized,
+    hasRole(ROLE.ADMIN),
+    controller.restaurant.admin.action.lock
+)
 export const admin = Router

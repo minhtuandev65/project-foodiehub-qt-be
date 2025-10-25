@@ -6,5 +6,6 @@ export { INVALID_UPDATE_FIELDS_MANAGER } from './invalidUpdateFieldsManager/inva
 export { INVALID_UPDATE_FIELDS_STAFF } from './invalidUpdateFieldsStaff/invalidUpdateFieldsStaff'
 export {
     INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL,
-    INVALID_UPDATE_FIELDS_USER
+    INVALID_UPDATE_FIELDS_USER,
+    INVALID_UPDATE_FIELDS_USER_FOR_ADMIN
 } from './invalidUpdateFieldsUser/invalidUpdateFieldsUser'

@@ -11,6 +11,7 @@
         "lockUserSuccessfully": "Block user successfully",
         "rejectCreateRestaurantSuccess": "Rejected restaurant {{restaurantName}} successfully",
         "getListUserSuccessfully": "Get list user successfully",
+        "getDetailUserSuccessfully": "Get detail user successfully",
         "getListRestaurantSuccessfully": "Get list Restaurant successfully"
     },
     "auth": {
@@ -45,7 +46,6 @@
         "menuNotFound": "Menu not found!",
         "getListMenuSuccessfully": "Get list menu successfully",
         "deleteMenuSuccessfully": "Delete menu successfully"
-        
     },
     "staff": {
         "staffNotFound": "Staff not found!"
@@ -55,7 +55,6 @@
     "emailIsRequired": "Email is required",
     "errorRefreshToken": "Please Sign In!, (Error from refresh token)",
     "successChangePassword": "Your email {{email}} change password successfully",
-    "CVNotFound": "CV not found",
     "uploadFileSuccess": "Upload file successfully",
     "updateProfileSuccess": "Update profile successfully"
 }
