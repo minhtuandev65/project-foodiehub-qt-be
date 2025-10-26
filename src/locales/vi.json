@@ -48,5 +48,6 @@
     "errorRefreshToken": "Vui lòng đăng nhập!, (Lỗi từ làm mới token)",
     "successChangePassword": "Email {{email}} của bạn đổi mật khẩu thành công",
     "CVNotFound": "Không tìm thấy CV",
-    "uploadFileSuccess": "Tải tệp lên thành công"
+    "uploadFileSuccess": "Tải tệp lên thành công",
+    "statusSuccess": "Thành công"
 }
