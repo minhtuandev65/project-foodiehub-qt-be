@@ -22,10 +22,17 @@ export const TABLE_COLLECTION_SCHEMA = Joi.object({
 
     categories: Joi.number().required(),
 
+    status: Joi.number().required().label("1: còn trống, 2: đã được đặt"),
+
     description: Joi.string()
         .max(500)
         .optional()
         .label('Desciption for table'),
+
+    capacity: Joi.string()
+        .max(500)
+        .optional()
+        .label('Sức chứa của bàn'),
 
     lastUpdateUserId: Joi.string()
         .pattern(OBJECT_ID_RULE)
