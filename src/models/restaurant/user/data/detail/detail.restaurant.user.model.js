@@ -34,7 +34,7 @@ export const detail = async (restaurantId) => {
                                 _id: 1,
                                 name: 1,
                                 description: 1,
-                                // price: 1,
+                                price: 1,
                                 imageURL: 1,
                                 quantity: 1,
                                 category: 1,
