@@ -25,9 +25,15 @@ Router.route('/:restaurantId/getDetailTable/:tableId').get(
     controller.table.manager.data.detail
 )
 
-Router.route('/:restaurantId/updateTable').put(
+Router.route('/:tableId/updateTable').put(
     isAuthorized,
     hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
     controller.table.manager.update.table
+)
+
+Router.route('/:tableId/deleteTable').delete(
+    isAuthorized,
+    hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
+    controller.table.manager.deleting.table
 )
 export const restaurant = Router

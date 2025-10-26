@@ -6,21 +6,12 @@ export const table = async (req, res) => {
     try {
         const { t } = req
         const tableId = req.params.tableId
-        const imageURL = req.file
-        const tableRequest = {
-            ...req.body,
-            tableId,
-            imageURL
-        }
-
-        const data = await services.table.manager.update.table(
-            tableRequest,
-            t
-        )
+        const data = await services.table.manager.deleting.table(tableId)
+        console.log(tableId)
 
         res.status(StatusCodes.OK).json({
             status: 'success',
-            message: t('managers.updateRestaurantSuccessfully'),
+            message: t('managers.deleteMenuSuccessfully'),
             data
         })
     } catch (error) {
