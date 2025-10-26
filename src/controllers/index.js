@@ -4,11 +4,14 @@ import * as menu from './menu/index'
 import * as admin from './admin/index'
 import * as auth from './auth/index'
 import * as table from './table/index'
+import * as order from './order/index'
+
 export const controller = {
     restaurant,
     user,
     menu,
     admin,
     auth,
-    table
+    table,
+    order
 }

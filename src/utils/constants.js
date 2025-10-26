@@ -26,10 +26,10 @@ export const GENDER = {
 export const RESTAURANT_STATUS = {
     ACCEPT: 1,
     PENDING: 2,
-    REJECT: 2
-}
-export const CANDIDATE_PROFILE_STATUS = {
-    ACCEPT: 1,
-    PENDING: 2,
     REJECT: 3
+}
+export const ORDERS_STATUS = {
+    PAID: 1,
+    PENDING: 2,
+    CANCELLED: 3
 }

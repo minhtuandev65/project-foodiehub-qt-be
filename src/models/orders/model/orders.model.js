@@ -1,58 +1,46 @@
 import Joi from 'joi'
-import { RESTAURANT_STATUS } from '~/utils/constants'
+import { ORDERS_STATUS } from '~/utils/constants'
 import {
     OBJECT_ID_RULE,
-    OBJECT_ID_RULE_MESSAGE,
-    PHONE_RULE
+    OBJECT_ID_RULE_MESSAGE
 } from '~/validations/validators'
 
-export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
-    ownerId: Joi.string()
+export const ORDERS_COLLECTION_SCHEMA = Joi.object({
+    userId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    name: Joi.string().required().min(3).max(100).label('Restaurant name'),
-    email: Joi.string().email().optional().label('Contact email'),
-    logoURL: Joi.string().uri().optional().label('URL logo'),
-    phone: Joi.string().required().pattern(PHONE_RULE).label('Contact phone'),
-    categories: Joi.array().items(Joi.string()).default([]).optional(),
-    address: Joi.string().required().max(200).label('Address'),
-    lat: Joi.number().required(),
-    lng: Joi.number().required(),
-    description: Joi.string().max(500).optional().label('Description'),
-    socialLinks: Joi.array().items(Joi.string().uri()).optional(),
-
-    openTime: Joi.string().required().label('Open time'),
-    closeTime: Joi.string().required().label('Close time'),
-    openDays: Joi.array()
-        .items(Joi.number().min(0).max(6))
-        .min(1)
+    restaurantId: Joi.string()
         .required()
-        .label('Open days'),
-
-    totalRevenueRestaurant: Joi.number()
-        .default(0)
-        .label('Total revenue of restaurant'),
-    totalOrders: Joi.number().default(0).label('Total orders of restaurant'),
-    isOpen: Joi.boolean().default(false).label('Open status'),
-    isPreOrderAvailable: Joi.boolean().default(false), //Nhà hàng có hỗ trợ tính năng đặt món trước hay không.
-    preOrderNoticeTime: Joi.number().optional(), // Thời gian tối thiểu cần đặt trước (đơn vị: phút hoặc giờ).
-    preOrderNote: Joi.string().max(200).optional(), //Ghi chú dành cho khách khi đặt món trước (ví dụ: “Vui lòng đặt trước ít nhất 1 tiếng”).
-    tags: Joi.array().items(Joi.string()).optional(), //Từ khóa mô tả nhà hàng (VD: “gia đình”, “sang trọng”, “take-away”...).
-    priceRange: Joi.string().optional(), // Khoảng giá trung bình (VD: “50.000 - 200.000đ / người”).
-    ratingAverage: Joi.number().min(0).max(5).default(0), //Đánh giá trung bình
-    reviewCount: Joi.number().default(0), //Tổng số đánh giá
-
-    businessCertificateImageKey: Joi.string().optional(),
-    businessCertificateFileKey: Joi.string().optional(),
-
+        .pattern(OBJECT_ID_RULE)
+        .message(OBJECT_ID_RULE_MESSAGE),
+    tableId: Joi.string()
+        .required()
+        .pattern(OBJECT_ID_RULE)
+        .message(OBJECT_ID_RULE_MESSAGE),
+    items: Joi.array()
+        .min(1)
+        .items(
+            Joi.object({
+                menuId: Joi.string()
+                    .required()
+                    .pattern(OBJECT_ID_RULE)
+                    .message(OBJECT_ID_RULE_MESSAGE),
+                quantity: Joi.number().integer().min(1).default(1),
+                note: Joi.string().trim().max(200).allow(''),
+                // snapshot giá để không lệ thuộc giá thay đổi sau này
+                unitPrice: Joi.number().precision(2).min(0).required()
+            })
+        )
+        .required()
+        .label('Order items'),
     status: Joi.string()
         .valid(
-            RESTAURANT_STATUS.ACCEPT,
-            RESTAURANT_STATUS.PENDING,
-            RESTAURANT_STATUS.REJECT
+            ORDERS_STATUS.PAID,
+            ORDERS_STATUS.PENDING,
+            ORDERS_STATUS.CANCELLED
         )
-        .default(RESTAURANT_STATUS.PENDING)
+        .default(ORDERS_STATUS.PENDING)
         .label('Status'),
     isActive: Joi.boolean().default(false),
     createdAt: Joi.date()
