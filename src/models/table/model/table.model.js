@@ -13,24 +13,17 @@ export const TABLE_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    name: Joi.string()
-        .required()
-        .min(3)
-        .max(100)
-        .label('table name'),
+    name: Joi.string().required().min(3).max(100).label('table name'),
     imageURL: Joi.string().uri().required().label('URL image table'),
 
     categories: Joi.number().required(),
 
-    description: Joi.string()
-        .max(500)
-        .optional()
-        .label('Desciption for table'),
+    description: Joi.string().max(500).optional().label('Desciption for table'),
 
     lastUpdateUserId: Joi.string()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    
+
     createdAt: Joi.date()
         .timestamp('javascript')
         .default(Date.now)
