@@ -7,7 +7,11 @@ export const menu = async (req, res) => {
         const { t } = req
         const menuId = req.params.menuId
         const userId = req.payload._id
-        const data = await services.menu.manager.deleting.menu(menuId, userId, t)
+        const data = await services.menu.manager.deleting.menu(
+            menuId,
+            userId,
+            t
+        )
 
         res.status(StatusCodes.OK).json({
             status: 'success',

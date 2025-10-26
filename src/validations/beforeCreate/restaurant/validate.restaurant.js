@@ -1,10 +1,10 @@
-import { models } from "~/models";
+import { models } from '~/models'
 
 export const restaurant = async (data) => {
-	return await models.restaurant.RESTAURANT_COLLECTION_SCHEMA.validateAsync(
-		data,
-		{
-			abortEarly: false,
-		}
-	);
-};
+    return await models.restaurant.RESTAURANT_COLLECTION_SCHEMA.validateAsync(
+        data,
+        {
+            abortEarly: false
+        }
+    )
+}

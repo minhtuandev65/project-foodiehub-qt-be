@@ -1,3 +1,4 @@
+/* Controller */
 import { StatusCodes } from 'http-status-codes'
 import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
@@ -17,7 +18,7 @@ export const menu = async (req, res) => {
             ...req.body
         }
 
-        const data = await services.menu.manager.create.menu(newMenuData)
+        const data = await services.menu.manager.create.menu(newMenuData, t)
 
         res.status(StatusCodes.CREATED).json({
             status: 'success',

@@ -28,12 +28,12 @@ Router.route('/:restaurantId/staff').post(
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.create.staff
 )
-Router.route('/:restaurantId/update').put(
+Router.route('/:restaurantId/restaurants').put(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.update.restaurant
 )
-Router.route('/:staffId/delete').delete(
+Router.route('/:staffId/staff').delete(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.deleting.staff

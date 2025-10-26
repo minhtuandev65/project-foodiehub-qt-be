@@ -7,5 +7,6 @@ export { INVALID_UPDATE_FIELDS_STAFF } from './invalidUpdateFieldsStaff/invalidU
 export { INVALID_UPDATE_FIELDS_TABLE } from './invalidUpdateFieldTable/invalidUpdateFieldTable'
 export {
     INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL,
-    INVALID_UPDATE_FIELDS_USER
+    INVALID_UPDATE_FIELDS_USER,
+    INVALID_UPDATE_FIELDS_USER_FOR_ADMIN
 } from './invalidUpdateFieldsUser/invalidUpdateFieldsUser'
