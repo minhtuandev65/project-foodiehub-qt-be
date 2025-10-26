@@ -1,25 +1,16 @@
 import { StatusCodes } from 'http-status-codes'
 import { services } from '~/services'
+
 import ApiError from '~/utils/ApiError'
 
-export const table = async (req, res) => {
+export const detail = async (req, res) => {
     try {
         const { t } = req
-        const userId = req.payload._id
         const restaurantId = req.params.restaurantId
-        const files = JSON.parse(JSON.stringify(req.files))
-        const imageURL = files.imageURL?.[0]
-        const newTableData = {
-            userId,
-            restaurantId,
-            imageURL,
-            ...req.body
-        }
-        const data = await services.table.manager.create.table(newTableData, t)
-
-        res.status(StatusCodes.CREATED).json({
+        const data = await services.restaurant.user.data.detail(restaurantId)
+        res.status(StatusCodes.OK).json({
             status: 'success',
-            message: 'Create table success',
+            message: t('managers.getDetailRestaurantSuccessfully'),
             data
         })
     } catch (error) {

@@ -1,4 +1,7 @@
-export { INVALID_UPDATE_FIELDS_MENU } from './invalidUpdateFieldMenu/invalidUpdateFieldMenu'
+export {
+    INVALID_UPDATE_FIELDS_MENU,
+    INVALID_DELETE_FIELDS_MENU
+} from './invalidUpdateFieldMenu/invalidUpdateFieldMenu'
 export { INVALID_UPDATE_FIELDS_MY_PROFILE } from './invalidUpdateFieldMyProfile/invalidUpdateFieldMyProfile'
 export { INVALID_UPDATE_FIELDS_RESTAURANT } from './invalidUpdateFieldRestaurant/invalidUpdateFieldRestaurant'
 export { INVALID_UPDATE_FIELDS_ADMIN } from './invalidUpdateFieldsAdmin/invalidUpdateFieldsAdmin'

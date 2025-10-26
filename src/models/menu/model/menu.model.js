@@ -21,7 +21,7 @@ export const MENU_COLLECTION_SCHEMA = Joi.object({
     imageURL: Joi.string().uri().required().label('URL image dish or drink'),
 
     categories: Joi.string().valid('dish', 'drink', 'dessert').required(),
-
+    price: Joi.number().required().default(0).label('Price for dish or drink'),
     description: Joi.string()
         .max(500)
         .optional()

@@ -8,14 +8,14 @@ export const menu = async (menuId, userId, t) => {
     if (!existMenu)
         throw new ApiError(StatusCodes.NOT_FOUND, t('managers.menuNotFound'))
 
-    const newUpdateData = {
+    const data = {
         _destroy: true,
         userId
     }
 
-    const result = await models.menu.manager.deleting(
+    const result = await models.menu.manager.deleting.menu(
         String(existMenu._id),
-        newUpdateData
+        data
     )
 
     return result
