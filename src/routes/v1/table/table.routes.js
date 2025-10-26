@@ -5,7 +5,5 @@ const Router = express.Router()
 
 // route manager
 Router.use('/restaurant', restaurant)
-Router.use('/restaurant', restaurant)
-
 
 export const table = Router
