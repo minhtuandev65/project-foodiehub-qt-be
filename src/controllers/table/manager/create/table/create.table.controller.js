@@ -9,7 +9,6 @@ export const table = async (req, res) => {
         const restaurantId = req.params.restaurantId
         const files = JSON.parse(JSON.stringify(req.files))
         const imageURL = files.imageURL?.[0]
-
         const newTableData = {
             userId,
             restaurantId,
