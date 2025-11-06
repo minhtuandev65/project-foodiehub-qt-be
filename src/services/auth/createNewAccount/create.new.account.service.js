@@ -4,6 +4,9 @@ import bcrypt from 'bcryptjs'
 import { ResendProvider } from '~/providers/ResendProvider'
 import { models } from '~/models'
 import { templates } from '~/template'
+import ApiError from '~/utils/ApiError'
+import { StatusCodes } from 'http-status-codes'
+import { t } from 'i18next'
 export const createNewAccount = async (reqData) => {
     // Tạo mới một user
     const nameFromEmail = reqData.email.split('@')[0]
@@ -16,6 +19,13 @@ export const createNewAccount = async (reqData) => {
         lastName: reqData.lastName,
         fullName: fullName,
         verifyToken: uuidv4()
+    }
+    const existUser= models.auth.find.accountByEmail(newUser.email)
+    if(existUser){
+        throw new ApiError(
+            StatusCodes.CONFLICT,
+            t('user.emailExist')
+        )
     }
     const creatNewUser = await models.auth.create.createNewAccount(newUser)
 

@@ -25,7 +25,6 @@ export const staff = async (staffId, newUpdateData) => {
                 { $set: { ...newUpdateData, updatedAt: new Date() } },
                 { returnDocument: 'after' }
             )
-        console.log(staffId)
         return exist
     } catch (error) {
         throw new Error(error)
