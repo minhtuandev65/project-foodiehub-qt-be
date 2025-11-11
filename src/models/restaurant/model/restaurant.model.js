@@ -54,6 +54,7 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
         )
         .default(RESTAURANT_STATUS.PENDING)
         .label('Status'),
+    reason: Joi.string().max(500).optional().label('Reason reject or delete'),
     isActive: Joi.boolean().default(false),
     createdAt: Joi.date()
         .timestamp('javascript')
