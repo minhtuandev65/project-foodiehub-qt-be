@@ -4,7 +4,13 @@
         "emailNotActivated": "Email not activated!",
         "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully",
         "yourAccountHasBeenBlocked": "Your account has been blocked",
-        "emailExist":"Email already exists !"
+        "emailExist":"Email already exists !",
+        "ratingSuccess":"Review submitted successfully",
+        "alreadyRated": "You have already rated",
+        "commentSuccess":"Comment successful",
+        "notFoundComment":"This comment was not found",
+        "notPermissionDeleteComment":"You do not have permission to delete this comment",
+        "deleteCommentSuccess":"Comment deleted successfully"
     },
     "admin": {
         "acceptCreateRestaurantSuccess": "Accepted restaurant {{restaurantName}} successfully",
@@ -58,6 +64,7 @@
     "successChangePassword": "Your email {{email}} change password successfully",
     "uploadFileSuccess": "Upload file successfully",
     "updateProfileSuccess": "Update profile successfully",
-    "statusSuccess": "Success"
+    "statusSuccess": "Success",
+    "getListTableSuccess":"Get list table success"
 
 }

@@ -13,6 +13,7 @@ export const detail = async (restaurantId, t) => {
         )
     }
     const result = await models.restaurant.user.data.detail(restaurantId)
+    console.log(12)
 
     const businessCertificateFileUrl = result.businessCertificateFileKey
     const businessCertificateImageUrl = result.businessCertificateImageKey

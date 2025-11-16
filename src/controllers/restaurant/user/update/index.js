@@ -1,0 +1,1 @@
+export {comment} from './comment/update.restaurant.controller'
