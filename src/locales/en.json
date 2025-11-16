@@ -3,7 +3,8 @@
         "emailNotFound": "Email not found!",
         "emailNotActivated": "Email not activated!",
         "assignRoleSuccess": "Role {{role}} assigned to {{email}} successfully",
-        "yourAccountHasBeenBlocked": "Your account has been blocked"
+        "yourAccountHasBeenBlocked": "Your account has been blocked",
+        "emailExist":"Email already exists !"
     },
     "admin": {
         "acceptCreateRestaurantSuccess": "Accepted restaurant {{restaurantName}} successfully",
@@ -58,4 +59,5 @@
     "uploadFileSuccess": "Upload file successfully",
     "updateProfileSuccess": "Update profile successfully",
     "statusSuccess": "Success"
+
 }
