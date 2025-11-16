@@ -14,4 +14,5 @@ Router.route('/:restaurantId').patch(
     hasAnyRole(ROLE.USER, ROLE.STAFF, ROLE.MANAGER),
     controller.bookTable.cancel.bookTable
 )
+
 export const bookTable = Router

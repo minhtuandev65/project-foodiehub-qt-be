@@ -20,12 +20,9 @@ export const createNewAccount = async (reqData) => {
         fullName: fullName,
         verifyToken: uuidv4()
     }
-    const existUser= models.auth.find.accountByEmail(newUser.email)
-    if(existUser){
-        throw new ApiError(
-            StatusCodes.CONFLICT,
-            t('user.emailExist')
-        )
+    const existUser = models.auth.find.accountByEmail(newUser.email)
+    if (existUser) {
+        throw new ApiError(StatusCodes.CONFLICT, t('user.emailExist'))
     }
     const creatNewUser = await models.auth.create.createNewAccount(newUser)
 

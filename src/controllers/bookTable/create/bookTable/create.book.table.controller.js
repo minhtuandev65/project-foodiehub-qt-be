@@ -8,7 +8,7 @@ export const bookTable = async (req, res) => {
         const { t } = req
         const userId = req.payload._id
         const restaurantId = req.params.restaurantId
-
+        console.log(userId)
         const newData = {
             userId,
             restaurantId,
