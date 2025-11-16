@@ -25,7 +25,6 @@ export const table = async (tableId, newTable) => {
                 { returnDocument: 'after' }
             )
         return exist
-        
     } catch (error) {
         throw new Error(error)
     }

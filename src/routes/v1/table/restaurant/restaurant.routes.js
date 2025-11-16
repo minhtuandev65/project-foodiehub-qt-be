@@ -16,13 +16,13 @@ Router.route('/:restaurantId/createNewTable').post(
 Router.route('/:restaurantId/getListTable').get(
     isAuthorized,
     hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
-    controller.table.manager.data.list
+    controller.table.data.list
 )
 
 Router.route('/:restaurantId/getDetailTable/:tableId').get(
     isAuthorized,
     hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
-    controller.table.manager.data.detail
+    controller.table.data.detail
 )
 
 Router.route('/:tableId/updateTable').put(

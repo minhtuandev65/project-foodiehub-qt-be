@@ -25,7 +25,7 @@ export const detail = async (restaurantId, t) => {
         businessCertificateImageUrl
     )
     // check ngày và time mở cửa
-    const isOpen = await checkIsOpenRestaurant(
+    const isOpen = checkIsOpenRestaurant(
         result.openDays,
         result.openTime,
         result.closeTime

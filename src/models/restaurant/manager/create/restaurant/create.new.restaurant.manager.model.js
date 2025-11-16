@@ -1,5 +1,5 @@
+//model
 import { ObjectId } from 'mongodb'
-
 import { GET_DB } from '~/config/mongo/mongodb'
 import { helpers } from '~/helpers'
 import { validations } from '~/validations'

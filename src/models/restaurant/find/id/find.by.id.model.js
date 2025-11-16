@@ -8,7 +8,8 @@ export const id = async (restaurantId) => {
             .GET_DB()
             .collection(helpers.mongo.collectionName.RESTAURANTS)
             .findOne({
-                _id: new ObjectId(restaurantId)
+                _id: new ObjectId(restaurantId),
+                _destroy: false
             })
         return exist
     } catch (error) {

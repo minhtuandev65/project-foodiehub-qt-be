@@ -5,6 +5,9 @@ import * as admin from './admin/index'
 import * as auth from './auth/index'
 import * as table from './table/index'
 import * as order from './order/index'
+import * as bookTable from './bookTable/index'
+import * as cart from './cart/index'
+import * as favorites from './favorites/index'
 
 export const controller = {
     restaurant,
@@ -13,5 +16,8 @@ export const controller = {
     admin,
     auth,
     table,
-    order
+    order,
+    bookTable,
+    cart,
+    favorites
 }

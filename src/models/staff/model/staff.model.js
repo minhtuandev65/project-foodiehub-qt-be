@@ -14,7 +14,7 @@ export const STAFF_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
-    staffId: Joi.string()
+    userId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),

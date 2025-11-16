@@ -1,6 +1,7 @@
 export {
     INVALID_UPDATE_FIELDS_MENU,
-    INVALID_DELETE_FIELDS_MENU
+    INVALID_DELETE_FIELDS_MENU,
+    INVALID_UPDATE_QUANTITY_FIELDS_MENU
 } from './invalidUpdateFieldMenu/invalidUpdateFieldMenu'
 export { INVALID_UPDATE_FIELDS_MY_PROFILE } from './invalidUpdateFieldMyProfile/invalidUpdateFieldMyProfile'
 export { INVALID_UPDATE_FIELDS_RESTAURANT } from './invalidUpdateFieldRestaurant/invalidUpdateFieldRestaurant'
@@ -13,3 +14,5 @@ export {
     INVALID_UPDATE_FIELDS_USER,
     INVALID_UPDATE_FIELDS_USER_FOR_ADMIN
 } from './invalidUpdateFieldsUser/invalidUpdateFieldsUser'
+export { INVALID_UPDATE_DESTROY_FIELDS_BOOK_TABLE } from './invalidUpdateFieldBookTable/invalidUpdateFieldBookTable'
+export { INVALID_UPDATE_QUANTITY_FIELDS_CART_ITEMS } from './invalidUpdateFieldCartItems/invalidUpdateFieldCartItems'

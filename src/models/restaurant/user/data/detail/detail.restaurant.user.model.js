@@ -16,7 +16,7 @@ export const detail = async (restaurantId) => {
             // 2) Lookup menus theo restaurantId
             {
                 $lookup: {
-                    from: helpers.mongo.collectionName.MENU, // "menu_restaurant"
+                    from: helpers.mongo.collectionName.MENU,
                     let: { rid: '$_id' },
                     pipeline: [
                         {
@@ -46,42 +46,6 @@ export const detail = async (restaurantId) => {
                         { $sort: { createdAt: -1 } } // tùy chọn
                     ],
                     as: 'menus'
-                }
-            },
-
-            // 3) Lookup tables theo restaurantId
-            {
-                $lookup: {
-                    from: helpers.mongo.collectionName.TABLE, // "table_restaurant"
-                    let: { rid: '$_id' },
-                    pipeline: [
-                        {
-                            $match: {
-                                $expr: {
-                                    $and: [
-                                        { $eq: ['$restaurantId', '$$rid'] },
-                                        { $eq: ['$_destroy', false] }
-                                    ]
-                                }
-                            }
-                        },
-                        {
-                            $project: {
-                                _id: 1,
-                                /* tableNo: 1, // số bàn (đổi theo schema của bạn)
-                                capacity: 1, // sức chứa
-                                status: 1, // ví dụ: 'AVAILABLE' | 'OCCUPIED' | 'RESERVED' */
-                                name: 1,
-                                categories: 1,
-                                description: 1,
-                                imageURL: 1,
-                                createdAt: 1,
-                                updatedAt: 1
-                            }
-                        },
-                        { $sort: { tableNo: 1 } } // tùy chọn
-                    ],
-                    as: 'tables'
                 }
             },
 
@@ -129,12 +93,8 @@ export const detail = async (restaurantId) => {
                     createdAt: 1,
                     updatedAt: 1,
                     status: 1,
-
                     menus: 1,
-                    tables: 1,
-                    menuCount: 1,
-                    tableCount: 1,
-                    availableTableCount: 1
+                    menuCount: 1
                 }
             }
         ]
