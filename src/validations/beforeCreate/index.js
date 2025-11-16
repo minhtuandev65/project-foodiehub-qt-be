@@ -1,4 +1,6 @@
 export { restaurant } from './restaurant/validate.restaurant'
+export { ratingRestaurant } from './restaurant/validate.rating'
+export { commentRestaurant } from './restaurant/validate.commnet'
 export { auth } from './auth/validate.auth'
 export { menu } from './menu/validate.menu'
 export { staff } from './staff/validate.staff'

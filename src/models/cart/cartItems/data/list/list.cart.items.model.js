@@ -17,6 +17,7 @@ export const list = async (cartId, filter = {}) => {
                 $project: {
                     imageURL: 1,
                     name: 1,
+                    status:1,
                     categories: 1,
                     createdAt: 1,
                     quantity: 1
@@ -41,7 +42,6 @@ export const list = async (cartId, filter = {}) => {
             .collection(helpers.mongo.collectionName.MENU)
             .aggregate(pipeline)
             .toArray()
-
         return {
             menuList,
             total,
