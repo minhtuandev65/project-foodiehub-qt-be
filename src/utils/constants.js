@@ -33,3 +33,7 @@ export const ORDERS_STATUS = {
     PENDING: 2,
     CANCELLED: 3
 }
+export const ORDERS_TABLE_STATUS = {
+    OCCUPIED: 1, // Đã có khách ngồi
+    VACANT: 2 // Chưa có khách ngồi
+}

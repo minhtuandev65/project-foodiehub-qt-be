@@ -1,30 +1,28 @@
-export const checkIsOpenRestaurant = async (openDays, openTime, closeTime) => {
+export const checkIsOpenRestaurant = (openDays, openTime, closeTime) => {
+    // B1: Lấy thời gian hiện tại
     const now = new Date()
 
-    // 🗓️ Lấy thứ hiện tại (0 = Chủ nhật → 7)
-    let currentDay = now.getDay()
-    if (currentDay === 0) currentDay = 7
+    // B2: Lấy thứ hiện tại (0-6, 0 = Chủ Nhật)
+    const currentDay = now.getDay()
 
-    // ⏱️ Kiểm tra có mở cửa hôm nay không
-    if (!openDays.includes(currentDay)) {
-        return false
-    }
+    // B3: Đổi giờ hiện tại sang tổng số phút từ 00:00
+    const currentMinutes = now.getHours() * 60 + now.getMinutes()
 
-    // 🕐 Tạo đối tượng thời gian mở/đóng cửa hôm nay
+    // B4: Tách giờ và phút từ chuỗi openTime / closeTime (định dạng 'HH:mm')
     const [openHour, openMinute] = openTime.split(':').map(Number)
     const [closeHour, closeMinute] = closeTime.split(':').map(Number)
 
-    const openDate = new Date(now)
-    openDate.setHours(openHour, openMinute, 0, 0)
+    // B5: Đổi giờ mở cửa và giờ đóng cửa sang tổng số phút
+    const openMinutes = openHour * 60 + openMinute
+    const closeMinutes = closeHour * 60 + closeMinute
 
-    const closeDate = new Date(now)
-    closeDate.setHours(closeHour, closeMinute, 0, 0)
+    // B6: Kiểm tra hôm nay có nằm trong danh sách ngày mở cửa hay không
+    const isTodayOpen = openDays.includes(currentDay)
 
-    // 🔁 Nếu giờ đóng nhỏ hơn giờ mở => qua ngày hôm sau (ví dụ mở 22:00 tới 02:00)
-    if (closeDate <= openDate) {
-        closeDate.setDate(closeDate.getDate() + 1)
-    }
+    // B7: Kiểm tra giờ hiện tại có nằm trong khoảng [openMinutes, closeMinutes] hay không
+    const isInTimeRange =
+        currentMinutes >= openMinutes && currentMinutes <= closeMinutes
 
-    // ✅ So sánh thời gian hiện tại
-    return now >= openDate && now <= closeDate
+    // B8: Nhà hàng mở khi vừa đúng ngày mở cửa, vừa đúng khung giờ
+    return isTodayOpen && isInTimeRange
 }

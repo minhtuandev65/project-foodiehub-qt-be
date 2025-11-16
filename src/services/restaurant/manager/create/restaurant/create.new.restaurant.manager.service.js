@@ -1,9 +1,9 @@
+// service
 import { StatusCodes } from 'http-status-codes'
 import { geocodeAddress } from '~/providers/geocodeAddress'
 import ApiError from '~/utils/ApiError'
 import { ResendProvider } from '~/providers/ResendProvider'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
-import { S3StorageCvFile } from '~/providers/cloudStorageProvider/uploadFileToS3/uploadFileS3'
 import { models } from '~/models'
 import { templates } from '~/template'
 

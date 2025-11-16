@@ -1,2 +1,4 @@
 import * as manager from './manager/index'
-export { manager }
+import * as data from './data/index'
+
+export { manager, data }

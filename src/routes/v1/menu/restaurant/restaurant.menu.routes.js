@@ -19,11 +19,7 @@ Router.route('/:menuId').put(
     middlewares.aws.upload.uploadImageMenu,
     controller.menu.manager.update.menu
 )
-Router.route('/:restaurantId/menus').get(
-    isAuthorized,
-    hasAnyRole(ROLE.STAFF, ROLE.MANAGER),
-    controller.menu.manager.data.list
-)
+
 Router.route('/:menuId').delete(
     isAuthorized,
     hasAnyRole(ROLE.STAFF, ROLE.MANAGER),

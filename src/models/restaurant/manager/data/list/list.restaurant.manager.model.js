@@ -19,7 +19,11 @@ export const list = async (userId, filter = {}) => {
                     name: 1,
                     address: 1,
                     createdAt: 1,
-                    status: 1
+                    status: 1,
+                    openTime: 1,
+                    closeTime: 1,
+                    openDays: 1,
+                    isOpen: 1
                 }
             },
             { $skip: skip },

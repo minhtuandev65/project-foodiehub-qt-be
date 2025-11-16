@@ -7,6 +7,9 @@ import { user } from './user/user.routes'
 import { menu } from './menu/menu.routes'
 import { table } from './table/table.routes'
 import { order } from './order/order.routes'
+import { bookTable } from './bookTable/book.table.routes'
+import { cart } from './cart/cart.routes'
+import { favorites } from './favorites/favorites.routes'
 
 const Router = express.Router()
 
@@ -23,4 +26,7 @@ Router.use('/api/user', user)
 Router.use('/api/menu', menu)
 Router.use('/api/table', table)
 Router.use('/api/order', order)
+Router.use('/api/book-table', bookTable)
+Router.use('/api/cart-items', cart)
+Router.use('/api/favorites', favorites)
 export const APIs_v1 = Router
