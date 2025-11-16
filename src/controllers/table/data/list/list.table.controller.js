@@ -17,7 +17,7 @@ export const list = async (req, res) => {
 
         res.status(StatusCodes.OK).json({
             status: 'success',
-            message: t('managers.getListMenuSuccessfully'),
+            message: t('getListTableSuccess'),
             data
         })
     } catch (error) {

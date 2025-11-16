@@ -3,7 +3,12 @@
         "emailNotFound": "Không tìm thấy email!",
         "emailNotActivated": "Email chưa kích hoạt!",
         "assignRoleSuccess": "Vai trò {{role}} đã được gán cho {{email}} thành công",
-        "emailExist":"Email already exists !"
+        "emailExist":"Email already exists !",
+        "ratingSuccess":"Gửi đánh giá thành công",
+        "commentSuccess":"Bình luận thành công",
+        "notFoundComment":"Không tìm thấy bình luận này",
+        "notPermissionDeleteComment":"Không có quyền xóa bình luận này",
+        "deleteCommentSuccess":"Xóa bình luận thành công"
     },
     "admin": {
         "acceptCreateRestaurantSuccess": "Chấp nhận nhà hàng {{restaurantName}} thành công",
@@ -50,5 +55,6 @@
     "successChangePassword": "Email {{email}} của bạn đổi mật khẩu thành công",
     "CVNotFound": "Không tìm thấy CV",
     "uploadFileSuccess": "Tải tệp lên thành công",
-    "statusSuccess": "Thành công"
+    "statusSuccess": "Thành công",
+    "getListTableSuccess":"Lấy danh sách bàn thành công"
 }

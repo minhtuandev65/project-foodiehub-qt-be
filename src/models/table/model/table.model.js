@@ -17,10 +17,10 @@ export const TABLE_COLLECTION_SCHEMA = Joi.object({
     name: Joi.string().required().min(3).max(100).label('table name'),
     imageURL: Joi.string().uri().required().label('URL image table'),
 
-    categories: Joi.number().required(),
-    status: Joi.string()
-        .valid(ORDERS_TABLE_STATUS.OCCUPIED, ORDERS_TABLE_STATUS.VACANT)
-        .default(ORDERS_TABLE_STATUS.VACANT),
+    categories: Joi.number().required().label('1 là thường, 1 là VIP'),
+
+    status: Joi.number().required().label('1: còn trống, 2: đã được đặt'),
+
     description: Joi.string().max(500).optional().label('Desciption for table'),
 
     capacity: Joi.string().max(500).optional().label('Sức chứa của bàn'),

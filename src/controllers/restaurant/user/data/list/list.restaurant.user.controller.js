@@ -3,9 +3,14 @@ import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
 
 export const list = async (req, res) => {
+    console.log(req)
     try {
         const { t } = req
-        const data = await services.restaurant.user.data.list()
+        const filter={
+            page:req.query.page,
+            limit: req.query.limit
+        }
+        const data = await services.restaurant.user.data.list(filter)
 
         res.status(StatusCodes.OK).json({
             status: 'success',

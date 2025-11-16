@@ -15,7 +15,6 @@ export const profileUser = async (req, res) => {
             imageFile,
             t
         )
-        console.log(reqData)
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('updateProfileSuccess'),

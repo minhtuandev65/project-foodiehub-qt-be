@@ -8,6 +8,7 @@ export const detail = async (req, res) => {
         const { t } = req
         const restaurantId = req.params.restaurantId
         const data = await services.restaurant.user.data.detail(restaurantId)
+        console.log(data)
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('managers.getDetailRestaurantSuccessfully'),
