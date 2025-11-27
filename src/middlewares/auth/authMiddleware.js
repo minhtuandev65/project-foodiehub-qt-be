@@ -23,7 +23,6 @@ const isAuthorized = async (req, res, next) => {
             accessToken,
             env.ACCESS_TOKEN_SECRET_SIGNATURE
         )
-
         req.payload = decodedToken
 
         next()

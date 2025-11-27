@@ -6,12 +6,11 @@ export const comment = async (req, res) => {
     try {
         const { t } = req
         const commentId = req.params.commentId
-        const userId= req.payload._id
-        console.log(userId)
+        const user= req.payload
 
         const data = await services.restaurant.user.deleting.comment(
             commentId,
-            userId,
+            user,
             t
         )
         res.status(StatusCodes.OK).json({

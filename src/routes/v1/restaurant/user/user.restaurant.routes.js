@@ -1,6 +1,7 @@
 import express from 'express'
 import { controller } from '~/controllers'
-import isAuthorized from '~/middlewares/auth/authMiddleware'
+import isAuthorized, { hasAnyRole } from '~/middlewares/auth/authMiddleware'
+import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
@@ -10,8 +11,10 @@ Router.route('/list-logged-in').get(
     controller.restaurant.user.data.listLoggedIn
 )
 Router.route('/:restaurantId').get(controller.restaurant.user.data.detail)
+Router.route('/logged-in/:restaurantId').get(isAuthorized,controller.restaurant.user.data.detail)
 Router.route('/rating').post(isAuthorized, controller.restaurant.user.create.rating)
+Router.route('/comment/:restaurantId').get(isAuthorized, controller.restaurant.user.data.listComment)
 Router.route('/comment').post(isAuthorized, controller.restaurant.user.create.comment)
 Router.route('/comment/:commentId').put(isAuthorized, controller.restaurant.user.update.comment)
-Router.route('/comment/:commentId').delete(isAuthorized, controller.restaurant.user.deleting.comment)
+Router.route('/comment/:commentId').delete(isAuthorized, hasAnyRole(ROLE.ADMIN, ROLE.USER), controller.restaurant.user.deleting.comment)
 export const user = Router

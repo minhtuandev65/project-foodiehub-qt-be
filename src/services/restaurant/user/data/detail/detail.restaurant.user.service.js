@@ -1,10 +1,11 @@
 import { StatusCodes } from 'http-status-codes'
+import { t } from 'i18next'
 import { models } from '~/models'
 import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 import ApiError from '~/utils/ApiError'
 import { checkIsOpenRestaurant } from '~/utils/checkIsOpenRestaurant'
 
-export const detail = async (restaurantId, t) => {
+export const detail = async (restaurantId, userId) => {
     const existRestaurant = await models.restaurant.find.id(restaurantId)
     if (!existRestaurant) {
         throw new ApiError(
@@ -13,7 +14,6 @@ export const detail = async (restaurantId, t) => {
         )
     }
     const result = await models.restaurant.user.data.detail(restaurantId)
-    console.log(12)
 
     const businessCertificateFileUrl = result.businessCertificateFileKey
     const businessCertificateImageUrl = result.businessCertificateImageKey
@@ -31,6 +31,21 @@ export const detail = async (restaurantId, t) => {
         result.openTime,
         result.closeTime
     )
+    if (userId) {
+        const existRating = await models.restaurant.find.ratingId({
+            restaurantId,
+            userId
+        })
+        const data = {
+            ...result,
+            createdAt,
+            businessCertificateFileKey,
+            businessCertificateImageKey,
+            isOpen: isOpen,
+            rating: existRating?.rating || null
+        }
+        return data
+    }
 
     const data = {
         ...result,
