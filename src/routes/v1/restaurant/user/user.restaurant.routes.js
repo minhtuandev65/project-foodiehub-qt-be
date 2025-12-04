@@ -11,10 +11,32 @@ Router.route('/list-logged-in').get(
     controller.restaurant.user.data.listLoggedIn
 )
 Router.route('/:restaurantId').get(controller.restaurant.user.data.detail)
-Router.route('/logged-in/:restaurantId').get(isAuthorized,controller.restaurant.user.data.detail)
-Router.route('/rating').post(isAuthorized, controller.restaurant.user.create.rating)
-Router.route('/comment/:restaurantId').get(isAuthorized, controller.restaurant.user.data.listComment)
-Router.route('/comment').post(isAuthorized, controller.restaurant.user.create.comment)
-Router.route('/comment/:commentId').put(isAuthorized, controller.restaurant.user.update.comment)
-Router.route('/comment/:commentId').delete(isAuthorized, hasAnyRole(ROLE.ADMIN, ROLE.USER), controller.restaurant.user.deleting.comment)
+Router.route('/logged-in/:restaurantId').get(
+    isAuthorized,
+    controller.restaurant.user.data.detail
+)
+Router.route('/rating').post(
+    isAuthorized,
+    controller.restaurant.user.create.rating
+)
+Router.route('/comment/:restaurantId').get(
+    isAuthorized,
+    hasAnyRole(ROLE.MANAGER, ROLE.USER),
+    controller.restaurant.user.data.listComment
+)
+Router.route('/comment').post(
+    isAuthorized,
+    hasAnyRole(ROLE.ADMANAGERMIN, ROLE.USER),
+    controller.restaurant.user.create.comment
+)
+Router.route('/comment/:commentId').put(
+    isAuthorized,
+    hasAnyRole(ROLE.MANAGER, ROLE.USER),
+    controller.restaurant.user.update.comment
+)
+Router.route('/comment/:commentId').delete(
+    isAuthorized,
+    hasAnyRole(ROLE.MANAGER, ROLE.USER),
+    controller.restaurant.user.deleting.comment
+)
 export const user = Router

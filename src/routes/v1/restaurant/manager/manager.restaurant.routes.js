@@ -23,6 +23,11 @@ Router.route('/restaurants').post(
     middlewares.aws.upload.uploadRestaurantFiles,
     controller.restaurant.manager.create.restaurant
 )
+Router.route('/:restaurantId/staff').get(
+    isAuthorized,
+    hasRole(ROLE.MANAGER),
+    controller.restaurant.manager.data.listStaff
+)
 Router.route('/:restaurantId/staff').post(
     isAuthorized,
     hasRole(ROLE.MANAGER),
