@@ -48,7 +48,7 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
 
     status: Joi.string()
         .valid(
-            RESTAURANT_STATUS.ACCEPT,
+            RESTAURANT_STATUS.APPROVED,
             RESTAURANT_STATUS.PENDING,
             RESTAURANT_STATUS.REJECT
         )

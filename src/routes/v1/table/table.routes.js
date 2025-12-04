@@ -6,7 +6,6 @@ import { controller } from '~/controllers'
 const Router = express.Router()
 
 Router.route('/:restaurantId').get(isAuthorized, controller.table.data.list)
-Router.route('/:restaurantId').get(isAuthorized, controller.table.data.list)
 
 Router.route('/:restaurantId/getDetailTable/:tableId').get(
     isAuthorized,

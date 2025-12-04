@@ -5,7 +5,7 @@ import ApiError from '~/utils/ApiError'
 
 export const bookTable = async (newData, t) => {
     try {
-        const { userId, restaurantId, tableId } = newData
+        const { userId, restaurantId, tableId, ...rawData } = newData
 
         const [existUser, existRestaurant, existTable] = await Promise.all([
             models.auth.find.accountById(userId),
@@ -57,7 +57,10 @@ export const bookTable = async (newData, t) => {
         const newBookTable = {
             userId: String(existUser._id),
             restaurantId: String(existRestaurant._id),
-            tableId: String(existTable._id)
+            tableId: String(existTable._id),
+            date: rawData.date,
+            startTime: rawData.startTime,
+            endTime: rawData.endTime
         }
 
         const result = await models.bookTable.create.bookTable(newBookTable)

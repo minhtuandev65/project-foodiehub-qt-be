@@ -7,5 +7,8 @@ Router.route('/:restaurantId').post(
     isAuthorized,
     controller.favorites.create.favorites
 )
-
+Router.route('/:restaurantId').put(
+    isAuthorized,
+    controller.favorites.unFavorite.unFavorite
+)
 export const favorites = Router

@@ -12,7 +12,7 @@ export const accept = async (restaurantId, t) => {
             t('managers.restaurantNotFound')
         )
     const newUpdateData = {
-        status: RESTAURANT_STATUS.ACCEPT,
+        status: RESTAURANT_STATUS.APPROVED,
         isActive: true
     }
     const result = await models.restaurant.manager.update.restaurant(

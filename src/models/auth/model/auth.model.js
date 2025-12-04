@@ -18,6 +18,7 @@ export const USER_COLLECTION_SCHEMA = Joi.object({
     fullName: Joi.string().trim().strict(),
     firstName: Joi.string().required().trim().strict(),
     lastName: Joi.string().required().trim().strict(),
+    block: Joi.boolean().default(false),
     role: Joi.string()
         .valid(...Object.values(ROLE))
         .default(ROLE.USER),

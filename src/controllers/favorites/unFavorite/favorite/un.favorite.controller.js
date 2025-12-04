@@ -3,20 +3,23 @@ import { StatusCodes } from 'http-status-codes'
 import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
 
-export const bookTable = async (req, res) => {
+export const unFavorite = async (req, res) => {
     try {
         const { t } = req
         const userId = req.payload._id
         const restaurantId = req.params.restaurantId
-        const newData = {
+        const updateData = {
             userId,
             restaurantId,
             ...req.body
         }
 
-        const data = await services.bookTable.create.bookTable(newData, t)
+        const data = await services.favorites.unFavorite.unFavorite(
+            updateData,
+            t
+        )
 
-        res.status(StatusCodes.CREATED).json({
+        res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('successfully'),
             data

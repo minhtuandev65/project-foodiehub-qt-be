@@ -17,13 +17,11 @@ export const TABLE_COLLECTION_SCHEMA = Joi.object({
     name: Joi.string().required().min(3).max(100).label('table name'),
     imageURL: Joi.string().uri().required().label('URL image table'),
 
-    categories: Joi.number().required().label('1 là thường, 1 là VIP'),
-
-    status: Joi.number().required().label('1: còn trống, 2: đã được đặt'),
+    categories: Joi.number().label('1 là thường, 1 là VIP'),
 
     description: Joi.string().max(500).optional().label('Desciption for table'),
 
-    capacity: Joi.string().max(500).optional().label('Sức chứa của bàn'),
+    capacity: Joi.string().max(50).optional().label('Sức chứa của bàn'),
 
     lastUpdateUserId: Joi.string()
         .pattern(OBJECT_ID_RULE)

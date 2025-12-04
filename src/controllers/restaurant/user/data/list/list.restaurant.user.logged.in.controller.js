@@ -7,7 +7,6 @@ export const listLoggedIn = async (req, res) => {
         const { t } = req
         const userId = req.payload._id
         const data = await services.restaurant.user.data.listLoggedIn(userId)
-
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('managers.getListRestaurantSuccessfully'),
