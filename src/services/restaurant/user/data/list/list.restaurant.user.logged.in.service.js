@@ -1,7 +1,7 @@
 import { models } from '~/models'
 
-export const listLoggedIn = async (userId) => {
-    const result = await models.restaurant.user.data.list()
+export const listLoggedIn = async (userId, filter) => {
+    const result = await models.restaurant.user.data.list(filter)
 
     const restaurantList = await Promise.all(
         result.restaurantList.map(async (item) => {
@@ -18,9 +18,15 @@ export const listLoggedIn = async (userId) => {
             }
         })
     )
+    let finalList = restaurantList
+
+    // Nếu yêu cầu lọc theo "favorite"
+    if (filter?.status == 1) {
+        finalList = restaurantList.filter((item) => item.favorite)
+    }
 
     return {
         ...result,
-        restaurantList
+        restaurantList: finalList
     }
 }

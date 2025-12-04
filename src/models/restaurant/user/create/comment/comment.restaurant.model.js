@@ -4,9 +4,10 @@ import { config } from '~/config'
 import { helpers } from '~/helpers'
 import { validations } from '~/validations'
 
-export const comment  = async (dataComment) => {
+export const comment = async (dataComment) => {
     try {
-        const valiData = await validations.beforeCreate.commentRestaurant(dataComment)
+        const valiData =
+            await validations.beforeCreate.commentRestaurant(dataComment)
         const dataToInsert = {
             ...valiData,
             userId: new ObjectId(valiData.userId),
@@ -17,7 +18,7 @@ export const comment  = async (dataComment) => {
             .GET_DB()
             .collection(helpers.mongo.collectionName.COMMENT_RESTAURANT)
             .insertOne(dataToInsert)
-        return exist
+        return dataToInsert
     } catch (error) {
         throw new Error(error)
     }

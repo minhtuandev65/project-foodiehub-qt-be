@@ -7,7 +7,6 @@ export const table = async (req, res) => {
         const { t } = req
         const tableId = req.params.tableId
         const data = await services.table.manager.deleting.table(tableId)
-        console.log(tableId)
 
         res.status(StatusCodes.OK).json({
             status: 'success',

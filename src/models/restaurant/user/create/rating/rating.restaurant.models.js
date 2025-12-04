@@ -17,7 +17,7 @@ export const rating = async (dataRating) => {
             .GET_DB()
             .collection(helpers.mongo.collectionName.RATING_RESTAURANT)
             .insertOne(dataToInsert)
-        return exist
+        return dataToInsert
     } catch (error) {
         throw new Error(error)
     }

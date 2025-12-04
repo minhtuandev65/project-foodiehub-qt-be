@@ -2,14 +2,18 @@ import { StatusCodes } from 'http-status-codes'
 import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
 
-export const list = async (req, res) => {
+export const listStaff = async (req, res) => {
     try {
         const { t } = req
-        const filter={
-            page:req.query.page,
-            limit: req.query.limit
+        const restaurantId = req.params.restaurantId
+        const filter = {
+            page: req.query.page,
+            limit: req.query.limit,
+            restaurantId
         }
-        const data = await services.restaurant.user.data.list(filter)
+
+        const data =
+            await services.restaurant.manager.data.listStaff(filter)
 
         res.status(StatusCodes.OK).json({
             status: 'success',

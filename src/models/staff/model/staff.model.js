@@ -18,6 +18,7 @@ export const STAFF_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
+    fullName: Joi.string().required().label('fullName'),
     email: Joi.string()
         .required()
         .pattern(EMAIL_RULE)
