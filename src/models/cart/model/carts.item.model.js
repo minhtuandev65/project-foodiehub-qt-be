@@ -13,6 +13,13 @@ export const CART_ITEMS_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
+    name: Joi.string()
+        .required()
+        .min(3)
+        .max(100)
+        .label('dish name or drink name'),
+    imageURL: Joi.string().uri().required().label('URL image dish or drink'),
+    price: Joi.number().required().default(0).label('Price for dish or drink'),
     quantity: Joi.number().integer().min(1).required().label('Quantity'),
     notes: Joi.string().allow('').max(500).label('Notes'),
     createdAt: Joi.date()

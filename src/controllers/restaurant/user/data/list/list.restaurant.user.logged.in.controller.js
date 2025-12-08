@@ -6,7 +6,17 @@ export const listLoggedIn = async (req, res) => {
     try {
         const { t } = req
         const userId = req.payload._id
-        const data = await services.restaurant.user.data.listLoggedIn(userId)
+
+        const filter = {
+            page: req.query.page,
+            limit: req.query.limit,
+            status: req.query.status
+        }
+        const data = await services.restaurant.user.data.listLoggedIn(
+            userId,
+            filter
+        )
+
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('managers.getListRestaurantSuccessfully'),

@@ -66,7 +66,7 @@ export const staff = async (addNewStaff, t) => {
     const newStaff = {
         role: ROLE.STAFF,
         restaurantId: String(existRestaurant._id),
-        staffId: String(userId),
+        userId: String(userId),
         email: existUserStaff.email,
         ...rest
     }

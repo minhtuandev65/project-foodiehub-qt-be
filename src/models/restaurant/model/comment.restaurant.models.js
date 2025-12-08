@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import {
     OBJECT_ID_RULE,
-    OBJECT_ID_RULE_MESSAGE,
+    OBJECT_ID_RULE_MESSAGE
 } from '~/validations/validators'
 
 export const COMMENT_RESTAURANT_COLLECTION_SCHEMA = Joi.object({
@@ -9,6 +9,8 @@ export const COMMENT_RESTAURANT_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
+    fullName: Joi.string().max(30).optional().label('fullName').required(),
+    avatar: Joi.string().max(100).optional().label('avatar').required(),
     restaurantId: Joi.string()
         .required()
         .pattern(OBJECT_ID_RULE)

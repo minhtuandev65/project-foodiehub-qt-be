@@ -18,8 +18,8 @@ export const list = async (restaurantId, filter = {}) => {
                     imageURL: 1,
                     name: 1,
                     categories: 1,
-                    createdAt: 1,
-                    quantity: 1
+                    quantity: 1,
+                    price: 1
                 }
             },
             { $skip: skip },

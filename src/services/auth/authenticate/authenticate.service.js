@@ -31,7 +31,8 @@ export const authenticate = async (reqData, t) => {
     const userInfo = {
         _id: existUser._id,
         email: existUser.email,
-        role: existUser.role
+        role: existUser.role,
+        fullName: existUser.fullName
     }
 
     const accessToken = await JwtProvider.generateToken(

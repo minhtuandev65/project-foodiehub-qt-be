@@ -15,4 +15,6 @@ Router.route('/:restaurantId').patch(
     controller.bookTable.cancel.bookTable
 )
 
+Router.route('/:restaurantId').get(controller.bookTable.data.list)
+
 export const bookTable = Router

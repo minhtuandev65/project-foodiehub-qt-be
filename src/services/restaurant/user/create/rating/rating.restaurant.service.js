@@ -8,9 +8,9 @@ export const rating = async (dataRating, t) => {
         restaurantId,
         userId
     })
-    if (existRating) {
-        throw new ApiError(StatusCodes.BAD_REQUEST, t('user.alreadyRated'))
-    }
+    // if (existRating) {
+    //     throw new ApiError(StatusCodes.BAD_REQUEST, t('user.alreadyRated'))
+    // }
 
     const result = await models.restaurant.user.create.rating(dataRating)
 

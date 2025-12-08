@@ -26,7 +26,7 @@ Router.use('/api/user', user)
 Router.use('/api/menu', menu)
 Router.use('/api/table', table)
 Router.use('/api/order', order)
-Router.use('/api/book-table', bookTable)
+Router.use('/api/booking', bookTable)
 Router.use('/api/cart-items', cart)
 Router.use('/api/favorites', favorites)
 export const APIs_v1 = Router

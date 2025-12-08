@@ -10,7 +10,6 @@ export const comment = async (commentId, userId) => {
             .findOneAndUpdate(
                 {
                     _id: new ObjectId(commentId),
-                    userId: new ObjectId(userId)
                 },
                 {
                     $set: {

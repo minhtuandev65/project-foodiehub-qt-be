@@ -3,17 +3,17 @@ import { models } from '~/models'
 import ApiError from '~/utils/ApiError'
 import { ROLE } from '~/utils/constants'
 
-export const comment = async (commentId, userId, t) => {
+export const comment = async (commentId, user, t) => {
     const existComment = await models.restaurant.find.commentId(commentId)
 
     if (!existComment)
         throw new ApiError(StatusCodes.NOT_FOUND, t('user.notFoundComment'))
 
-    if(existComment.userId!= userId)
+    if(existComment.userId!= user?.userId && user?.role!=1)
         throw new ApiError(StatusCodes.NOT_FOUND, t('user.notPermissionDeleteComment'))
 
     const result = await models.restaurant.user.deleting.comment(
-        commentId, userId
+        commentId, user?.userId
     )
 
     return result

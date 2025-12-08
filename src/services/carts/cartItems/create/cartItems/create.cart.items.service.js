@@ -19,20 +19,20 @@ export const cartItems = async (newCartItemsData, t) => {
             models.menu.find.id(menuId),
             models.bookTable.find.userId(userId)
         ])
-        /* 
+        /*
             Giả sử đặt món
             B1: kiểm tra user
             B2: Kiểm tra nhà hàng đã tồn tại hay chưa và có hoạt động không
             B3: kiểm tra bàn có tồn tại trong nhà hàng không
             B4: kiểm tra món có tồn tại trong nhà hàng không
-            B5: kiểm tra đặt bàn có thuộc về user không 
+            B5: kiểm tra đặt bàn có thuộc về user không
                 => TH 1: Đặt 1 bàn => ok
                 => TH 2: Đặt nhiều bàn ( nhưng ở 2 thời điểm khác nhau, bàn trong quá khứ sẽ có _destroy = true, bàn hiện tại sẽ có _destroy = false ) => ok
                 => TH 3: Đặt nhiều bàn cùng một lúc thì existBookTable sẽ là mảng => ok
             B6: kiểm tra giỏ hàng có tồn tại không
                 => TH 1: Giỏ hàng chứa bookTableId là mảng => cần kiểm tra từng phần tử trong mảng có thuộc về user hay không
             B7: Tạo mới hoặc cập nhật item trong giỏ hàng
-        
+
         */
         // B1: kiểm tra user có tồn tại không => ok
         if (!existUser)
@@ -121,13 +121,28 @@ export const cartItems = async (newCartItemsData, t) => {
         const newCartItems = {
             cartId: String(existCart._id),
             menuId: String(existMenu._id),
-            quantity
+            quantity,
+            name: existMenu.name,
+            imageURL: existMenu.imageURL,
+            price: existMenu.price
         }
         // B7: nếu đã có item trong giỏ hàng thì chỉ update quantity
         const existCartItems = await models.cart.cartItems.find.cartItems(
             String(existCart._id),
             String(existMenu._id)
         )
+        if (Number(existMenu.quantity) === 0) {
+            throw new ApiError(
+                StatusCodes.BAD_REQUEST,
+                t('cart.itemQuantityIsZero')
+            )
+        }
+        if (Number(quantity) > Number(existMenu.quantity)) {
+            throw new ApiError(
+                StatusCodes.BAD_REQUEST,
+                t('cart.itemQuantityExceedAvailable')
+            )
+        }
         let data = {
             menuId,
             quantity: existMenu.quantity - quantity
