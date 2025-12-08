@@ -26,7 +26,7 @@ Router.route('/comment/:restaurantId').get(
 )
 Router.route('/comment').post(
     isAuthorized,
-    hasAnyRole(ROLE.USER),
+    hasAnyRole(ROLE.MANAGER, ROLE.USER),
     controller.restaurant.user.create.comment
 )
 Router.route('/comment/:commentId').put(

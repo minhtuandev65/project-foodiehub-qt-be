@@ -12,11 +12,11 @@ export const listComment = async (req, res) => {
             restaurantId
         }
         const userId = req?.payload?._id
-        console.log(restaurantId)
         const data = await services.restaurant.user.data.listComment(
             userId,
             filter
         )
+
 
         res.status(StatusCodes.OK).json({
             status: 'success',
