@@ -3,17 +3,16 @@ import { models } from '~/models'
 export const list = async (restaurantId, filter) => {
     const { tableList, total, page, limit } =
         await models.table.data.list(restaurantId)
-
-    const listTable = tableList.map((item) => {
-        return {
-            ...item,
-            createdAt: new Date(item.createdAt).toLocaleDateString('vi-VN')
-        }
-    })
+    const restaurant = await models.restaurant.find.id(restaurantId)
+    const listTable = tableList.map((item) => ({
+        ...item,
+        createdAt: new Date(item.createdAt).toLocaleDateString('vi-VN')
+    }))
     return {
-        ...listTable,
+        data: listTable || [],
         total,
         page,
-        limit
+        limit,
+        restaurantName: restaurant.name
     }
 }

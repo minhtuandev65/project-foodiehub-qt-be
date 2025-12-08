@@ -5,8 +5,8 @@ import ApiError from '~/utils/ApiError'
 export const list = async (req, res) => {
     try {
         const { t } = req
-        const filter={
-            page:req.query.page,
+        const filter = {
+            page: req.query.page,
             limit: req.query.limit
         }
         const data = await services.restaurant.user.data.list(filter)

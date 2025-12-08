@@ -11,6 +11,7 @@ Router.route('/list-logged-in').get(
     controller.restaurant.user.data.listLoggedIn
 )
 Router.route('/:restaurantId').get(controller.restaurant.user.data.detail)
+
 Router.route('/logged-in/:restaurantId').get(
     isAuthorized,
     controller.restaurant.user.data.detail
@@ -21,12 +22,11 @@ Router.route('/rating').post(
 )
 Router.route('/comment/:restaurantId').get(
     isAuthorized,
-    hasAnyRole(ROLE.MANAGER, ROLE.USER),
     controller.restaurant.user.data.listComment
 )
 Router.route('/comment').post(
     isAuthorized,
-    hasAnyRole(ROLE.ADMANAGERMIN, ROLE.USER),
+    hasAnyRole(ROLE.MANAGER, ROLE.USER),
     controller.restaurant.user.create.comment
 )
 Router.route('/comment/:commentId').put(

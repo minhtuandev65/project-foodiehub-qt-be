@@ -29,6 +29,7 @@ export const MENU_COLLECTION_SCHEMA = Joi.object({
 
     quantity: Joi.number()
         .default(0)
+        .min(0)
         .required()
         .label('Quantity dish or drink'),
 

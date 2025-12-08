@@ -17,10 +17,9 @@ export const list = async (cartId, filter = {}) => {
                 $project: {
                     imageURL: 1,
                     name: 1,
-                    status:1,
-                    categories: 1,
-                    createdAt: 1,
-                    quantity: 1
+                    quantity: 1,
+                    price: 1,
+                    menuId: 1
                 }
             },
             { $skip: skip },
@@ -31,19 +30,20 @@ export const list = async (cartId, filter = {}) => {
 
         const [countResult] = await config.mongo
             .GET_DB()
-            .collection(helpers.mongo.collectionName.MENU)
+            .collection(helpers.mongo.collectionName.CART_ITEMS)
             .aggregate(countPipeline)
             .toArray()
 
         const total = countResult ? countResult.total : 0
 
-        const menuList = await config.mongo
+        const cartItemsList = await config.mongo
             .GET_DB()
-            .collection(helpers.mongo.collectionName.MENU)
+            .collection(helpers.mongo.collectionName.CART_ITEMS)
             .aggregate(pipeline)
             .toArray()
+
         return {
-            menuList,
+            cartItemsList,
             total,
             page: parseInt(page),
             limit: parseInt(limit)

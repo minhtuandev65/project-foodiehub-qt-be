@@ -13,18 +13,6 @@ Router.route('/:restaurantId/createNewTable').post(
     controller.table.manager.create.table
 )
 
-Router.route('/:restaurantId/getListTable').get(
-    isAuthorized,
-    hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
-    controller.table.data.list
-)
-
-Router.route('/:restaurantId/getDetailTable/:tableId').get(
-    isAuthorized,
-    hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
-    controller.table.data.detail
-)
-
 Router.route('/:tableId/updateTable').put(
     isAuthorized,
     hasAnyRole(ROLE.MANAGER, ROLE.STAFF),

@@ -25,20 +25,19 @@ export const listComment = async (filter = {}) => {
                     userId: 1,
                     restaurantId: 1,
                     comment: 1,
-                    fullName:1,
-                    avatar:1,
+                    fullName: 1,
+                    avatar: 1,
                     createdAt: 1,
-                    commentId: 1,
+                    commentId: 1
+
                 }
             },
             { $skip: skip },
             { $limit: parseInt(limit) }
         ]
 
-        const countPipeline = [
-            { $match: matchStage },
-            { $count: 'total' }
-        ]
+        const countPipeline = [{ $match: matchStage }, { $count: 'total' }]
+
 
         const [countResult] = await GET_DB()
             .collection(helpers.mongo.collectionName.COMMENT_RESTAURANT)

@@ -33,7 +33,6 @@ export const forgotPassword = async (reqData, t) => {
     )
 
     const confirmationLink = `${WEBSITE_DOMAIN}/account/resetPassword?token=${token}`
-    console.log(confirmationLink)
     await models.auth.update.updateProfileUser(existUser._id, {
         resetPasswordToken: token,
         resetPasswordExpired: dayjs()

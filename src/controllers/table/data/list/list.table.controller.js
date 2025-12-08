@@ -14,7 +14,6 @@ export const list = async (req, res) => {
         }
 
         const data = await services.table.data.list(restaurantId, filter)
-
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('getListTableSuccess'),

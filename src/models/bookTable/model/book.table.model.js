@@ -18,6 +18,9 @@ export const BOOK_TABLE_COLLECTION_SCHEMA = Joi.object({
         .required()
         .pattern(OBJECT_ID_RULE)
         .message(OBJECT_ID_RULE_MESSAGE),
+    date: Joi.string().required().label('Date'),
+    startTime: Joi.string().required().label('Start time'),
+    endTime: Joi.string().required().label('End time'),
     status: Joi.string()
         .valid(ORDERS_TABLE_STATUS.OCCUPIED, ORDERS_TABLE_STATUS.VACANT)
         .default(ORDERS_TABLE_STATUS.OCCUPIED)

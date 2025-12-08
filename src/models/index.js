@@ -8,6 +8,7 @@ import * as orders from './orders/index'
 import * as cart from './cart/index'
 import * as bookTable from './bookTable/index'
 import * as favorites from './favorites/index'
+import * as bookTableTime from './bookTableTime/index'
 
 export const models = {
     restaurant,
@@ -19,5 +20,6 @@ export const models = {
     orders,
     cart,
     bookTable,
-    favorites
+    favorites,
+    bookTableTime
 }

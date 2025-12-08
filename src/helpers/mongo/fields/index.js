@@ -17,3 +17,4 @@ export {
 } from './invalidUpdateFieldsUser/invalidUpdateFieldsUser'
 export { INVALID_UPDATE_DESTROY_FIELDS_BOOK_TABLE } from './invalidUpdateFieldBookTable/invalidUpdateFieldBookTable'
 export { INVALID_UPDATE_QUANTITY_FIELDS_CART_ITEMS } from './invalidUpdateFieldCartItems/invalidUpdateFieldCartItems'
+export { INVALID_UPDATE_FAVORITE_FIELDS } from './invalidUpdateFieldFavorite/invalidUpdateFieldFavorite'

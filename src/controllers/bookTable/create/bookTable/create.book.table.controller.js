@@ -8,13 +8,12 @@ export const bookTable = async (req, res) => {
         const { t } = req
         const userId = req.payload._id
         const restaurantId = req.params.restaurantId
-
         const newData = {
             userId,
             restaurantId,
             ...req.body
         }
-
+        console.log('New Data:', newData)
         const data = await services.bookTable.create.bookTable(newData, t)
 
         res.status(StatusCodes.CREATED).json({

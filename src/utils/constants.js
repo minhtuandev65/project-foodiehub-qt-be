@@ -24,7 +24,7 @@ export const GENDER = {
     FEMALE: 2
 }
 export const RESTAURANT_STATUS = {
-    ACCEPT: 1,
+    APPROVED: 1,
     PENDING: 2,
     REJECT: 3
 }
