@@ -30,7 +30,6 @@ const formatTimeHHmm = (dateObj) => {
 
 export const bookTable = async (newData, t) => {
     try {
-        console.log(newData)
         const { userId, restaurantId, tableId, ...rawData } = newData
 
         const [existUser, existRestaurant, existTable] = await Promise.all([

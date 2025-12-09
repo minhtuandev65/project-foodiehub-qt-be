@@ -2,6 +2,7 @@ import express from 'express'
 import { restaurant } from './restaurant/restaurant.routes'
 import isAuthorized from '~/middlewares/auth/authMiddleware'
 import { controller } from '~/controllers'
+import { staff } from './staff/staff.routes'
 
 const Router = express.Router()
 
@@ -13,5 +14,5 @@ Router.route('/:restaurantId/getDetailTable/:tableId').get(
 )
 // route manager
 Router.use('/restaurant', restaurant)
-
+Router.use('/staff', staff)
 export const table = Router
