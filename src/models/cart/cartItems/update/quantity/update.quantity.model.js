@@ -4,7 +4,7 @@ import { helpers } from '~/helpers'
 
 export const quantity = async (data) => {
     try {
-        const { cartItemsId, ...rest } = data
+        const { cartItemsId, menuId, ...rest } = data
         Object.keys(rest).forEach((fieldName) => {
             if (
                 helpers.mongo.invalidFields.INVALID_UPDATE_QUANTITY_FIELDS_CART_ITEMS.includes(
@@ -20,6 +20,7 @@ export const quantity = async (data) => {
             .findOneAndUpdate(
                 {
                     _id: new ObjectId(cartItemsId),
+                    menuId: new ObjectId(menuId),
                     _destroy: false
                 },
                 {

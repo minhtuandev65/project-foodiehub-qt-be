@@ -14,11 +14,11 @@ export const list = async (restaurantId, userId) => {
         const totalPriceItem = Number(item.price) * Number(item.quantity)
         return {
             ...item,
-            price: totalPriceItem
+            totalPriceItem
         }
     })
     const totalPrice = cartItemsList.reduce(
-        (sum, it) => sum + (Number(it.price) || 0),
+        (sum, it) => sum + (Number(it.totalPriceItem) || 0),
         0
     )
     return {

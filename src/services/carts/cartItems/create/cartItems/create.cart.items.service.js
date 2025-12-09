@@ -19,6 +19,7 @@ export const cartItems = async (newCartItemsData, t) => {
             models.menu.find.id(menuId),
             models.bookTable.find.userId(userId)
         ])
+        console.log('existMenu', existMenu)
         /*
             Giả sử đặt món
             B1: kiểm tra user
@@ -109,6 +110,7 @@ export const cartItems = async (newCartItemsData, t) => {
         const existCart = await models.cart.find.bookTableId(
             String(existBookTableActive._id)
         )
+        console.log('existCart', existCart)
         if (
             String(existBookTableActive._id) !== String(existCart.bookTableId)
         ) {
@@ -149,6 +151,7 @@ export const cartItems = async (newCartItemsData, t) => {
         }
         if (existCartItems) {
             const updateQuantity = await models.cart.cartItems.update.quantity({
+                menuId: String(existMenu._id),
                 cartItemsId: String(existCartItems._id),
                 quantity: existCartItems.quantity + quantity
             })
