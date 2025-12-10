@@ -17,7 +17,6 @@ export const listLoggedIn = async (req, res) => {
             filter
         )
 
-
         res.status(StatusCodes.OK).json({
             status: 'success',
             message: t('managers.getListRestaurantSuccessfully'),
