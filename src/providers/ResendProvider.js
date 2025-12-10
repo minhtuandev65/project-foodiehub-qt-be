@@ -16,7 +16,6 @@ const sendMail = async (recipientMail, customSubject, htmlContent) => {
             subject: customSubject,
             html: htmlContent
         })
-        console.log('Resend result:', result)
     } catch (error) {
         console.error('Error sending email:', error)
     }

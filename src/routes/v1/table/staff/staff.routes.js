@@ -5,7 +5,7 @@ import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/:restaurantId').get(
+Router.route('/list').get(
     isAuthorized,
     hasAnyRole(ROLE.MANAGER, ROLE.STAFF),
     controller.table.staff.data.list

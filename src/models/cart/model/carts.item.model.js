@@ -1,4 +1,5 @@
 import Joi from 'joi'
+import { CART_ITEM_STATUS } from '~/utils/constants'
 import {
     OBJECT_ID_RULE,
     OBJECT_ID_RULE_MESSAGE
@@ -22,6 +23,13 @@ export const CART_ITEMS_COLLECTION_SCHEMA = Joi.object({
     price: Joi.number().required().default(0).label('Price for dish or drink'),
     quantity: Joi.number().integer().min(1).required().label('Quantity'),
     notes: Joi.string().allow('').max(500).label('Notes'),
+    status: Joi.number()
+        .valid(
+            CART_ITEM_STATUS.DONE,
+            CART_ITEM_STATUS.NOT_ORDERED,
+            CART_ITEM_STATUS.PENDING
+        )
+        .default(CART_ITEM_STATUS.PENDING),
     createdAt: Joi.date()
         .timestamp('javascript')
         .default(Date.now)

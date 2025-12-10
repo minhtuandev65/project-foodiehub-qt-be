@@ -5,10 +5,9 @@ import ApiError from '~/utils/ApiError'
 export const staff = async (req, res) => {
     try {
         const { t } = req
-        console.log(req.payload)
         const email = req.body.email
         const managerEmail = req.payload.email
-        const fullName= req.payload.fullName
+        const fullName = req.payload.fullName
         const restaurantId = req.params.restaurantId
         const reqData = req.body
         const addNewStaff = {

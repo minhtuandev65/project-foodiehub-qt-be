@@ -1,6 +1,7 @@
 import express from 'express'
 import isAuthorized from '~/middlewares/auth/authMiddleware'
 import { controller } from '~/controllers'
+import { staff } from './staff/staff.routes'
 
 const Router = express.Router()
 
@@ -24,4 +25,5 @@ Router.route('/:restaurantId').get(
     isAuthorized,
     controller.cart.cartItems.data.list
 )
+Router.use('/staff', staff)
 export const cart = Router
