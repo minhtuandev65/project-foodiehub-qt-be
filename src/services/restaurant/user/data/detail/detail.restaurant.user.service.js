@@ -31,6 +31,11 @@ export const detail = async (restaurantId, userId) => {
         result.openTime,
         result.closeTime
     )
+    const count =
+        (await models.restaurant.find.ratingByRestaurantId(restaurantId)) || 0
+    const totalRating =
+        (await models.restaurant.find.totalRatingByRestaurant(restaurantId)) ||
+        0
     if (userId) {
         const existRating = await models.restaurant.find.ratingId({
             restaurantId,
@@ -41,6 +46,8 @@ export const detail = async (restaurantId, userId) => {
             createdAt,
             businessCertificateFileKey,
             businessCertificateImageKey,
+            ratingAverage: totalRating / count,
+            reviewCount: count,
             isOpen: isOpen,
             rating: existRating?.rating || null
         }
@@ -52,6 +59,8 @@ export const detail = async (restaurantId, userId) => {
         createdAt,
         businessCertificateFileKey,
         businessCertificateImageKey,
+        ratingAverage: totalRating / count,
+        reviewCount: count,
         isOpen: isOpen
     }
     return data

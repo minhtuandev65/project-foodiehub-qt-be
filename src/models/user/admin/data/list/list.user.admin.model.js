@@ -14,7 +14,8 @@ export const list = async (filter = {}) => {
                     role: 1,
                     gender: 1,
                     createdAt: 1,
-                    isActive: 1
+                    isActive: 1,
+                    email: 1
                 }
             },
             { $skip: skip },
