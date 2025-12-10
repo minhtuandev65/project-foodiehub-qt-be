@@ -33,7 +33,16 @@ export const ORDERS_STATUS = {
     PENDING: 2,
     CANCELLED: 3
 }
+export const TABLE_CATEGORY = {
+    NORMAL: 1,
+    VIP: 2
+}
 export const ORDERS_TABLE_STATUS = {
     OCCUPIED: 1, // Đã có khách ngồi
     VACANT: 2 // Chưa có khách ngồi
+}
+export const CART_ITEM_STATUS = {
+    DONE: 1,
+    NOT_ORDERED: 3,
+    PENDING: 2
 }

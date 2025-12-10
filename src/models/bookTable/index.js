@@ -4,5 +4,7 @@ import * as find from './find/index'
 import * as create from './create/index'
 import * as update from './update/index'
 import * as data from './data/index'
+import * as staff from './staff/index'
+import * as user from './user/index'
 
-export { find, create, update, data }
+export { find, create, update, data, staff, user }

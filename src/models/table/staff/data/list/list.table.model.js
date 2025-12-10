@@ -16,7 +16,13 @@ export const list = async (restaurantId, filter = {}) => {
                 }
             },
             {
-                $project: { _id: 1, name: 1, status: 1 }
+                $project: {
+                    _id: 1,
+                    name: 1,
+                    imageURL: 1,
+                    categories: 1,
+                    restaurantId: 1
+                }
             },
             { $skip: skip },
             { $limit: parseInt(limit) }

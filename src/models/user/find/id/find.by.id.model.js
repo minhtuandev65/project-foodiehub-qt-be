@@ -3,7 +3,6 @@ import { config } from '~/config'
 import { helpers } from '~/helpers'
 
 export const id = async (userId) => {
-    console.log(userId)
     try {
         return await config.mongo
             .GET_DB()

@@ -6,7 +6,6 @@ export const list = async (req, res) => {
     try {
         const { t } = req
         const restaurantId = req.params.restaurantId
-
         const data = await services.menu.data.list(restaurantId)
 
         res.status(StatusCodes.OK).json({

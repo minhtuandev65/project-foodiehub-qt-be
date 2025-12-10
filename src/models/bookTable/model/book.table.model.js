@@ -25,6 +25,7 @@ export const BOOK_TABLE_COLLECTION_SCHEMA = Joi.object({
         .valid(ORDERS_TABLE_STATUS.OCCUPIED, ORDERS_TABLE_STATUS.VACANT)
         .default(ORDERS_TABLE_STATUS.OCCUPIED)
         .label('Status'),
+    bookOffline: Joi.boolean().default(false),
     createdAt: Joi.date()
         .timestamp('javascript')
         .default(Date.now)
