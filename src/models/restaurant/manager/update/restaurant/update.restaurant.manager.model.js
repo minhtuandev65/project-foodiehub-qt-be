@@ -3,6 +3,7 @@ import { config } from '~/config'
 import { helpers } from '~/helpers'
 
 export const restaurant = async (restaurantId, newUpdateData) => {
+    console.log("helpers.mongo.invalidFields =", helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_RESTAURANT)
     try {
         Object.keys(newUpdateData).forEach((fieldName) => {
             if (

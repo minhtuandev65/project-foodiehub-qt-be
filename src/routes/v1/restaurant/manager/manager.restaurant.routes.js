@@ -36,6 +36,7 @@ Router.route('/:restaurantId/staff').post(
 Router.route('/:restaurantId/restaurants').put(
     isAuthorized,
     hasRole(ROLE.MANAGER),
+    middlewares.aws.upload.uploadRestaurantFiles,
     controller.restaurant.manager.update.restaurant
 )
 Router.route('/:staffId/staff').delete(
