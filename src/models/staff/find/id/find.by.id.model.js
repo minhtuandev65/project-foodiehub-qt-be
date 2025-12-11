@@ -8,7 +8,7 @@ export const id = async (staffId) => {
             .GET_DB()
             .collection(helpers.mongo.collectionName.STAFF)
             .findOne({
-                _id: new ObjectId(staffId)
+                userId: new ObjectId(staffId)
             })
     } catch (error) {
         throw new Error(error)
