@@ -8,7 +8,7 @@ import { user } from './user/user.routes'
 const Router = express.Router()
 Router.route('/:restaurantId').post(
     isAuthorized,
-    hasAnyRole(ROLE.USER, ROLE.STAFF, ROLE.MANAGER),
+    hasAnyRole(ROLE.USER, ROLE.STAFF, ROLE.MANAGER, ROLE.ADMIN),
     controller.bookTable.create.bookTable
 )
 Router.route('/:restaurantId').patch(

@@ -15,11 +15,15 @@ export const decreaseQuantity = async (cartItemsId, t) => {
             )
         const data = {
             cartItemsId,
+            menuId: String(existCartItems.menuId),
             quantity: Number(existCartItems.quantity) - 1
         }
         const result = await models.cart.cartItems.update.quantity(data)
-
-        return result
+        const totalPriceItem= Number(result.price*result.quantity)
+        return {
+            ...result,
+            totalPriceItem
+        }
     } catch (error) {
         throw Error(error)
     }

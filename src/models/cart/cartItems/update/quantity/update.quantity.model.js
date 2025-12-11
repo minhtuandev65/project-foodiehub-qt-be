@@ -25,7 +25,7 @@ export const quantity = async (data) => {
                 },
                 {
                     $set: {
-                        ...rest,
+                        quantity: rest.quantity,
                         updatedAt: new Date()
                     }
                 },

@@ -7,16 +7,13 @@ export const restaurant = async (req, res) => {
         const { t } = req
         const restaurantId = req.params.restaurantId
 
-        const data = await services.restaurant.manager.deleting.staff(
+        const data = await services.restaurant.manager.deleting.restaurant(
             restaurantId,
             t
         )
-        const email = data.email
         res.status(StatusCodes.OK).json({
             status: 'success',
-            message: t('managers.deleteStaffSuccessfully', {
-                email: email
-            }),
+            message: t('managers.deleteStaffSuccessfully'),
             data
         })
     } catch (error) {

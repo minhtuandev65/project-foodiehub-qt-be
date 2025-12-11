@@ -36,7 +36,7 @@ Router.route('/comment/:commentId').put(
 )
 Router.route('/comment/:commentId').delete(
     isAuthorized,
-    hasAnyRole(ROLE.MANAGER, ROLE.USER),
+    // hasAnyRole(ROLE.ADMIN, ROLE.USER),
     controller.restaurant.user.deleting.comment
 )
 export const user = Router

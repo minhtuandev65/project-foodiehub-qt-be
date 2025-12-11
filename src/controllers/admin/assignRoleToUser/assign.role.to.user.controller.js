@@ -6,13 +6,10 @@ export const assignRoleToUser = async (req, res) => {
     try {
         const { t } = req
         const data = await services.admin.action.assignRoleToUser(req.body, t)
-
+        
         res.status(StatusCodes.CREATED).json({
             status: 'success',
-            message: t('user.assignRoleSuccess', {
-                role: req.body.role.toUpperCase(),
-                email: req.body.email
-            }),
+            message: 'Chuyển đổi vai trò thành công',
             data
         })
     } catch (error) {

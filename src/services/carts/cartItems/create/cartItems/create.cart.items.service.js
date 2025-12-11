@@ -62,7 +62,7 @@ export const cartItems = async (newCartItemsData, t) => {
               : []
 
         if (!tables.length) {
-            throw new ApiError(StatusCodes.NOT_FOUND, t('table.notFound'))
+            throw new ApiError(StatusCodes.NOT_FOUND, 'Bạn chưa đặt bàn')
         }
 
         const allTableBelongToRestaurant = tables.every(
@@ -89,7 +89,7 @@ export const cartItems = async (newCartItemsData, t) => {
               ? [existBookTable]
               : []
         if (!bookTable.length) {
-            throw new ApiError(StatusCodes.NOT_FOUND, t('table.notFound'))
+            throw new ApiError(StatusCodes.NOT_FOUND, 'Bạn chưa đặt bàn')
         }
         const allBookTableBelongToUser = bookTable.every(
             (check) => String(check.userId) === String(existUser._id)

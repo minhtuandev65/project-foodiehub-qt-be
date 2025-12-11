@@ -3,8 +3,10 @@ import { config } from '~/config'
 import { helpers } from '~/helpers'
 
 export const updateNewRole = async (userId, role) => {
+    console.log(userId)
+    console.log(role)
     try {
-        return await config.mongo
+        await config.mongo
             .GET_DB()
             .collection(helpers.mongo.collectionName.USERS)
             .updateOne(
@@ -15,6 +17,7 @@ export const updateNewRole = async (userId, role) => {
                     $set: { role: role }
                 }
             )
+        return {userId: userId, role: role}
     } catch (error) {
         throw new Error(error)
     }

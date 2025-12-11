@@ -2,6 +2,7 @@ import { config } from '~/config'
 import { helpers } from '~/helpers'
 
 export const accountByEmail = async (emailValue) => {
+    console.log(emailValue)
     try {
         const exist = await config.mongo
             .GET_DB()
