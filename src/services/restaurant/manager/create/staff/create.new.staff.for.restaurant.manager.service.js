@@ -27,16 +27,12 @@ export const staff = async (addNewStaff, t) => {
     const rId = new ObjectId(restaurantId)
     const ownerId = new ObjectId(existRestaurant.ownerId)
 
-    // Cách A: dùng .equals
     if (
         !existRestaurant._id.equals(rId) ||
         !ownerId.equals(existUserManager._id)
     ) {
         throw new ApiError(StatusCodes.NOT_FOUND, t('restaurantIsNotYours'))
     }
-
-    // (Hoặc Cách B: so sánh chuỗi)
-    // if (String(existRestaurant._id) !== restaurantId || String(existRestaurant.ownerId) !== String(existUserManager._id)) ...
 
     // 4) Các check còn lại
     if (!existUserStaff)

@@ -12,8 +12,7 @@ export const listStaff = async (req, res) => {
             restaurantId
         }
 
-        const data =
-            await services.restaurant.manager.data.listStaff(filter)
+        const data = await services.restaurant.manager.data.listStaff(filter)
 
         res.status(StatusCodes.OK).json({
             status: 'success',
