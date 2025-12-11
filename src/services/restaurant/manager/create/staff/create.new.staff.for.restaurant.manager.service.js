@@ -14,7 +14,6 @@ export const staff = async (addNewStaff, t) => {
             models.auth.find.accountByEmail(managerEmail),
             models.restaurant.find.id(restaurantId)
         ])
-
     // 2) Validate tồn tại
     if (!existRestaurant) {
         throw new ApiError(StatusCodes.NOT_FOUND, t('restaurantNotFound'))

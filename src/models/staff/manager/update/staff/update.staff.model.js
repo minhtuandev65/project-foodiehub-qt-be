@@ -19,7 +19,7 @@ export const staff = async (staffId, newUpdateData) => {
             .collection(helpers.mongo.collectionName.STAFF)
             .findOneAndUpdate(
                 {
-                    staffId: new ObjectId(staffId),
+                    _id: new ObjectId(staffId),
                     _destroy: false
                 },
                 { $set: { ...newUpdateData, updatedAt: new Date() } },
