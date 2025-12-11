@@ -5,7 +5,7 @@ import { ROLE } from '~/utils/constants'
 
 const Router = express.Router()
 
-Router.route('/assignRoleToUser').post(
+Router.route('/assignRoleToUser').put(
     isAuthorized,
     hasRole(ROLE.ADMIN),
     controller.admin.assignRoleToUser

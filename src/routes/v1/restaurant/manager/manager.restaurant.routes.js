@@ -44,7 +44,7 @@ Router.route('/:staffId/staff').delete(
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.deleting.staff
 )
-Router.route('/:restaurantId').delete(
+Router.route('/:restaurantId/delete').delete(
     isAuthorized,
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.deleting.restaurant
