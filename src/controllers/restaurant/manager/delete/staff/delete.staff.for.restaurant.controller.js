@@ -6,17 +6,15 @@ export const staff = async (req, res) => {
     try {
         const { t } = req
         const staffId = req.params.staffId
+        console.log(staffId)
 
         const data = await services.restaurant.manager.deleting.staff(
             staffId,
             t
         )
-        const email = data.email
         res.status(StatusCodes.OK).json({
             status: 'success',
-            message: t('managers.deleteStaffSuccessfully', {
-                email: email
-            }),
+            message: t('managers.deleteStaffSuccessfully'),
             data
         })
     } catch (error) {
