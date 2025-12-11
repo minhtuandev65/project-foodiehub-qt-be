@@ -5,6 +5,7 @@ import { helpers } from '~/helpers'
 
 export const updateProfileUser = async (userId, updatedData) => {
     try {
+        const { _role } = updatedData
         Object.keys(updatedData).forEach((fieldName) => {
             if (
                 helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_USER.includes(

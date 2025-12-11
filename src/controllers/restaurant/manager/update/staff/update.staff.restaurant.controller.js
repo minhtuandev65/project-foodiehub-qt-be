@@ -1,20 +1,23 @@
 import { StatusCodes } from 'http-status-codes'
 import { services } from '~/services'
-
 import ApiError from '~/utils/ApiError'
 
-export const detail = async (req, res) => {
+export const staff = async (req, res) => {
     try {
         const { t } = req
-        const restaurantId = req.params.restaurantId
-        const userId = req?.payload?._id
-        const data = await services.restaurant.manager.data.detail(
-            restaurantId,
-            userId
+        const staffId = req.params.staffId
+        const updateData = {
+            staffId,
+            ...req.body
+        }
+        const data = await services.restaurant.manager.update.staff(
+            updateData,
+            t
         )
-        res.status(StatusCodes.OK).json({
+
+        res.status(StatusCodes.CREATED).json({
             status: 'success',
-            message: t('managers.getDetailRestaurantSuccessfully'),
+            message: t('Cập nhật thành công'),
             data
         })
     } catch (error) {

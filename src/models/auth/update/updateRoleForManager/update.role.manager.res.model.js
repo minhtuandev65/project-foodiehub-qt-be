@@ -1,28 +1,29 @@
+/* models */
 import { ObjectId } from 'mongodb'
 import { config } from '~/config'
 import { helpers } from '~/helpers'
 
-export const staff = async (staffId, newUpdateData) => {
+export const updateRoleUser = async (userId, updatedData) => {
     try {
-        Object.keys(newUpdateData).forEach((fieldName) => {
+        Object.keys(updatedData).forEach((fieldName) => {
             if (
-                helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_STAFF.includes(
+                helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_USER_MANAGER.includes(
                     fieldName
                 )
             ) {
-                delete newUpdateData[fieldName]
+                delete updatedData[fieldName]
             }
         })
 
         const exist = await config.mongo
             .GET_DB()
-            .collection(helpers.mongo.collectionName.STAFF)
+            .collection(helpers.mongo.collectionName.USERS)
             .findOneAndUpdate(
                 {
-                    _id: new ObjectId(staffId),
+                    _id: new ObjectId(userId),
                     _destroy: false
                 },
-                { $set: { ...newUpdateData, updatedAt: new Date() } },
+                { $set: { ...updatedData, updatedAt: new Date() } },
                 { returnDocument: 'after' }
             )
         return exist

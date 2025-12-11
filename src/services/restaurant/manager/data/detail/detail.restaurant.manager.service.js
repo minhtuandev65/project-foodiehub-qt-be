@@ -4,7 +4,7 @@ import { CloudStorageProvider } from '~/providers/cloudStorageProvider'
 import ApiError from '~/utils/ApiError'
 import { checkIsOpenRestaurant } from '~/utils/checkIsOpenRestaurant'
 
-export const detail = async (restaurantId, t) => {
+export const detail = async (restaurantId, userId) => {
     const existRestaurant = await models.restaurant.find.id(restaurantId)
     if (!existRestaurant) {
         throw new ApiError(
@@ -31,11 +31,36 @@ export const detail = async (restaurantId, t) => {
         result.closeTime
     )
 
+    const count =
+        (await models.restaurant.find.ratingByRestaurantId(restaurantId)) || 0
+    const totalRating =
+        (await models.restaurant.find.totalRatingByRestaurant(restaurantId)) ||
+        0
+    if (userId) {
+        const existRating = await models.restaurant.find.ratingId({
+            restaurantId,
+            userId
+        })
+        const data = {
+            ...result,
+            createdAt,
+            businessCertificateFileKey,
+            businessCertificateImageKey,
+            ratingAverage: totalRating / count,
+            reviewCount: count,
+            isOpen: isOpen,
+            rating: existRating?.rating || null
+        }
+        return data
+    }
+
     const data = {
         ...result,
         createdAt,
         businessCertificateFileKey,
         businessCertificateImageKey,
+        ratingAverage: totalRating / count,
+        reviewCount: count,
         isOpen: isOpen
     }
     return data

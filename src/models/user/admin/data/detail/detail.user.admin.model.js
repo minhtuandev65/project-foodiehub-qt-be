@@ -23,7 +23,8 @@ export const detail = async (userId) => {
                     _destroy: 1,
                     createaAt: 1,
                     updatedAt: 1,
-                    latestActiveAt: 1
+                    latestActiveAt: 1,
+                    createdAt:1
                 }
             }
         ]
