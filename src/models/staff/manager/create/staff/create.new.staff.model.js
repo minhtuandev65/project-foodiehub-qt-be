@@ -16,7 +16,7 @@ export const staff = async (newStaff) => {
             .GET_DB()
             .collection(helpers.mongo.collectionName.STAFF)
             .insertOne(dataToInsert)
-        return exist
+        return dataToInsert
     } catch (error) {
         throw new Error(error)
     }

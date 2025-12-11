@@ -15,7 +15,7 @@ export const staff = async (staffId, t) => {
     }
 
     const result = await models.staff.manager.update.staff(
-        String(existStaff.userId),
+        String(existStaff._id),
         newUpdateData
     )
 
