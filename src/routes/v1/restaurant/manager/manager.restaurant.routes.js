@@ -43,5 +43,9 @@ Router.route('/:staffId/staff').delete(
     hasRole(ROLE.MANAGER),
     controller.restaurant.manager.deleting.staff
 )
-
+Router.route('/:restaurantId').delete(
+    isAuthorized,
+    hasRole(ROLE.MANAGER),
+    controller.restaurant.manager.deleting.restaurant
+)
 export const manager = Router
