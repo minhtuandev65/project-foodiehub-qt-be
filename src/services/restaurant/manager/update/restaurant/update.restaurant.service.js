@@ -29,11 +29,13 @@ export const restaurant = async (userId, restaurantData, t) => {
         )
     const { email, name } = existRestaurant
     const isOwner = new ObjectId(userId).equals(existRestaurant.ownerId)
-
+    let gps={
+        lat:null,
+        lng:null
+    }
     if (address) {
-        const { lat, lng } = await geocodeAddress(address)
-        newUpdateData.lat = lat
-        newUpdateData.lng = lng
+        // const { lat, lng } = await geocodeAddress(address)
+        gps= await geocodeAddress(address)
     }
     let uploadResultLogo = null
     if (logoURL) {
@@ -42,12 +44,14 @@ export const restaurant = async (userId, restaurantData, t) => {
             'logo-restaurant'
         )
     }
-    let newUpdateData = {
-        uploadResultLogo,
-        ...rest
-    }
+   let newUpdateData = {
+    ...rest,
+    ...(uploadResultLogo && { uploadResultLogo }),
+    ...(gps.lat && { lat:gps.lat }),
+    ...(gps.lng && { lng:gps.lng }),
+}
     const result = await models.restaurant.manager.update.restaurant(
-        restaurantId,
+        String(restaurantId),
         newUpdateData
     )
     const restaurantUpdateMailTemplate =

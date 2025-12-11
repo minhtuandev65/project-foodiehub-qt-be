@@ -7,12 +7,13 @@ export const restaurant = async (req, res) => {
         const { t } = req
         const restaurantId = req.params.restaurantId
         const userId = req.payload._id
-        const logoURL = req.file
+        const logoURL = req.file || ''
         const restaurantData = {
             ...req.body,
             restaurantId,
-            logoURL
+            ...(logoURL && { logoURL })
         }
+
 
         const data = await services.restaurant.manager.update.restaurant(
             userId,

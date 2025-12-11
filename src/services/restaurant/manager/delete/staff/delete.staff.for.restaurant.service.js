@@ -4,8 +4,9 @@ import ApiError from '~/utils/ApiError'
 import { ROLE } from '~/utils/constants'
 
 export const staff = async (staffId, t) => {
+    console.log(staffId)
     const existStaff = await models.staff.find.id(staffId)
-
+    console.log(existStaff)
     if (!existStaff)
         throw new ApiError(StatusCodes.NOT_FOUND, t('staff.staffNotFound'))
 
