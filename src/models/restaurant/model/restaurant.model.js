@@ -19,7 +19,7 @@ export const RESTAURANT_COLLECTION_SCHEMA = Joi.object({
     address: Joi.string().required().max(200).label('Address'),
     lat: Joi.number().required(),
     lng: Joi.number().required(),
-    description: Joi.string().max(500).optional().label('Description'),
+    description: Joi.string().max(700).optional().label('Description'),
     socialLinks: Joi.array().items(Joi.string().uri()).optional(),
 
     openTime: Joi.string().required().label('Open time'),

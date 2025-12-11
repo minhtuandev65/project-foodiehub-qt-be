@@ -3,7 +3,6 @@ import { services } from '~/services'
 import ApiError from '~/utils/ApiError'
 
 export const forgotPassword = async (req, res) => {
-    console.log(123)
     try {
         const { t } = req
         if (!req.body.email) {

@@ -18,6 +18,9 @@ export const staff = async (staffId, t) => {
         String(existStaff._id),
         newUpdateData
     )
-
+    await models.auth.update.updateRoleUser(
+        String(existStaff.userId),
+        newUpdateData
+    )
     return result
 }

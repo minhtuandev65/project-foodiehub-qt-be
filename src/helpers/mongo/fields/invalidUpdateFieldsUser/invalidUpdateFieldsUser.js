@@ -16,3 +16,12 @@ export const INVALID_UPDATE_FIELDS_USER_ACTIVE_EMAIL = [
     '_destroy',
     'role'
 ]
+export const INVALID_UPDATE_FIELDS_USER_MANAGER = [
+    '_id',
+    'createdAt',
+    'email',
+    'isActive',
+    'updatedAt',
+    'latestActiveAt',
+    '_destroy'
+]

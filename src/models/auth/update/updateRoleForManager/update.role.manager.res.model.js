@@ -3,12 +3,11 @@ import { ObjectId } from 'mongodb'
 import { config } from '~/config'
 import { helpers } from '~/helpers'
 
-export const updateProfileUser = async (userId, updatedData) => {
+export const updateRoleUser = async (userId, updatedData) => {
     try {
-        const { _role } = updatedData
         Object.keys(updatedData).forEach((fieldName) => {
             if (
-                helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_USER.includes(
+                helpers.mongo.invalidFields.INVALID_UPDATE_FIELDS_USER_MANAGER.includes(
                     fieldName
                 )
             ) {

@@ -31,7 +31,7 @@ export const listStaff = async (filter = {}) => {
                     gender: 1,
                     fullName: 1,
                     updatedAt: 1,
-                    createdAt: 1,
+                    createdAt: 1
                 }
             },
             { $skip: skip },
