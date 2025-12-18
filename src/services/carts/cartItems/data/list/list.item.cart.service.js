@@ -5,6 +5,11 @@ export const list = async (restaurantId, userId) => {
         String(userId),
         String(restaurantId)
     )
+    if(!existBookTable){
+        return {
+            cartItemsList:[]
+        }
+    }
     const existCart = await models.cart.find.bookTableId(
         String(existBookTable._id)
     )

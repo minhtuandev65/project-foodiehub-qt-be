@@ -9,6 +9,7 @@ export const menu = async (req, res) => {
         const userId = req.payload._id
         const restaurantId = req.params.restaurantId
         const files = JSON.parse(JSON.stringify(req.files))
+       console.log("files:", req.files);
         const imageURL = files.imageURL?.[0]
 
         const newMenuData = {
